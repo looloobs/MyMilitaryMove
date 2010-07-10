@@ -1,0 +1,75 @@
+
+<div class="fields">
+<div id="border">
+  <div id="form">
+  <div id="sidebar">
+  <p>
+	<%= f.hidden_field :itinerary_id, :value => @itinerary.id %>
+  </p>
+  <p>
+    <%= f.label :date, "Date you are traveling:" %><br />
+	<span class="highlight">This is the date you are leaving from this location.</span><br />
+    <%= f.date_select :date, :order => [:month, :day, :year] %>
+  </p>
+
+  <p>
+    <%= f.label :from, "Leaving from: "%><br />
+	<span class="highlight">eg. Fort Benning, GA</span><br />
+    <%= f.text_field :from %>
+  </p>
+
+  <p>
+    <%= f.label :to, "Traveling to: " %><br />
+	<span class="highlight">End point for this travel day, not the final destination.</span><br />
+    <%= f.text_field :to %>
+  </p>
+  <p>
+    <%= f.label :transportation, "How will you get there?" %><br />
+    <%= f.select (:transportation, [['Car', 'car'], ['Plane', 'fly']]) %>
+  </p>
+</div>
+<div id="sidebar_two">
+  <p>
+    <%= f.label :destination_name, "Where are you staying?" %><br />
+	<span class="highlight">eg. Marriott, Mom's House</span><br /> 
+    <%= f.text_field :destination_name, :size=> "50" %>
+  </p>
+  <p>
+  
+    <%= f.label :address %><br />
+    <%= f.text_field :address, :size=> "36" %>
+  </p>
+   
+  <p>
+	<div class="city">
+	<%= f.label :city %><br />
+    <%= f.text_field :city, :size=> "15" %>
+	</div>
+   <div class="state">
+    <%= f.label :state %><br />
+    <%= f.text_field :state, :size=> "2" %>
+   </div>
+   <div class="zip">
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip, :size=> "5" %>
+   </div>
+  </p>
+  <p>
+	<div class="zip">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+    </div>
+  </p>
+  <p>
+	<div class="city">
+    <%= f.label :cost %><br />
+	<span class="highlight">Why? Putting the cost down will help you track your moving expenses.</span><br /> 
+    $<%= f.text_field :cost, :size => "5" %>
+	</div>
+  </p>
+</div>
+</div>
+
+</div>
+</div>
+

@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @pet.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @pet.type %>
+</p>
+
+<p>
+  <b>Microchip:</b>
+  <%=h @pet.microchip %>
+</p>
+
+<p>
+  <b>Breed:</b>
+  <%=h @pet.breed %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @pet.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_pet_path(@pet) %> |
+<%= link_to 'Back', pets_path %>

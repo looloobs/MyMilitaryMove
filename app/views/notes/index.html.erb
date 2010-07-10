@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+<%= render :partial => "shared/navigation_bar" %>
+</div>
+<div class="colmask rightmenu">
+
+	<div class="colleft">
+		<div id="move">
+			<p>
+			FORT BENNING to FORT JACKSON on MARCH 3, 2010
+			</p> 
+			<span class="header_edit"><a href="edit.html">edit your move</a></span>
+		</div>
+		
+<div class="col1">
+	<div id="note_header">
+		<div id="note_form">
+				<% form_for([:move, @note]) do |f| %>
+				  <%= f.error_messages :header_message => nil, :message => "Please fix the following field(s):"%>
+				  <%= f.hidden_field :move_id, :value => @move.id %>
+				  <p>
+				    <%= f.label :name, "New Note" %><span class="required"> *required </span><br />
+				    <%= f.text_field :name, :size => '76' %>
+				  </p>
+				  <p>
+				    <%= f.label :note %><br />
+				    <%= f.text_area :note, :size => '80x10' %>
+				  </p>
+
+				</div>
+				<div id= "add_note_button">
+				    <%= image_submit_tag("buttons/add_a_note.png", :border=>0, :name => "submit")  %>
+				</div>
+				<% end %>
+			
+	    </div>
+
+			<!-- Column 1 start -->
+
+  <% @notes.each do |note| %>
+<div id ="note">
+	</p>
+    <p>
+    <h1><%= note.name %> <span class="edit"><%= link_to 'edit | ', edit_move_note_path(@move, note) %></span><span class="delete"><%= link_to 'delete', note, :confirm => 'Delete this ENTIRE list?', :method => :delete %></span></h1>
+	</p>
+	<p>
+	<%= note.note %>
+</div>
+
+  <% end %>
+
+	
+			<!-- Column 1 end -->
+</div>
+
+<div class="col2">
+	<!-- Column 2 start -->
+	
+	<!-- Column 2 end -->
+</div>
+
+
+</div>
+</div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+</div>
+</body>
+</html>

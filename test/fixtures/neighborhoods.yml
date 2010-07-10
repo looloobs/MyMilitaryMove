@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  research_id: 
+  name: 
+  distance: 
+  drive_distance: MyString
+  school_district: MyString
+  pros: MyText
+  cons: MyText
+  notes: MyText
+
+two:
+  research_id: 
+  name: 
+  distance: 
+  drive_distance: MyString
+  school_district: MyString
+  pros: MyText
+  cons: MyText
+  notes: MyText

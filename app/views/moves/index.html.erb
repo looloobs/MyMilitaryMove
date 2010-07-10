@@ -1,0 +1,28 @@
+<h1>Listing moves</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>To</th>
+    <th>From</th>
+    <th>Date</th>
+    <th>Type</th>
+  </tr>
+
+<% @moves.each do |move| %>
+  <tr>
+    <td><%=h move.user_id %></td>
+    <td><%=h move.to %></td>
+    <td><%=h move.from %></td>
+    <td><%=h move.date %></td>
+    <td><%=h move.type %></td>
+    <td><%= link_to 'Show', move %></td>
+    <td><%= link_to 'Edit', edit_move_path(move) %></td>
+    <td><%= link_to 'Destroy', move, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New move', new_move_path %>

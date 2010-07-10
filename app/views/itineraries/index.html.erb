@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link href="application.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+<%= render :partial => "shared/navigation_bar" %>
+</div>
+<div class="colmask rightmenu">
+
+	<div class="colleft">
+		<div id="move">
+			<p>
+			FORT BENNING to FORT JACKSON on MARCH 3, 2010
+			</p> 
+			<span class="edit"><%= link_to 'edit your move', edit_user_move_path(@user, @move)%></span>
+		</div>
+		
+		<div class="col1">
+			
+
+		  <% if @itineraries.empty? %>
+		  It looks like you don't have any itineraries yet, let's get started by filling out the first leg of your trip. You can always edit this later.
+				<% form_for([@move, @itinerary]) do |f| %>
+			  		<%= f.error_messages %>
+					<%= f.hidden_field :id, :value => @itinerary.id %>
+					<%= f.hidden_field :move_id, :value => @move.id %>
+					<%= f.label :name, "Name Your Itinerary"%>
+					<%= f.text_field :name %>
+					<% f.fields_for :trips do |builder| %>
+						<%= render "shared/trip_fields", :f => builder %>
+					<% end %>
+					<p><%= f.submit "Submit" %></p>
+				<% end %>
+			
+		  <% else %>
+			<!-- Column 1 start -->
+
+		  <div id="itinerary_name">
+			<div id= "itinerary_title">
+		  	  <%= image_tag('icons/your_itineraries.png')%>
+			</div>
+			<% @itineraries.each do |i| %>
+			  <div id="itinerary_title_indent">
+				<h1><%= link_to i.name, move_itinerary_path(@move, i) %></h1>
+			  </div>
+	        <% end %>
+		  <div class="highlight">When planning your move you may have several itinerary options. Use this form to add as many itineraries as you like.</div>
+			<div id="itinerary_form">
+		    <% form_for([@move, @itinerary]) do |f| %>
+		  		<%= f.error_messages %>
+				<%= f.hidden_field :id, :value => @itinerary.id %>
+				<%= f.hidden_field :move_id, :value => @move.id %>
+				<p>
+				<%= f.label :name, "Name Your Itinerary"%><br />
+				<%= f.text_field :name, :size => '50' %>
+				</p>
+				<p><%= f.submit "Submit" %></p>
+			<% end %>
+			</div>
+		  </div>
+
+
+		<% end %>
+			<!-- Column 1 end -->
+		<div class="col2">
+			
+			<!-- Column 2 start -->
+			<p>
+			
+			
+			</p>
+			<!-- Column 2 end -->
+			
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+</div>
+</body>
+</html>

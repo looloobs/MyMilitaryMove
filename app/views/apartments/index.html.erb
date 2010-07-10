@@ -1,0 +1,52 @@
+<h1>Listing apartments</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Move</th>
+    <th>Research</th>
+    <th>Neighborhood</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>County</th>
+    <th>Drive</th>
+    <th>Distance</th>
+    <th>School district</th>
+    <th>Price</th>
+    <th>Bedrooms</th>
+    <th>Bathrooms</th>
+    <th>Link</th>
+    <th>Note</th>
+  </tr>
+
+<% @apartments.each do |apartment| %>
+  <tr>
+    <td><%=h apartment.user_id %></td>
+    <td><%=h apartment.move_id %></td>
+    <td><%=h apartment.research_id %></td>
+    <td><%=h apartment.neighborhood_id %></td>
+    <td><%=h apartment.address %></td>
+    <td><%=h apartment.city %></td>
+    <td><%=h apartment.state %></td>
+    <td><%=h apartment.zip %></td>
+    <td><%=h apartment.county %></td>
+    <td><%=h apartment.drive %></td>
+    <td><%=h apartment.distance %></td>
+    <td><%=h apartment.school_district %></td>
+    <td><%=h apartment.price %></td>
+    <td><%=h apartment.bedrooms %></td>
+    <td><%=h apartment.bathrooms %></td>
+    <td><%=h apartment.link %></td>
+    <td><%=h apartment.note %></td>
+    <td><%= link_to 'Show', apartment %></td>
+    <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
+    <td><%= link_to 'Destroy', apartment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New apartment', new_apartment_path %>

@@ -1,0 +1,79 @@
+<h1>New apartment</h1>
+
+<% form_for(@apartment) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :move_id %><br />
+    <%= f.text_field :move_id %>
+  </p>
+  <p>
+    <%= f.label :research_id %><br />
+    <%= f.text_field :research_id %>
+  </p>
+  <p>
+    <%= f.label :neighborhood_id %><br />
+    <%= f.text_field :neighborhood_id %>
+  </p>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </p>
+  <p>
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip %>
+  </p>
+  <p>
+    <%= f.label :county %><br />
+    <%= f.text_field :county %>
+  </p>
+  <p>
+    <%= f.label :drive %><br />
+    <%= f.text_field :drive %>
+  </p>
+  <p>
+    <%= f.label :distance %><br />
+    <%= f.text_field :distance %>
+  </p>
+  <p>
+    <%= f.label :school_district %><br />
+    <%= f.text_field :school_district %>
+  </p>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.label :bedrooms %><br />
+    <%= f.text_field :bedrooms %>
+  </p>
+  <p>
+    <%= f.label :bathrooms %><br />
+    <%= f.text_field :bathrooms %>
+  </p>
+  <p>
+    <%= f.label :link %><br />
+    <%= f.text_field :link %>
+  </p>
+  <p>
+    <%= f.label :note %><br />
+    <%= f.text_area :note %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', apartments_path %>

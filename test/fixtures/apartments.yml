@@ -1,0 +1,39 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  move_id: 1
+  research_id: 1
+  neighborhood_id: 1
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  county: MyString
+  drive: MyString
+  distance: MyString
+  school_district: MyString
+  price: MyString
+  bedrooms: MyString
+  bathrooms: MyString
+  link: MyString
+  note: MyText
+
+two:
+  user_id: 1
+  move_id: 1
+  research_id: 1
+  neighborhood_id: 1
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  county: MyString
+  drive: MyString
+  distance: MyString
+  school_district: MyString
+  price: MyString
+  bedrooms: MyString
+  bathrooms: MyString
+  link: MyString
+  note: MyText

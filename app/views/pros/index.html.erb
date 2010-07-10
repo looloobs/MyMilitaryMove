@@ -1,0 +1,24 @@
+<h1>Listing pros</h1>
+
+<table>
+  <tr>
+    <th>Pro</th>
+    <th>Positive</th>
+    <th>Positive type</th>
+  </tr>
+
+<% @pros.each do |pro| %>
+  <tr>
+    <td><%=h pro.pro %></td>
+    <td><%=h pro.positive_id %></td>
+    <td><%=h pro.positive_type %></td>
+    <td><%= link_to 'Show', pro %></td>
+    <td><%= link_to 'Edit', edit_pro_path(pro) %></td>
+    <td><%= link_to 'Destroy', pro, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New pro', new_pro_path %>

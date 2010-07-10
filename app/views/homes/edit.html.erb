@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+<%= render :partial => "shared/navigation_bar" %>
+</div>
+<div id="main">
+	<div id="border">
+	  <div id="form">
+<h1>Edit this home</h1>
+
+<% form_for([@move, @home]) do |f| %>
+  <%= f.error_messages :header_message => nil, :message => "Please fix the following field(s):"%>
+<div id="sidebar">
+  <p>
+    <%= f.label :name, "House Nickname, eg.'Pine Street House'" %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :neighborhood_id, "Neighborhood" %> <br />
+	<span class="highlight">Assigning a home to a neighborhood will help make decisions later. <span><br />
+    <%= f.collection_select(:neighborhood_id, @neighborhoods, :id, :name, {:prompt => true}) %>
+  </p>
+  <p>
+    <%= f.label :category, "Rent or Buy?" %><br />
+    <%= f.select(:category, [['Buy', 'Buy'], ['Rent', 'Rent'], ['On-Post/Base', 'ON-POST/BASE']]) %>
+  </p>
+  <p>
+    <%= f.label :address %><span class="required"> *required</span><br />
+    <%= f.text_field :address, :size => '40' %>
+  </p>
+  <p>
+	<div class="city">
+	<%= f.label :city %><span class="required"> *required</span><br />
+    <%= f.text_field :city, :size=> "25" %>
+	</div>
+   <div class="state">
+    <%= f.label :state %><span class="required"> *required</span><br />
+    <%= f.text_field :state, :size=> "2" %>
+   </div>
+   <div class="zip">
+    <%= f.label :zip %><span class="required"> *required</span><br />
+    <%= f.text_field :zip, :size=> "5" %>
+   </p>
+   </div>
+  <p>
+    <%= f.label :county %><br />
+    <%= f.text_field :county %>
+  </p>
+
+<div class="bedroom">
+	<p>
+  	<%= f.label :bedrooms %><br />
+  	<%= f.text_field :bedrooms, :size => '2' %>
+	</p>
+</div>
+<div class="bathroom">
+	<p>
+  	<%= f.label :bathrooms %><br />
+  	<%= f.text_field :bathrooms, :size => '2' %>
+	</p>
+</div>
+</div>
+<div id="sidebar_two">
+
+  	<p>
+	  <%= f.label :distance %><br />
+	  <span class="highlight">How far (in miles) is this home to <%= @move.to %>?</span><br />
+	  <%= f.text_field :distance, :size => '2' %> Miles
+	</p>
+	<p>
+	  <%= f.label :drive %><br />
+	  <span class="highlight">How long will it take to drive to <%= @move.to %>?</span><br />
+	  <%= f.text_field :drive, :size => '2' %> Minutes
+	</p>
+  <p>
+    <%= f.label :school_district %><br />
+    <%= f.text_field :school_district %>
+  </p>
+  <p>
+	<%= f.label :price %><br />
+	<%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.label :link %><br />
+	<span class="highlight_red">Please be sure to include the "http://" in your link.</span><br />
+    <%= f.text_field :link %>
+  </p>
+</div>
+<div id="note">
+  <p>
+    <%= f.label :note %><br />
+    <%= f.text_area :note, :size => '75x10' %>
+  </p>
+</div>
+<div id="button">
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+</div>
+<% end %>
+</div>
+  </div>
+    </div>
+      </div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+	<div id="logo">
+	  <%= link_to image_tag("icons/logo.png", :border=>0), root_url %>	
+	</div>
+</div>
+<div id="main">
+	<div id="border">
+	  <div id="form">
+		<div id="sidebar">
+		
+		<%= flash[:notice] %>
+
+		<% form_for @order do |f| %>
+		  <%= f.error_messages %>
+		  <p>
+		    <%= f.label :first_name %><br />
+		    <%= f.text_field :first_name %>
+		  </p>
+		  <p>
+		    <%= f.label :last_name %><br />
+		    <%= f.text_field :last_name %>
+		  </p>
+		  <p>
+		    <%= f.label :card_type %><br />
+		    <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+		  </p>
+		  <p>
+		    <%= f.label :card_number %><br />
+		    <%= f.text_field :card_number %>
+		  </p>
+		  <p>
+		    <%= f.label :card_verification, "Card Verification Value (CVV)" %><br />
+		    <%= f.text_field :card_verification %>
+		  </p>
+		  <p>
+		    <%= f.label :card_expires_on %><br />
+		    <%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
+		  </p>
+		  </div>
+		  <div id="sidebar_two">
+		  <p>
+		    <%= f.label :address1 %><br />
+		    <%= f.text_field :address1 %>
+		  </p>
+		  <p>
+		    <%= f.label :address2 %><br />
+		    <%= f.text_field :address2 %>
+		  </p>
+		  <p>
+		    <%= f.label :city %><br />
+		    <%= f.text_field :city %>
+		  </p>
+		  <p>
+		    <%= f.label :state %><br />
+		    <%= f.text_field :state %>
+		  </p>
+		  <p>
+		    <%= f.label :zip %><br />
+		    <%= f.text_field :zip %>
+		  </p>
+		  <p>
+		    <%= f.label :country %><br />
+		    <%= f.text_field :country %>
+		  </p>
+		</div>
+	</div>
+<div id="button">
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+</div>
+<% end %>
+</div>
+  </div>
+    </div>
+      </div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+
+</body>
+</html>
+
+
+
+

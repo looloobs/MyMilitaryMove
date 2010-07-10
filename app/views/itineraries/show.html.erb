@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link href="application.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+<%= render :partial => "shared/navigation_bar" %>
+</div>
+<div class="colmask rightmenu">
+
+	<div class="colleft">
+		<div id="move">
+			<p>
+			FORT BENNING to FORT JACKSON on MARCH 3, 2010
+			</p> 
+			<span class="edit"><%= link_to 'edit your move', edit_user_move_path(@user, @move)%></span>
+		</div>
+		
+		<div class="col1">
+		  <div id="itinerary_header">
+		  <!--div id="print_email_itinerary">
+			  <%= image_tag("buttons/print.png") %>
+			  <%= image_tag("buttons/email.png") %>
+		  </div-->
+			<div id="add_itinerary_button">
+			  <%= link_to image_tag("buttons/see_all_itineraries.png", :border=>0), move_itineraries_path(@move) %>
+			  <div class="new_leg"><%= link_to image_tag("buttons/add_another_leg.png", :border=>0), new_move_itinerary_trip_path(@move, @itinerary) %></div>
+			</div>
+		  </div>
+			<!-- Column 1 start -->
+			<% @trips.each do |t| %>
+		  <div id="border">
+			
+		    <div id="leg_header">
+
+				<div class="leg_header_date"><%= t.date.strftime("%B %d, %Y") %></div>
+<div class="leg_header_info">Travel from <%= t.from.upcase %> to <%= t.to.upcase %> <span class="edit"><%= link_to 'edit this part of your trip', edit_move_itinerary_trip_path(@move, @itinerary, t) %></span></div>
+		    </div>
+		    <div id="destination">
+		    
+		    <h1><%= t.destination_name %></h1>
+			<p>
+		    <%= t.address %><br />
+		    <%= t.city %>, <%= t.state %> <%= t.zip %> <br />
+		    <%= t.phone %> <br />
+		    </p>
+		    <p>
+		    <h1>Cost: $<%= t.cost %></h1>
+		    </p>
+		    </div>
+		   
+				<div class="leg_footer">
+					<div class="delete">
+				      <%= link_to 'Delete This Leg', move_itinerary_trip_path(@move, @itinerary, t), :confirm => 'Are you sure?', :method => :delete %>
+				</div>
+			</div>
+		  </div>
+		
+          <% end %>
+			<!-- Column 1 end -->
+			
+		</div>
+		
+		<div class="col2">
+			
+			<!-- Column 2 start -->
+			<p>
+			
+			 <div class="car"><%= image_tag("icons/start.png") %></div><div class="snapshot_text"><h1><span class="highlight_green"><%= @move.from.upcase %> - <%= @move.date.strftime("%e %b") %></span></h1></div><br />
+			<% @trips.each do |t| %>
+			<div class="car"><%= image_tag("icons/" + t.transportation + ".png") %></div><div class="snapshot_text">to <%= t.to.upcase %> - <%= t.date.strftime("%e %b") %></div><br />
+			<% end %>
+			<div class="car"><%= image_tag("icons/end.png") %></div><div class="snapshot_text"><h1><span class="highlight_red"><%= @move.to.upcase %> - <%= @move.date.strftime("%e %b") %></span></h1></div><br />
+			
+			</p>
+			<!-- Column 2 end -->
+			
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+</div>
+</body>
+</html>

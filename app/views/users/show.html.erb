@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+  <div id="header">
+	<div id="logo">
+	  <%= link_to image_tag("icons/logo.png", :border=>0), users_path %>
+	</div>
+    <div id ="login">
+	    <ul>
+		  <li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
+		  <li><%= link_to "Account", user_path(current_user) %></li>
+		</ul>
+	</div>
+</div>
+<div class="colmask rightmenu">
+  <div class="colleft">
+    <div id= "main">		
+	  <div class="col1">
+			<!-- Column 1 start -->
+	    <%= link_to image_tag("icons/payment.png", :border=>0) %>
+	    <%= link_to image_tag("icons/add_a_move.png", :border=>0), new_move_path %>
+	    <% @moves.each do |move| %>
+	  <div id="account_move">
+	    <%= link_to image_tag("icons/go_arrow.png", :border=>0), move_path(move) %>
+	  </div>
+	    <% end %><br />
+	  <div id="edit_profile">
+	    <span class="edit"><%= link_to 'Edit Your Profile', edit_user_path(@user)%></span>
+	  </div>
+	  <div id= "sidebar">
+		<div id="account_user">
+	      <h1>Profile</h1>
+		  		<p>
+		  		<%= @user.name %><br />
+		  		<%= @user.login %><br />
+		  		<%= @user.email %><br />
+		  		</p>
+			  <% if @have_spouse.nil? %>
+				<div id ="form">
+			  	<% form_for(@spouse) do |f| %>
+				  <%= render :partial => "spouse", :object => f %>
+				<% end %>
+				</div>
+			  <% else %>
+			  <h1> Spouse </h1>
+				  <p>
+			    	<%= @have_spouse.name %><br />
+			    	<%= @have_spouse.email %><br />
+				  </p>
+			  <% end %>
+	<!-- Address Info -->
+	           <div id= "form">
+	             <% if @add.nil? %>
+		           <% form_for(@address) do |f| %>
+			       <%= render :partial => "address", :object => f %>
+		         <% end %>
+	           </div>	
+	             <% else %>
+	             <p>
+	               <%= @add.address %><br />
+		           <%= @add.city %>, <%= @add.state %> <%= @add.zip %>
+	             </p>
+	             <% end %>
+		</div>
+      </div>
+    </div>
+		  
+      <div id="sidebar_two">
+	    <div id="account_user">
+		    <h1>Kids</h1>
+			  <% if @children.empty? %>
+				  <% form_for(@family) do |f| %>
+				    <%= render :partial => "family", :object => f %>
+				  <% end %>
+			  <% else %>
+
+				  <%= image_tag("icons/kid.png") %>
+				  <p>
+				  <% @children.each do |child| %>
+			    	<%= child.name %><br />
+					<%= child.birthday.strftime('%b %d, %Y')  %><br />
+			        <%= child.school_level %><br />
+			    	<%= child.email %><br />		    	
+			      </p>
+			      <% end %>
+			  <% end %>
+			
+			
+			<h1>Pets</h1>
+			  <% if @pets.empty? %>
+				  <% form_for(@pet) do |f| %>
+				    <%= render :partial => "pet", :object => f %>
+				  <% end %>
+			  <% else %>
+				<%= image_tag("icons/pets.png") %>
+			   <p>
+			    <% @pets.each do |pet| %>
+			    <%= pet.name %><br />
+			    <%= pet.pet_type %><br />
+			    <%= pet.breed %><br />
+			    <%= pet.microchip %><br />
+			    </p>
+
+				  <% end %>
+				  <% form_for(@pet) do |f| %>
+				    <%= render :partial => "pet", :object => f %>
+				  <% end %>
+				<% end %>
+        </div>
+	  </div>
+	  </div>
+    </div>  
+  </div>
+</div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+</div>
+</body>
+</html>

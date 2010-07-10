@@ -1,0 +1,24 @@
+<h1>Editing con</h1>
+
+<% form_for(@con) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :con %><br />
+    <%= f.text_field :con %>
+  </p>
+  <p>
+    <%= f.label :negative_id %><br />
+    <%= f.text_field :negative_id %>
+  </p>
+  <p>
+    <%= f.label :negative_type %><br />
+    <%= f.text_field :negative_type %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @con %> |
+<%= link_to 'Back', cons_path %>

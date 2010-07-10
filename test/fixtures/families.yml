@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  name: MyString
+  member: 
+  age: MyString
+  school_level: MyString
+  rank: MyString
+  branch: MyString
+  pet: false
+  pet_type: MyString
+
+two:
+  user_id: 1
+  name: MyString
+  member: 
+  age: MyString
+  school_level: MyString
+  rank: MyString
+  branch: MyString
+  pet: false
+  pet_type: MyString

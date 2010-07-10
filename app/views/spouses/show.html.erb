@@ -1,0 +1,33 @@
+<p>
+  <b>Name:</b>
+  <%=h @spouse.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @spouse.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @spouse.phone %>
+</p>
+
+<p>
+  <b>Branch:</b>
+  <%=h @spouse.branch %>
+</p>
+
+<p>
+  <b>Rank:</b>
+  <%=h @spouse.rank %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @spouse.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_spouse_path(@spouse) %> |
+<%= link_to 'Back', spouses_path %>

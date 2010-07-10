@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  itinerary_id: 1
+  to: MyString
+  from: MyString
+  date: 2010-02-27 21:37:46
+  transportation: MyString
+  destination_name: MyString
+  address: MyString
+  state: MyString
+  city: MyString
+  zip: 1
+  phone: MyString
+  cost: MyString
+
+two:
+  itinerary_id: 1
+  to: MyString
+  from: MyString
+  date: 2010-02-27 21:37:46
+  transportation: MyString
+  destination_name: MyString
+  address: MyString
+  state: MyString
+  city: MyString
+  zip: 1
+  phone: MyString
+  cost: MyString

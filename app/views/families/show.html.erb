@@ -1,0 +1,48 @@
+<p>
+  <b>User:</b>
+  <%=h @family.user_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @family.name %>
+</p>
+
+<p>
+  <b>Member:</b>
+  <%=h @family.position %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%=h @family.age %>
+</p>
+
+<p>
+  <b>School level:</b>
+  <%=h @family.school_level %>
+</p>
+
+<p>
+  <b>Rank:</b>
+  <%=h @family.rank %>
+</p>
+
+<p>
+  <b>Branch:</b>
+  <%=h @family.branch %>
+</p>
+
+<p>
+  <b>Pet:</b>
+  <%=h @family.pet %>
+</p>
+
+<p>
+  <b>Pet type:</b>
+  <%=h @family.pet_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_family_path(@family) %> |
+<%= link_to 'Back', families_path %>

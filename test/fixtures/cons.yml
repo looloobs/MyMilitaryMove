@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  con: MyString
+  negative_id: 1
+  negative_type: MyString
+
+two:
+  con: MyString
+  negative_id: 1
+  negative_type: MyString

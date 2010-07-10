@@ -1,0 +1,49 @@
+<p>
+  <b>Research:</b>
+  <%=h @home.research_id %>
+</p>
+
+<p>
+  <b>Neighborhood:</b>
+  <%=h @home.neighborhood_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @home.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @home.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @home.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @home.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%=h @home.zip %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @home.category %>
+</p>
+
+
+<p>
+  <b>Link:</b>
+  <%=h @home.link %>
+</p>
+
+
+<%= link_to 'Edit', edit_home_path(@home) %> |
+<%= link_to 'Back', homes_path %>

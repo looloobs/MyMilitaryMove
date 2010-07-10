@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+<%= render :partial => "shared/navigation_bar" %>
+</div>
+<div id="main">
+<div id= "sidebar_two">
+	<div id= "form">
+	<% form_for([@move, @event]) do |f| %>
+	  <%= f.error_messages :header_message => nil, :message => "Please fix the following field(s):" %>  
+	  <%= f.hidden_field :move_id, :value => @move.id %>
+	  <p>
+	  <%= f.label :name, "Name of Event" %><span class="required"> *required </span>
+      <%= f.text_field :name, :size => '50' %>
+	  </p>
+	  <p>
+	  <%= f.label :start_at %> <br />
+	  <%= f.datetime_select(:start_at, :order => [:month, :day, :year], :minute_step => 5, :twelve_hour => true) %>
+	  </p>
+	  <p>
+	  <%= f.label :end_at %> <br />
+	  <%= f.datetime_select(:end_at, :order => [:month, :day, :year], :minute_step => 5, :twelve_hour => true) %>
+	  </p>
+	  <p>
+	    <%= f.submit 'Add' %>
+	  </p>
+	<% end %>
+	</div>
+
+</div>
+
+
+<!-- Probably move the stylesheet to you layout. Also make sure you include the javascript. -->
+<div id="sidebar">
+
+	<div id="upcoming">
+	<h1>Upcoming Events</h1>
+	<p>
+	<div class= "indent">
+	<% if @appointments.empty? %>
+		You have no upcoming events.
+	<% else %>
+	<% @appointments.each do |e| %>
+	  <div class="event"><%= e.name %> <span class = "date"><%= e.start_at.strftime('%b %d - %I:%M%p') %></span><span class="delete"> <%= link_to 'delete', e, :confirm => 'Are you sure?', :method => :delete %></span></div>
+	<% end %> 
+	<% end %> 
+	</div>
+	</p>
+	</div>
+
+</div>
+<div id= "calendar">
+<%= event_calendar %>
+</div>
+</div>
+</div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+
+</body>
+</html>

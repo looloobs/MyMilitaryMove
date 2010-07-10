@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" >
+<head>
+	<title>My Military Move</title>
+    <link href="index.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href=' http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	<div id="header">
+		<div id="logo">
+		<%= link_to image_tag("icons/logo_small.png", :border=>0), root_url %>
+		</div>	
+		<div id="header_form">
+		<% form_for @user_session, :url => user_session_path do |f| %>
+		  <%= f.error_messages %>
+
+		  <%= f.label :login %>
+		  <%= f.text_field :login, :size => '20' %>
+		  <%= f.label :password %>
+		  <%= f.password_field :password, :size => '20' %>
+		  <%= f.check_box :remember_me %><%= f.label :remember_me %>
+		  <%= f.submit "Login" %>
+		<% end %>
+		</div>
+	  
+	</div>
+<div class= "wrap">	
+	<h1>Organize your military move.</h1>
+	<h2>itinerary, calendar, lists & notes, research on neighborhoods, homes & schools</h2>
+
+	<div id="blue_square">
+			
+		<div id="price_tag">
+			<%= image_tag("index/price_tag.png", :border=>0) %>
+		</div>
+		<%= error_messages_for "user", :header_message => nil, :message => nil %>
+		<div id="new_user_form">
+		<% form_for @user do |f| %>
+			
+			<br />
+			<%= f.label :email %><br />
+			<%= f.text_field :email %><br />
+			<br />
+			<%= f.label :login %><br />
+			<%= f.text_field :login %><br />
+			<br />
+			<%= f.label :password, f.object.new_record? ? nil : "Change password" %><br />
+			<%= f.password_field :password %><br />
+			</div>
+			<div id="submit">
+		    <%= image_submit_tag ("buttons/get_started.png", :border=>0) %>
+			</div>
+		    </p>
+			
+		<% end %>
+			
+	</div>
+</div>
+<div id="footer">
+	<div id="index_image">
+	  <%= image_tag ("index/index_image_footer.png", :border=>0) %>
+	</div>
+</div>
+</div>
+</body>
+</html>
+
+
+<br />
+<br />

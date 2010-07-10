@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+
+</div>
+<div id="main">
+	<div id="border">
+	  <div id="form">
+<% form_for @user, :url => account_path do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.submit 'Save These Changes' %>
+  </p>
+<div id="sidebar">
+<%= render :partial => "form", :object => f %>
+</div>
+<div id="sidebar_two">
+	<h2>Edit your spouse </h2>
+	  <% f.fields_for :spouse do |spouse| %>
+		<div id="account_family">
+      <%= render "spouse", :spouse => spouse %>
+		</div>
+	  <% end %>
+	<h2>Edit your children </h2>
+	  
+  	  <% f.fields_for :families do |family| %>
+		<div id="account_family">
+        <%= render "family", :family => family %>
+		</div>
+	  <% end %>
+      
+
+<div id="button">
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+
+</div>
+
+<% end %>
+</div>
+  </div>
+    </div>
+      </div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+
+</body>
+</html>

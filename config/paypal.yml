@@ -1,0 +1,12 @@
+development:
+  login: 'login'
+  password: 'password'
+  signature: 'signature'
+production:
+  login: 'login'
+  password: 'password'
+  signature: 'signature'
+test:
+  login: 'login'
+  password: 'password'
+  signature: 'signature'

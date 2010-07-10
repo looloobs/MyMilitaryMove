@@ -1,0 +1,27 @@
+<div id="form_heading">
+  Add Your Spouse
+</div>
+<%= spouse.error_messages %>
+
+  <p>
+    <%= spouse.hidden_field :user_id, :value => current_user.id %>
+  </p>
+  <p>
+    <%= spouse.label :name %><br />
+    <%= spouse.text_field :name %>
+  </p>
+  <p>
+    <%= spouse.label :email %><br />
+    <%= spouse.text_field :email %>
+  </p>
+  <p>
+    <%= spouse.label :branch %><br />
+    <%= spouse.select(:branch, [["Please Select", ""], ["N/A", "N/A"], ["Army", "Army"],["Navy", "Navy"],["Marines", "Marines"],["Air Force", "Air Force"],["Coast Guard", "Coast Guard"]]) %>
+  </p>
+  <p>
+    <%= spouse.label :rank %><br />
+    <%= spouse.select(:rank, [["Please Select", ""], ["Yes", "Yes"],["No", "No"]]) %>
+  </p>
+  <p>
+    <%= spouse.submit 'Create' %>
+  </p>

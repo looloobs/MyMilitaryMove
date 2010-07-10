@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  pro: MyString
+  positive_id: 1
+  positive_type: MyString
+
+two:
+  pro: MyString
+  positive_id: 1
+  positive_type: MyString

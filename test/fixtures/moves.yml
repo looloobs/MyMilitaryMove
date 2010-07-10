@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  to: MyString
+  from: MyString
+  date: 2010-02-27 21:24:13
+  type: MyString
+
+two:
+  user_id: 1
+  to: MyString
+  from: MyString
+  date: 2010-02-27 21:24:13
+  type: MyString

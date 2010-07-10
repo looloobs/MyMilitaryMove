@@ -1,0 +1,307 @@
+<style media="screen" type="text/css">
+/* <!-- */
+/* General styles */
+body { margin: -10px 0 0 -10px; }
+html body { margin: 0; padding: 0; }
+body {
+    border:0px;			/* This removes the border around the viewport in old versions of IE */
+    width:100%;
+    background:#C3CFDD;
+    min-width:600px;    /* Minimum width of layout - remove line if not required */
+						/* The min-width property does not work in old versions of Internet Explorer */
+	font-size:90%;
+}
+a {
+	color:#369;
+}
+a:hover {
+	color:#fff;
+	
+	text-decoration:none;
+}
+h1 {
+	margin:0px;
+	margin-left:15px;
+	margin-top:15px;
+	font-family: 'Droid Sans', arial, serif;
+	font-size:65px;
+	color:#041128;
+	
+}
+h2 {
+	margin:5px;
+	margin-left:20px;
+	font-family: 'Droid Sans', arial, serif;
+	font-size:22.5px;
+	color:#041128;
+}
+p {
+    margin:.4em 0 .8em 0;
+    padding:0;
+}
+.wrap {
+	width:960px;
+	margin: 0px auto;
+}
+
+/* ERROR ERROR */
+
+.field_error {
+  padding: 3px;
+  background:#930A0A;
+  color:white;
+}
+
+#errorExplanation {
+  margin-left:60px;
+  margin-top:30px;
+  width: 400px;
+  color:white;
+}
+
+#errorExplanation h3 {
+  color: black;
+  font-family: Arial, "MS Verdana", sans-serif;
+  font-size: 18px;
+  color: #930A0A;
+}
+
+#errorExplanation p {
+  margin-left:5px;
+  color: #930A0A;
+  margin-bottom: 0;
+}
+#errorExplanation ul {
+  padding:0px;
+  margin:0px;
+  color: #930A0A;
+  margin-left:20px;
+  padding-bottom:5px;
+}
+
+#errorExplanation ul li {
+  font-size: 14px;
+  list-style: square;
+}
+
+/* Header styles */
+#header {
+	margin: 0;
+	height:70px;
+	background: #041128;
+	padding: 5px 0 0 0;
+	color: #ccc;
+
+}
+#logo {
+	float:left;
+	margin-left:20px;
+}
+/* INDEX */
+#blue_square {
+	position:relative;
+	float:left;
+	margin-left:205px;
+	width:550px;
+
+	background:#8C9EB5;
+	
+	
+}
+#index_image {
+	margin-top:-50px;
+	position:relative;
+}
+#price_tag {
+	margin-left:-80px;
+	margin-top:-18px;
+	position:absolute;
+}
+#new_user_form {
+	float:left;
+	margin-left:35px;
+	font-family: 'Droid Sans', arial, serif;
+	font-size: 30px;
+	color: black;
+	position:relative;
+}
+#new_user_form h1 {
+	font-family: 'Droid Sans', arial, serif;
+	font-size:16px;
+}
+#new_user_form h3 {
+	font-family: 'Droid Sans', arial, serif;
+	font-size:12px;
+	font-weight:normal;
+}
+#new_user_form label {
+	color:#fff;
+}
+#new_user_form input {
+	background:#fff;
+	border: 1px solid #999;
+	font-family: 'Droid Sans', arial, serif;
+	font-size: 30px;
+	color: #666;
+}
+#new_user_form select {
+	background:#fff;
+	border:0px;
+	font-family: 'Droid Sans', arial, serif;
+	font-size: 16px;
+	color: #666;	
+}
+
+#new_user_form h2 {
+	color: black;	
+}
+#indent {
+	float:left;
+	margin-left:30px;
+	position:relative;	
+}
+#submit {
+	background:none;
+	float:right;
+	margin-right:40px;
+	margin-top:15px;
+	margin-bottom:15px;
+}
+
+#header_form {
+	float:right;
+	margin-right:50px;
+	margin-top:30px;
+	font-family: Arial, "MS Verdana", sans-serif;
+	font-size: 12px;
+	color: white;
+}
+#header_form input {
+	background:#fff;
+	border: 1px solid white;
+	font-family: Arial, "MS Verdana", sans-serif;
+	font-size: 12px;
+	color: #666;	
+}
+#header_form select {
+	background:#fff;
+	border:1px solid white;
+	font-family: Arial, "MS Verdana", sans-serif;
+	font-size: 12px;
+	color: #666;	
+}
+#header_form h1 {
+	color: black;
+	font-family: Arial, "MS Verdana", sans-serif;
+	font-size: 25px;	
+}
+#header_form h2 {
+	color: black;	
+}
+#header_indent {
+	float:left;
+	margin-left:30px;
+	position:relative;	
+}
+#header_submit {
+	color: black;
+	font-family: Arial, "MS Verdana", sans-serif;
+	font-size: 16px;	
+}
+
+
+/* 'widths' sub menu */
+#layoutdims {
+	clear:both;
+	background:#eee;
+	border-top:4px solid #000;
+	margin:0;
+	padding:6px 15px !important;
+	text-align:right;
+}
+/* column container */
+.colmask {
+	position:relative;		/* This fixes the IE7 overflow hidden bug and stops the layout jumping out of place */
+    clear:both;
+    float:left;
+    width:960px;				/* width of whole page */
+	overflow:hidden;		/* This chops off any overhanging divs */
+}
+/* holy grail 3 column settings */
+.holygrail {
+    background:white;    	/* Right column background colour */
+}
+.holygrail .colmid {
+    float:left;
+    width:200%;
+    margin-left:-325px; 	/* Width of right column */
+    position:relative;
+    right:100%;
+    background:white;    	/* Centre column background colour */
+}
+.holygrail .colleft {
+    float:left;
+    width:100%;
+    margin-left:-45%;
+    position:relative;
+    left:500px;         	/* Left column width + right column width */
+    background:#eceff6;    	/* Left column background colour */
+}
+.holygrail .col1wrap {
+    float:left;
+    width:50%;
+    position:relative;
+    right:200px;        	/* Width of left column */
+    padding-bottom:1em; 	/* Centre column bottom padding. Leave it out if it's zero */
+}
+.holygrail .col1 {
+    margin:0 215px;     	/* Centre column side padding:
+                        	Left padding = left column width + centre column left padding width
+                        	Right padding = right column width + centre column right padding width */
+    position:relative;
+    left:200%;
+    overflow:hidden;
+}
+.holygrail .col2 {
+    float:left;
+    float:right;			/* This overrides the float:left above */
+    width:250px;        	/* Width of left column content (left column width minus left and right padding) */
+    position:relative;
+    right:15px;         	/* Width of the left-had side padding on the left column */
+}
+.holygrail .col3 {
+    float:left;
+    float:right;			/* This overrides the float:left above */
+    width:325px;        	/* Width of right column content (right column width minus left and right padding) */
+    margin-right:45px;  	/* Width of right column right-hand padding + left column left and right padding */
+    position:relative;
+    left:50%;
+}
+#main_text{
+	clear:left;
+	float:left;
+	
+}
+#home_sweet {
+	margin-top:0px;
+}
+#home_lists {
+	margin-top:0px;
+}
+.home_right_col_top_margin {
+	margin-top:0px;
+}
+/* Footer styles */
+#footer {
+    clear:both;
+    float:left;
+	padding-top:55px;
+    width:100%;
+	overflow:hidden;
+
+}
+#footer p {
+    padding:10px;
+    margin:0;
+}
+/* --> */

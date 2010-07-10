@@ -1,0 +1,42 @@
+<h1>Listing trips</h1>
+
+<table>
+  <tr>
+    <th>Itinerary</th>
+    <th>To</th>
+    <th>From</th>
+    <th>Date</th>
+    <th>Transportation</th>
+    <th>Destination name</th>
+    <th>Address</th>
+    <th>State</th>
+    <th>City</th>
+    <th>Zip</th>
+    <th>Phone</th>
+    <th>Cost</th>
+  </tr>
+
+<% @trips.each do |trip| %>
+  <tr>
+    <td><%=h trip.itinerary_id %></td>
+    <td><%=h trip.to %></td>
+    <td><%=h trip.from %></td>
+    <td><%=h trip.date %></td>
+    <td><%=h trip.transportation %></td>
+    <td><%=h trip.destination_name %></td>
+    <td><%=h trip.address %></td>
+    <td><%=h trip.state %></td>
+    <td><%=h trip.city %></td>
+    <td><%=h trip.zip %></td>
+    <td><%=h trip.phone %></td>
+    <td><%=h trip.cost %></td>
+    <td><%= link_to 'Show', trip %></td>
+    <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
+    <td><%= link_to 'Destroy', trip, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New trip', new_trip_path %>

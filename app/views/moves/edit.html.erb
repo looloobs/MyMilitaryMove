@@ -1,0 +1,32 @@
+<h1>Editing move</h1>
+
+<% form_for(@move) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :to %><br />
+    <%= f.text_field :to %>
+  </p>
+  <p>
+    <%= f.label :from %><br />
+    <%= f.text_field :from %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </p>
+  <p>
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @move %> |
+<%= link_to 'Back', moves_path %>

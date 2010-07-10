@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+	<div id="logo">
+	  <%= link_to image_tag("icons/logo.png", :border=>0), users_path %>	
+	</div>
+    <div id ="login">
+	    <ul>
+		  <li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
+		  <li><%= link_to "Account", user_path(current_user) %></li>
+		</ul>
+	  </div>
+</div>
+<div id="main">
+	<div id="border">
+	  <div id="form">
+		  <% form_for(@move) do |f| %>
+			<p>
+				<%= f.hidden_field :user_id, :value => @user.id %>
+				<%= f.hidden_field :active, :value => 'Yes' %>
+			</p>
+			<p>
+				<%= f.label :to, "Moving To" %><br />
+				<%= f.text_field :to %>
+			</p>
+			<p>
+				<%= f.label :from, "Moving From" %><br />
+				<%= f.text_field :from %>
+			</p>
+			<p>
+				<%= f.label :date, "Move Date (*just take a guess)" %><br />
+				<%= f.text_field :date %>
+
+				<% f.fields_for :itinerary do |itinerary| %>
+				    <%= itinerary.hidden_field :move_id, :value => @move.id %>
+					<%= itinerary.text_field :name, :value => @move.to %>
+				<% end %>
+			</p>
+			<%= f.submit 'Create' %>
+		  <% end %>
+
+</div>
+  </div>
+    </div>
+      </div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+
+</body>
+</html>

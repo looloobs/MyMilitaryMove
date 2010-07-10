@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link href="../application.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+  <%= render :partial => "shared/navigation_bar" %>
+</div>
+<div class="colmask rightmenu">
+
+	<div class="colleft">
+		<div id="move">
+			<p>
+			FORT BENNING to FORT JACKSON on MARCH 3, 2010
+			</p> 
+			<span class="edit"><a href="header_edit.html">edit your move</a></span>
+		</div>
+		
+<div class="col1">
+		
+			<!-- Column 1 start -->
+			<div id="research_header">
+			<p>
+			<h1>You have <%= @neighborhoods.size %> neighborhoods saved.</h1>
+			</p>
+			<div id="add_button">
+			<%= link_to image_tag("buttons/add_neighborhood.png", :border=>0), new_move_neighborhood_path(@move) %>
+			</div>
+			</div>
+<% @neighborhoods.each do |neighborhood| %>
+<div id="border">
+<div id="info">
+<h1><%= neighborhood.name %> <span class="edit"><%= link_to 'edit | ', edit_move_neighborhood_path(@move,neighborhood)%></span><span class="delete"><%= link_to 'delete', neighborhood, :confirm => 'Are you sure?', :method => :delete %></span> </h1>
+
+<span class="highlight"><%= neighborhood.drive_distance %> Miles</span><br />
+<%= neighborhood.distance %> Miles
+<div class="homes_saved">
+<p>
+<strong>Homes saved in <%= neighborhood.name %>:</strong><br />
+<% neighborhood.homes.each do |h| %>
+  <%= h.address %>
+<% end %><br />
+<%= link_to image_tag("buttons/add_a_home_small.png", :border=>0), new_move_home_path(@move)%>
+</p>
+</div>
+</div>
+<div id="con_list">
+	<h1>Cons</h1>
+	<div id="pro_con_form">
+	<p>
+		<% form_for([@con]) do |f| %>
+		  <%= f.error_messages %>
+
+		  <p>
+		    <%= f.text_field :con, :size => 20 %>
+		  </p>
+		  <p>
+		    <%= f.hidden_field :negative_id, :value => neighborhood.id %>
+		  </p>
+		  <p>
+		    <%= f.hidden_field :negative_type, :value => "Neighborhood" %>
+		  </p>
+		  <p>
+		    <%= f.submit 'Add' %>
+		  </p>
+		<% end %>
+	</p>
+	</div>
+	<ul>
+	<% neighborhood.cons.each do |c| %>
+	<li><%= c.con %> <span class= "delete"><%= link_to 'delete', c, :confirm => 'Are you sure?', :method => :delete %> </span></li>
+	<% end %>
+	</ul>
+</div>
+<div id="pro_list">
+<h1>Pros</h1>
+<div id="pro_con_form">
+<p>
+	<% form_for([@pro]) do |f| %>
+	  <%= f.error_messages %>
+
+	  <p>
+	    <%= f.text_field :pro, :size => 20 %>
+	  </p>
+	  <p>
+	    <%= f.hidden_field :positive_id, :value => neighborhood.id %>
+	  </p>
+	  <p>
+	    <%= f.hidden_field :positive_type, :value => "Neighborhood" %>
+	  </p>
+	  <p>
+	    <%= f.submit 'Add' %>
+	  </p>
+	<% end %>
+</p>
+</div>
+<ul>
+<% neighborhood.pros.each do |p| %>
+<li><%= p.pro %> <span class= "delete"><%= link_to 'delete', p, :confirm => 'Are you sure?', :method => :delete %> </span></li>
+<% end %>
+</ul>
+</div>
+
+<div id="home_note">
+	<%= image_tag("buttons/take_a_neigh_note.png", :border=>0) %>
+	<p>
+      <%= neighborhood.notes %>
+	</p>
+</div>
+</div>
+<% end %>
+</div>
+
+<div class="col2">
+	<!-- Column 2 start -->
+	
+</div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+</div>
+</body>
+</html>

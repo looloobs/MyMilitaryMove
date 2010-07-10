@@ -1,0 +1,32 @@
+<div id="form">
+	<div id="form_heading">
+      Add A Kid
+    </div>
+<%= family.error_messages %>
+
+  <p>
+    <%= family.hidden_field :user_id, :value => current_user.id %>
+  </p>
+  <p>
+    <%= family.label :name %><br />
+    <%= family.text_field :name %>
+  </p>
+  <p>
+    <%= family.hidden_field :family_type, :value => 'Child' %>
+  </p>
+  <p>
+    <%= family.label :email %><br />
+    <%= family.text_field :email %>
+  </p>
+  <p>
+    <%= family.label :school_level %><br />
+    <%= family.select(:school_level, [["Please Select", ""], ["N/A", "N/A"], ["Daycare", "Daycare"], ["Preschool", "Preschool"],["Elementary School", "Elementary School"],["Middle School", "Middle School"],["High School", "High School"],["College", "College"]]) %>
+  </p>
+  <p>
+    <%= family.label :birthday %><br />
+    <%= family.date_select(:birthday, :order => [:month, :day, :year], :start_year => 1960) %>
+  </p>
+  <p>
+    <%= family.submit 'Create' %>
+  </p>
+</div>

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+<%= render :partial => "shared/navigation_bar" %>
+</div>
+<div id="main">
+	<div id="border">
+	  <div id="form">
+<h1>Add A School</h1>
+
+<% form_for([:move, @school]) do |f| %>
+  <%= f.error_messages :header_message => nil, :message => "Please fix the following field(s):"%>
+<div id="sidebar">
+	<%= f.hidden_field :move_id, :value => @move.id %>
+  <p>
+    <%= f.label :neighborhood_id, "Neighborhood" %> <br />
+	<span class="highlight">Assigning a school to a neighborhood will help make decisions later. You can always come back and edit this.<span><br />
+    <%= f.collection_select(:neighborhood_id, @neighborhoods, :id, :name, {:prompt => true}) %>
+  </p>
+  <p>
+    <%= f.label :level, "School Level" %> <span class="required">*required</span><br />
+    <%= f.select(:level, [["Please Select", ""], ["Preschool", "Preschool"], ["Elementary School", "Elementary School"], ["Middle School", "Middle School"], ["High School", "High School"]]) %>
+  </p>
+  <p>
+  <%= f.label :family_id, "Family Member" %> <br />
+<span class="highlight">Assigning a school to a family member will help make decisions later.<span><br />
+  <%= f.collection_select(:family_id, @family, :id, :name, {:prompt => true}) %><br />
+</p>
+  <p>
+    <%= f.label :name %> <span class="required">*required</span><br />
+    <%= f.text_field :name, :size => '40' %>
+  </p>
+
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address, :size => '40' %>
+  </p>
+  <p>
+	<div class="city">
+	<%= f.label :city %><br />
+    <%= f.text_field :city, :size=> "25" %>
+	</div>
+   <div class="state">
+    <%= f.label :state %><br />
+    <%= f.text_field :state, :size=> "2" %>
+   </div>
+   <div class="zip">
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip, :size=> "5" %>
+   </p>
+   </div>
+  
+  <p>
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </p>
+</div>
+<div id="sidebar_two">
+  <p>
+    <%= f.label :link, "School Link" %><br />
+    <span class="highlight_red">Please be sure to include the "http://" in your link.</span><br />
+    <%= f.text_field :link %>
+  </p>
+
+
+  <p>
+    <%= f.label :school_district, "School District" %><br />
+    <span class="highlight">Choosing a school district may help you narrow down your neighborhoods or homes of interest.</span><br />
+    <%= f.text_field :school_district %>
+  </p>
+  <p>
+    <%= f.label :school_type, "School Type" %><br />
+    <span class="highlight">Public or private?</span><br />
+    <%= f.text_field :school_type %>
+  </p>
+  <p>
+    <%= f.label :cost %><br />
+    <%= f.text_field :cost %>
+  </p>
+  <p>
+    <%= f.label :drive %><br />
+	<span class="highlight">How long is the drive? (if applicable)</span><br />
+    <%= f.text_field :drive, :size => '3' %> Minutes
+  </p>
+
+</div>
+<div id="note">
+<p>
+  <%= f.label :note, "Note about this school:" %><br />
+  <%= f.text_area :note, :size => '90x10' %>
+</p>
+</div>
+<div id="button">
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+</div>
+<% end %>
+
+</div>
+  </div>
+    </div>
+      </div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+
+</body>
+</html>

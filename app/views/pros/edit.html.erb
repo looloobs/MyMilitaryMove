@@ -1,0 +1,24 @@
+<h1>Editing pro</h1>
+
+<% form_for(@pro) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :pro %><br />
+    <%= f.text_field :pro %>
+  </p>
+  <p>
+    <%= f.label :positive_id %><br />
+    <%= f.text_field :positive_id %>
+  </p>
+  <p>
+    <%= f.label :positive_type %><br />
+    <%= f.text_field :positive_type %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @pro %> |
+<%= link_to 'Back', pros_path %>

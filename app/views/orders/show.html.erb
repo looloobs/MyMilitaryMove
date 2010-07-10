@@ -1,0 +1,63 @@
+<p>
+  <b>Card:</b>
+  <%=h @order.card_id %>
+</p>
+
+<p>
+  <b>Ip address:</b>
+  <%=h @order.ip_address %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%=h @order.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @order.last_name %>
+</p>
+
+<p>
+  <b>Card type:</b>
+  <%=h @order.card_type %>
+</p>
+
+<p>
+  <b>Card expires on:</b>
+  <%=h @order.card_expires_on %>
+</p>
+
+<p>
+  <b>Address1:</b>
+  <%=h @order.address1 %>
+</p>
+
+<p>
+  <b>Address2:</b>
+  <%=h @order.address2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @order.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @order.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%=h @order.zip %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @order.country %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

@@ -1,0 +1,36 @@
+<h1>Listing families</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Name</th>
+    <th>Member</th>
+    <th>Age</th>
+    <th>School level</th>
+    <th>Rank</th>
+    <th>Branch</th>
+    <th>Pet</th>
+    <th>Pet type</th>
+  </tr>
+
+<% @families.each do |family| %>
+  <tr>
+    <td><%=h family.user_id %></td>
+    <td><%=h family.name %></td>
+    <td><%=h family.member %></td>
+    <td><%=h family.age %></td>
+    <td><%=h family.school_level %></td>
+    <td><%=h family.rank %></td>
+    <td><%=h family.branch %></td>
+    <td><%=h family.pet %></td>
+    <td><%=h family.pet_type %></td>
+    <td><%= link_to 'Show', family %></td>
+    <td><%= link_to 'Edit', edit_family_path(family) %></td>
+    <td><%= link_to 'Destroy', family, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New family', new_family_path %>

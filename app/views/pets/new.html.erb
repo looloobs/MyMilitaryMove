@@ -1,0 +1,31 @@
+<h1>New pet</h1>
+
+<% form_for(@pet) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </p>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </p>
+  <p>
+    <%= f.label :microchip %><br />
+    <%= f.text_field :microchip %>
+  </p>
+  <p>
+    <%= f.label :breed %><br />
+    <%= f.text_field :breed %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', pets_path %>

@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+<%= render :partial => "shared/navigation_bar" %>
+</div>
+<div class="colmask rightmenu">
+
+	<div class="colleft">
+		<div id="move">
+			<p>
+			FORT BENNING to FORT JACKSON on MARCH 3, 2010
+			</p> 
+			<span class="header_edit"><a href="edit.html">edit your move</a></span>
+		</div>
+		
+<div class="col1">
+	<div id="list_header">
+		<div id="list_form">
+				<% form_for(@list) do |f| %>
+				  <%= f.error_messages %>
+				  <%= f.hidden_field :move_id, :value => @move.id %>
+				  <p>
+				    <%= f.label :name, "New List Name" %>
+				    <%= f.text_field :name %>
+				  </p>
+
+				</div>
+				<div id= "add_list_button">
+				    <%= image_submit_tag("buttons/add_a_list.png", :border=>0, :name => "submit")  %>
+				</div>
+				<% end %>
+			
+	    </div>
+
+			<!-- Column 1 start -->
+<div id ="list">
+  <% @lists.each do |list| %>
+    <p>
+    <h1><%= list.name %> <span class="edit"><%= link_to 'edit | ', edit_move_list_path(@move, list) %></span><span class="delete"><%= link_to 'delete', list, :confirm => 'Delete this ENTIRE list?', :method => :delete %></span></h1>
+    </p>
+    <ul>
+    <% list.tasks.each do |t| %>
+    
+	<% if t.finished %>
+	  <span class="finished"><%=h t.task %></span><%= link_to image_tag("icons/pro_gray.png", :border =>'none'), :controller => "tasks", :action => "unfinish", :id => t.id %><br />
+	
+	<% else %>
+		<%=h t.task %>
+		<%= link_to image_tag("icons/pro.png", :border =>'none'), :controller => "tasks", :action => "finish", :id => t.id %>
+		<span class="edit"><%= link_to 'edit | ', edit_move_list_path(@move, list) %></span><span class="delete"><%= link_to 'delete', t, :confirm => 'Are you sure?', :method => :delete %></span><br />
+	<% end %>
+
+<% end %>
+</ul>
+	<p>
+		<% form_for([@task]) do |f| %>
+		  <%= f.error_messages %>
+
+		  <p>
+		    <%= f.text_field :task, :size => 50 %>
+		  </p>
+		  <p>
+		    <%= f.hidden_field :list_id, :value => list.id %>
+		  </p>
+		  <p>
+		    <%= f.submit 'Add' %>
+		  </p>
+		<% end %>
+	</p>
+
+  <% end %>
+</div>
+			<!-- Column 1 end -->
+</div>
+
+<div class="col2">
+	<!-- Column 2 start -->
+	
+	<!-- Column 2 end -->
+</div>
+
+
+</div>
+</div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+</div>
+</body>
+</html>

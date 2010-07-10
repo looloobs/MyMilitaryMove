@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+<%= render :partial => "shared/navigation_bar" %>
+</div>
+<div id="main">
+	<div id="border">
+	  <div id="form">
+<h1>Edit This Neighborhood</h1>
+
+<% form_for([@move, @neighborhood]) do |f| %>
+  <%= f.error_messages :header_message => nil, :message => "Please fix the following field(s):"%>
+<div id="sidebar">
+		<%= hidden_field :move_id, :value => @move.id %>
+  	  <p>
+	    <%= f.label :name, "Neighborhood/Town/Subdivision Name" %><br />
+	    <%= f.text_field :name %>
+	  </p>
+	  <p>
+	    <%= f.label :distance %><br />
+	    <span class="highlight">How far (in miles) is this neighborhood to <%= @move.to %>?</span><br />
+	    <%= f.text_field :distance, :size => '2' %> Miles
+	  </p>
+	  <p>
+	    <%= f.label :drive_distance %><br />
+	    <span class="highlight">How long will it take to drive to <%= @move.to %>?</span><br />
+	    <%= f.text_field :drive_distance, :size => '2' %> Minutes
+	  </p>
+	  <p>
+	    <%= f.label :school_district %><br />
+	    <span class="highlight">Choosing a school district may help you narrow down your neighborhoods or homes of interest.</span><br />
+	    <%= f.text_field :school_district %>
+	  </p>
+	</div>
+	<div id="note">
+	  <p>
+	    <%= f.label :notes %><br />
+	    <%= f.text_area :notes, :size => '75x10' %>
+	  </p>
+	</div>
+	<div id="button">
+	  <p>
+	    <%= f.submit 'Save' %>
+	  </p>
+	</div>
+	<% end %>
+
+  </div>
+    </div>
+      </div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+
+</body>
+</html>

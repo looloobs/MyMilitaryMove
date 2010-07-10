@@ -1,0 +1,28 @@
+<h1>Listing pets</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Microchip</th>
+    <th>Breed</th>
+    <th>User</th>
+  </tr>
+
+<% @pets.each do |pet| %>
+  <tr>
+    <td><%=h pet.name %></td>
+    <td><%=h pet.type %></td>
+    <td><%=h pet.microchip %></td>
+    <td><%=h pet.breed %></td>
+    <td><%=h pet.user_id %></td>
+    <td><%= link_to 'Show', pet %></td>
+    <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+    <td><%= link_to 'Destroy', pet, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New pet', new_pet_path %>

@@ -1,0 +1,24 @@
+<h1>Listing cons</h1>
+
+<table>
+  <tr>
+    <th>Con</th>
+    <th>Negative</th>
+    <th>Negative type</th>
+  </tr>
+
+<% @cons.each do |con| %>
+  <tr>
+    <td><%=h con.con %></td>
+    <td><%=h con.negative_id %></td>
+    <td><%=h con.negative_type %></td>
+    <td><%= link_to 'Show', con %></td>
+    <td><%= link_to 'Edit', edit_con_path(con) %></td>
+    <td><%= link_to 'Destroy', con, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New con', new_con_path %>

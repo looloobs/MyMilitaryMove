@@ -1,0 +1,43 @@
+<p>
+  <b>Research:</b>
+  <%=h @neighborhood.research_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @neighborhood.name %>
+</p>
+
+<p>
+  <b>Distance:</b>
+  <%=h @neighborhood.distance %>
+</p>
+
+<p>
+  <b>Drive distance:</b>
+  <%=h @neighborhood.drive_distance %>
+</p>
+
+<p>
+  <b>School district:</b>
+  <%=h @neighborhood.school_district %>
+</p>
+
+<p>
+  <b>Pros:</b>
+  <%=h @neighborhood.pros %>
+</p>
+
+<p>
+  <b>Cons:</b>
+  <%=h @neighborhood.cons %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%=h @neighborhood.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_neighborhood_path(@neighborhood) %> |
+<%= link_to 'Back', neighborhoods_path %>

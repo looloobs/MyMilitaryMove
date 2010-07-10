@@ -1,0 +1,42 @@
+<h1>New family</h1>
+
+<% form_for(@family) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :family_type %><br />
+    <%= f.text_field :family_type %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :birthday %><br />
+    <%= f.text_field :birthday %>
+  </p>
+  <p>
+    <%= f.label :service_member %><br />
+    <%= f.text_field :service_member %>
+  </p>
+  <p>
+    <%= f.label :school_level %><br />
+    <%= f.text_field :school_level %>
+  </p>
+  <p>
+    <%= f.label :branch %><br />
+    <%= f.text_field :branch %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', families_path %>

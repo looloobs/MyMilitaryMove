@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+	<div class="wrap">
+	<div id="header">
+	<%= render :partial => "shared/navigation_bar" %>
+	</div>
+	<div id="main">
+		<!-- Column 1 end -->
+		<% form_for ([@move, @itinerary]), :html => {:class => "new_trip" } do |f| %>
+
+		  <%= f.error_messages %>
+		  <%= f.hidden_field :move_id, :value => @move.id %>
+		  <% f.fields_for :trips do |builder| %>
+		    <%= render "shared/trip_fields", :f => builder %>
+		  <% end %>
+        
+		<div id="submit">
+			<p><%= f.submit "Submit" %></p>
+		</div>
+
+		<% end %>
+
+
+	</div>
+	</div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+</div>
+</body>
+</html>

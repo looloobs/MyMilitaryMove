@@ -1,0 +1,34 @@
+<div id="form">
+	<div id="form_heading">
+      Add A Pet
+    </div>
+<% form_for(@pet) do |f| %>
+  <%= pet.error_messages %>
+
+  <p>
+    <%= pet.hidden_field :user_id, :value => current_user.id %>
+  </p>
+
+  <p>
+    <%= pet.label :name %><br />
+    <%= pet.text_field :name %>
+  </p>
+  <p>
+    <%= pet.label :pet_type %><br />
+    <%= pet.select(:pet_type, [["Please Select", ""], ["Dog", "Dog"], ["Cat", "Cat"], ["Other", "Other"]]) %>
+  </p>
+  <p>
+    <%= pet.label :microchip, "Microchip Number" %><br />
+<span class="highlight">Traveling during a move always raises the risk of a lost pet. Keeping their microchip number in an easily accessible place is always a good idea.</span><br />
+    <%= pet.text_field :microchip %>
+  </p>
+  <p>
+    <%= pet.label :breed %><br />
+    <%= pet.text_field :breed %>
+  </p>
+  <p>
+    <%= pet.submit 'Create' %>
+  </p>
+
+<% end %>
+</div>

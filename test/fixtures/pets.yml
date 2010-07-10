@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  type: MyString
+  microchip: MyString
+  breed: MyString
+  user_id: 1
+
+two:
+  name: MyString
+  type: MyString
+  microchip: MyString
+  breed: MyString
+  user_id: 1

@@ -1,0 +1,63 @@
+<p>
+  <b>Itinerary:</b>
+  <%=h @trip.itinerary_id %>
+</p>
+
+<p>
+  <b>To:</b>
+  <%=h @trip.to %>
+</p>
+
+<p>
+  <b>From:</b>
+  <%=h @trip.from %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%=h @trip.date %>
+</p>
+
+<p>
+  <b>Transportation:</b>
+  <%=h @trip.transportation %>
+</p>
+
+<p>
+  <b>Destination name:</b>
+  <%=h @trip.destination_name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @trip.address %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @trip.state %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @trip.city %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%=h @trip.zip %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @trip.phone %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%=h @trip.cost %>
+</p>
+
+
+<%= link_to 'Edit', edit_trip_path(@trip) %> |
+<%= link_to 'Back', trips_path %>
