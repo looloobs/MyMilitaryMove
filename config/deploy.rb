@@ -2,6 +2,7 @@
 set :application, "MilitaryMoveIt"
 
 # The URL to your applications repository
+default_run_options[:pty] = true
 set :repository,  "git://github.com/looloobs/MyMilitaryMove.git"
 set :scm, "git"
 set :scm_verbose, true
