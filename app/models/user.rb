@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
   has_many :lists
   has_many :moves
   has_many :pets
-  has_one  :address 
+  has_one :address
   has_one :spouse
-  accepts_nested_attributes_for :pets, :families, :spouse
+  accepts_nested_attributes_for :pets, :families, :spouse, :address
   
 
   

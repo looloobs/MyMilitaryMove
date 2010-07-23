@@ -212,7 +212,7 @@
 	}
 	#nav ul {
 	    float:left;
-		margin-left:485px;
+		margin-left:405px;
 		margin-top:-5px;
 		margin-bottom:0px;
 	}
@@ -335,8 +335,8 @@
 	/* move info header */
 	#move {
 		background-color:#C8D3E6;
-		
 		padding:7px;
+		margin-bottom:5px;
 	}
 	#move p {
 		display: inline;
@@ -389,7 +389,15 @@
 		float:left;
 		position:relative;
 		border: 8px solid #657FAD;
+		font-weight: normal;
+		font-family:"Arial";
+		font-size: 16px;
 	}
+  #border h1 {
+		font-weight: bolder;
+		font-family:"Arial";
+		font-size: 16px;
+}
 	
   #main {
   	float:left;
@@ -463,6 +471,10 @@
 		font-family:"Arial";
 		font-size: 17px;
 		background-color: #F4F76F;
+	}
+	.highlight a {
+		text-decoration:none;
+		color:#000;
 	}
 	#research_nav {
 		margin: 0px;
@@ -672,6 +684,7 @@
 		background:#E6EBF4;
 		text-decoration:none;
 	}
+	
 	#print_email_itinerary {
 		float:left;
 		padding-top:20px;
@@ -766,7 +779,7 @@
 	
 	#account_move {
 		background-color:#C8D3E6;
-		width:400px;
+		width:662px;
 		height:75px;
 		margin:3px;
 		margin-bottom:25px;
@@ -785,41 +798,49 @@
 	}
 	#account_move img {
 		float:left;
+		margin-top:20px;
 		padding-right: 10px;
 	}
 	#account_user {
-		background-color:#F4F76F;
-		width:200px;
-		margin-top:30px;
-		margin-bottom:10px;
-		padding:5px;
-		float:left;
-		position:relative;
-		border: 3px solid #657FAD;
-		font-family:"Arial";
-		font-size: 12px;
-	}
+			float:left;
+			width:450px;
+			background-color:#E6EBF4;
+			margin-top:20px;
+			margin-bottom:10px;
+			padding:5px;
+			position:relative;
+			font-family:"Arial";		
+		}
 	#account_user p {
-		margin:0px;
-		padding:10px;
-		text-align: center;
-		font-weight:bold; 
-		font-family:"Arial";
-		font-size: 14px;
-	}
+			margin-left:10px;
+			margin-bottom:10px;
+			font-family:"Arial";
+			font-size: 14px;
+			padding:0px;
+		}
+	#account_user h1 {
+			font-family:"Arial";
+			font-size: 14px;
+			font-weight: normal;
+			background-color: #a7b5cf;
+			color:#333333;
+			margin-top:0px;
+			padding:2px;
+
+		}
 	.edit_user {
 		font-family:"Arial";
 		font-size: 12px;
 		font-weight: normal;
 		color: #AC0000;
-		margin-left: 100px;
+		margin-left: 125px;
 		padding-top:6px;
 	}
 	.edit_user a {
 		text-decoration: none;
 		font-family:"Arial";
 		font-size: 12px;
-		font-weight: normal;
+		font-weight: bolder;
 		color: #AC0000;
 	}
 	.edit_user a:hover {
@@ -873,18 +894,27 @@
 		width:650px;
 		margin:3px;
 		margin-bottom:25px;
-		padding:5px;
+		padding-left:5px;
 		float:left;
 		border: 8px solid #657FAD;
 	}
+	#day_border_one h1{
+		font-weight: bolder;
+		font-family:"Arial";
+		font-size: 16px;
+	}
 	#day {
 		float:left;
-		width:210px;
+		width:200px;
 		margin-right:5px;
+		padding:5px;
+		font-weight: normal;
+		font-family:"Arial";
+		font-size: 16px;
 	}
 	#day h1 {
-		margin:5px;
-		font-weight: normal;
+		
+		font-weight: bolder;
 		font-family:"Arial";
 		font-size: 16px;
 	}

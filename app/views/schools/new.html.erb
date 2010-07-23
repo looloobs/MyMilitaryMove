@@ -78,7 +78,7 @@
   <p>
     <%= f.label :school_type, "School Type" %><br />
     <span class="highlight">Public or private?</span><br />
-    <%= f.text_field :school_type %>
+    <%= f.select(:school_type, [["Please Select", ""], ["Public", "Public"], ["Private", "Private"]]) %>
   </p>
   <p>
     <%= f.label :cost %><br />

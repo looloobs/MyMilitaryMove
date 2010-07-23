@@ -1,6 +1,4 @@
-<div id="form_heading">
-  Add Your Spouse
-</div>
+<div id="form">
 <%= spouse.error_messages %>
 
   <p>
@@ -15,13 +13,6 @@
     <%= spouse.text_field :email %>
   </p>
   <p>
-    <%= spouse.label :branch %><br />
-    <%= spouse.select(:branch, [["Please Select", ""], ["N/A", "N/A"], ["Army", "Army"],["Navy", "Navy"],["Marines", "Marines"],["Air Force", "Air Force"],["Coast Guard", "Coast Guard"]]) %>
+    <%= spouse.submit 'Save' %>
   </p>
-  <p>
-    <%= spouse.label :rank %><br />
-    <%= spouse.select(:rank, [["Please Select", ""], ["Yes", "Yes"],["No", "No"]]) %>
-  </p>
-  <p>
-    <%= spouse.submit 'Create' %>
-  </p>
+</div>

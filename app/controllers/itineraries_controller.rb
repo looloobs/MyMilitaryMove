@@ -54,13 +54,14 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(params[:itinerary])
     @move = Move.find(params[:move_id])
+    @user = current_user
     respond_to do |format|
       if @itinerary.save
         flash[:notice] = 'Itinerary was successfully created.'
         format.html { redirect_to move_itinerary_path(@move, @itinerary)}
         format.xml  { render :xml => @itinerary, :status => :created, :location => @itinerary }
       else
-        format.html { render :action => "new" }
+        format.html { render :layout => 'form',:action => "index" }
         format.xml  { render :xml => @itinerary.errors, :status => :unprocessable_entity }
       end
     end

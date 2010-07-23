@@ -22,25 +22,32 @@
 		</div>
 		
 		<div class="col1">
-			
+		  
 
-		  <% if @itineraries.empty? %>
-		  It looks like you don't have any itineraries yet, let's get started by filling out the first leg of your trip. You can always edit this later.
+		  <% if @itineraries.nil? %>
+		  <div id="itinerary_instructions">	
+		    It looks like you don't have any itineraries yet, let's get started by filling out the first leg of your trip. You can always edit this later.
+		  </div>
+		
+		  <div id ="form">
+			<div id ="itinerary_new">
 				<% form_for([@move, @itinerary]) do |f| %>
-			  		<%= f.error_messages %>
+			  		<%= f.error_messages :header_message => nil, :message => "Please fix the following field(s):"%>
 					<%= f.hidden_field :id, :value => @itinerary.id %>
 					<%= f.hidden_field :move_id, :value => @move.id %>
 					<%= f.label :name, "Name Your Itinerary"%>
 					<%= f.text_field :name %>
+			</div>
 					<% f.fields_for :trips do |builder| %>
 						<%= render "shared/trip_fields", :f => builder %>
 					<% end %>
 					<p><%= f.submit "Submit" %></p>
 				<% end %>
 			
+		  </div>
 		  <% else %>
 			<!-- Column 1 start -->
-
+		
 		  <div id="itinerary_name">
 			<div id= "itinerary_title">
 		  	  <%= image_tag('icons/your_itineraries.png')%>

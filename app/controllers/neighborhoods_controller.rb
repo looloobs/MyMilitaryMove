@@ -2,8 +2,8 @@ class NeighborhoodsController < ApplicationController
   # GET /neighborhoods
   # GET /neighborhoods.xml
   def index
-    @neighborhoods = Neighborhood.all
     @move= Move.find(params[:move_id])
+    @neighborhoods = Neighborhood.find(:all, :conditions => ['move_id = ?', @move.id])
     @pro = Pro.new
     @con = Con.new
     

@@ -38,10 +38,6 @@
 				<%= f.label :date, "Move Date (*just take a guess)" %><br />
 				<%= f.text_field :date %>
 
-				<% f.fields_for :itinerary do |itinerary| %>
-				    <%= itinerary.hidden_field :move_id, :value => @move.id %>
-					<%= itinerary.text_field :name, :value => @move.to %>
-				<% end %>
 			</p>
 			<%= f.submit 'Create' %>
 		  <% end %>

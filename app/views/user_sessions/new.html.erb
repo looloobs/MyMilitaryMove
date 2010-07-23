@@ -14,7 +14,7 @@
 		</div>	
 		<div id="header_form">
 		<% form_for @user_session, :url => user_session_path do |f| %>
-		  <%= f.error_messages %>
+		  <%= error_messages_for "user_session", :header_message => nil, :message => nil, :id => 'LoginErrorExplanation' %>
 
 		  <%= f.label :login %>
 		  <%= f.text_field :login, :size => '20' %>
@@ -40,12 +40,12 @@
 		<% form_for @user do |f| %>
 			
 			<br />
+			<%= f.label :name %><br />
+			<%= f.text_field :name %><br />
 			<%= f.label :email %><br />
 			<%= f.text_field :email %><br />
-			<br />
 			<%= f.label :login %><br />
 			<%= f.text_field :login %><br />
-			<br />
 			<%= f.label :password, f.object.new_record? ? nil : "Change password" %><br />
 			<%= f.password_field :password %><br />
 			</div>

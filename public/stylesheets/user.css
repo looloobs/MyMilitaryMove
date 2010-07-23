@@ -64,7 +64,9 @@
 	}
 	#edit_profile {
 		clear:both;
-		float:left;
+		float:right;
+		margin-top:5px;
+		margin-right:5px;
 	}
 	
 	/* LOGIN LOGIN LOGIN */
@@ -100,8 +102,21 @@
 	#login ul li a span {
 		display:block;
 	}
-
-
+	#move_info {
+		width:450px;
+		clear:both;
+		float:left;
+		color:#000;
+		position:relative;
+		margin:0px;
+	}
+	#move_info a {
+		color:#AC0000;
+	}
+	#move_info_icon {
+		float:left;
+		margin-top:5px;
+	}
 	
 	/* FORMS FORMS FORMS */
 	
@@ -111,7 +126,7 @@
 		color: black;
 		padding:5px;
 		margin-bottom:20px;
-	
+		background:#fff;
 	}
 	#form_heading {
 		width:530px;
@@ -210,7 +225,7 @@
 	}
 	#nav ul {
 	    float:left;
-		margin-left:500px;
+		margin-left:405px;
 		margin-top:-20px;
 		margin-bottom:0px;
 	}
@@ -256,6 +271,13 @@
 		margin-top: -40px;
 
 	}
+#add_move {
+	float:right;
+	position:relative;
+	margin-top:0px;
+	margin-right:10px;
+	
+}
   #main {
 	float:left;
 	width: 100%;
@@ -315,18 +337,18 @@
 		margin:0px;
 	}
 #account_move {
-		width:350px;
-		height:50px;
-		margin-left:5px;
-		margin-bottom:5px;
+		width:450px;
+		height:100%;
+		margin-top:10px;
+		margin-left:10px;
+		padding:5px;
+		background-color: #FCF8C3;
 		float:left;
 		position:relative;
 	}
 #account_move p {
-		width:430px;
-		margin:15px;
 		font-family:"Arial";
-		font-size: 100%;
+		font-size: 22px;
 	}
 #account_move a {
 		margin:0px;
@@ -349,6 +371,7 @@
 		font-family:"Arial";		
 	}
 #account_user p {
+		margin-left:10px;
 		margin-bottom:10px;
 		font-family:"Arial";
 		font-size: 22px;

@@ -11,7 +11,7 @@ class UserSessionsController < ApplicationController
 
     def create
       @user_session = UserSession.new(params[:user_session])
-      @user = current_user
+      @user = User.new
       if @user_session.save
         if @user_session.user.level == 'trial' && @user_session.user.created_at > 5.days.ago
           flash[:notice] = "Login successful!"
@@ -24,7 +24,7 @@ class UserSessionsController < ApplicationController
           flash[:notice] = "Looks like your account is past the trial date or yearly membership has ended."
         end
       else
-        render :layout => "user_sessions_new"
+       render :layout => 'user_sessions_new', :action => "new"
       end
     end
 

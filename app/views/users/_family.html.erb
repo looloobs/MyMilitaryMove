@@ -1,7 +1,4 @@
-<div id="form">
-	<div id="form_heading">
-      Add A Kid
-    </div>
+
 <%= family.error_messages %>
 
   <p>
@@ -26,7 +23,4 @@
     <%= family.label :birthday %><br />
     <%= family.date_select(:birthday, :order => [:month, :day, :year], :start_year => 1960) %>
   </p>
-  <p>
-    <%= family.submit 'Create' %>
-  </p>
-</div>
+

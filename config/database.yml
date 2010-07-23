@@ -37,9 +37,11 @@ test:
 production:
   adapter: mysql
   encoding: utf8
-  reconnect: false
-  database: mymove_production
+  reconnect: true
+  database: afmove_militarymoveit
+  host: 127.0.0.1
   pool: 5
-  username: root
-  password: 
-  socket: /tmp/mysql.sock
+  username: afmove_admin
+  password: lufury2
+  socket: /var/lib/mysql/mysql.sock
+  

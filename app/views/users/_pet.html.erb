@@ -1,8 +1,4 @@
-<div id="form">
-	<div id="form_heading">
-      Add A Pet
-    </div>
-<% form_for(@pet) do |f| %>
+
   <%= pet.error_messages %>
 
   <p>
@@ -26,9 +22,3 @@
     <%= pet.label :breed %><br />
     <%= pet.text_field :breed %>
   </p>
-  <p>
-    <%= pet.submit 'Create' %>
-  </p>
-
-<% end %>
-</div>

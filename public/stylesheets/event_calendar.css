@@ -117,8 +117,6 @@
 	  font-size: 12px;
 	  list-style: square;
 	}
-
-	
 	
 	.edit {
 		font-family:"Arial";
@@ -204,7 +202,7 @@
 	}
 	#nav ul {
 	    float:left;
-		margin-left:485px;
+		margin-left:405px;
 		margin-top:-20px;
 		margin-bottom:0px;
 	}

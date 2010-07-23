@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     def create
       @user = User.new(params[:user])
       @user_session = UserSession.new
-      @user.level = 'trial'
+      @user.level = 'Trial'
       if @user.save
         flash[:notice] = "Account registered!"
         redirect_back_or_default account_url
@@ -34,7 +34,9 @@ class UsersController < ApplicationController
 
     def edit
       @user = @current_user
+      @address = @user.address
       @family = @user.families
+      @pets = @user.pets
       render :layout => "form"
     end
 

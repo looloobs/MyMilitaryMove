@@ -2,8 +2,8 @@ class HomesController < ApplicationController
   # GET /homes
   # GET /homes.xml
   def index
-    @homes = Home.all
     @move= Move.find(params[:move_id])
+    @homes = Home.find(:all, :conditions => ['move_id = ?', @move.id])
     @pro = Pro.new
     @con = Con.new
     respond_to do |format|

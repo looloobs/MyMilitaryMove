@@ -9,7 +9,7 @@
 <div class="wrap">
   <div id="header">
 	<div id="logo">
-	  <%= link_to image_tag("icons/logo.png", :border=>0), users_path %>
+	  <%= link_to image_tag("icons/logo.png", :border=>0), account_path %>
 	</div>
     <div id ="login">
 	    <ul>
@@ -23,28 +23,46 @@
     <div id= "main">		
 	  <div class="col1">
 			<!-- Column 1 start -->
-	    <%= link_to image_tag("icons/payment.png", :border=>0) %>
+	    
+	  <div id="add_move">
 	    <%= link_to image_tag("icons/add_a_move.png", :border=>0), new_move_path %>
-	    <% @moves.each do |move| %>
+	  </div>
 	  <div id="account_move">
-	    <%= link_to image_tag("icons/go_arrow.png", :border=>0), move_path(move) %>
+		<p>
+	    Payment Status: <%= @user.level %> <span class="highlight">You have <%= Date.today - @user.created_at.to_date + 5 %> days until your trial is over.</span><br />
+		</p>
+		<div id="move_info">
+			<div id="move_info_icon">
+				<%= image_tag ("icons/moving_truck.png") %>
+			</div>
+		<p>
+	    <% @moves.each do |move| %>
+	    Work on my move to: <%= link_to move.to, user_move_path(@user, move) %><br />
+		<% end %>
+		</p>
+		</div>
 	  </div>
-	    <% end %><br />
-	  <div id="edit_profile">
-	    <span class="edit"><%= link_to 'Edit Your Profile', edit_user_path(@user)%></span>
-	  </div>
+
 	  <div id= "sidebar">
 		<div id="account_user">
-	      <h1>Profile</h1>
+	      <h1>Profile
+			<div id="edit_profile">
+		      <span class="edit"><%= link_to 'Edit Your Profile', edit_user_path(@user)%></span>
+		    </div>
+			</h1>
 		  		<p>
 		  		<%= @user.name %><br />
 		  		<%= @user.login %><br />
 		  		<%= @user.email %><br />
 		  		</p>
 			  <% if @have_spouse.nil? %>
+			  <h1> Spouse </h1>
 				<div id ="form">
 			  	<% form_for(@spouse) do |f| %>
 				  <%= render :partial => "spouse", :object => f %>
+				  <p>
+				    <%= f.submit 'Create' %>
+				  </p>
 				<% end %>
 				</div>
 			  <% else %>
@@ -55,19 +73,43 @@
 				  </p>
 			  <% end %>
 	<!-- Address Info -->
-	           <div id= "form">
+	           
 	             <% if @add.nil? %>
-		           <% form_for(@address) do |f| %>
-			       <%= render :partial => "address", :object => f %>
-		         <% end %>
-	           </div>	
+				<h1> Address </h1>
+				  <div id="form">
+				  <% form_for(@address) do |address| %>
+				    <%= address.hidden_field :user_id, :value => @user.id %>
+				  <p>
+				    <%= address.label :address %><br />
+				    <%= address.text_field :address %>
+				  </p>
+				  <p>
+					<div class="city">
+					<%= address.label :city %><br />
+				    <%= address.text_field :city, :size=> "25" %>
+					</div>
+				   <div class="state">
+				    <%= address.label :state %><br />
+				    <%= address.text_field :state, :size=> "2" %>
+				   </div>
+				   <div class="zip">
+				    <%= address.label :zip %><br />
+				    <%= address.text_field :zip, :size=> "5" %>
+				   </p>
+				  <p>
+				    <%= address.submit 'Create' %>
+				  </p>
+				 <% end %>
+				</div>	
 	             <% else %>
+	          	<h1> Address </h1>
 	             <p>
 	               <%= @add.address %><br />
 		           <%= @add.city %>, <%= @add.state %> <%= @add.zip %>
 	             </p>
 	             <% end %>
 		</div>
+	
       </div>
     </div>
 		  
@@ -76,44 +118,67 @@
 		    <h1>Kids</h1>
 			  <% if @children.empty? %>
 				  <% form_for(@family) do |f| %>
+					<div id = "form">
 				    <%= render :partial => "family", :object => f %>
+				    </div>
+					<p>
+				    <%= f.submit 'Create' %>
+				  </p>
 				  <% end %>
 			  <% else %>
-
-				  <%= image_tag("icons/kid.png") %>
-				  <p>
+				 
 				  <% @children.each do |child| %>
+					<p>
 			    	<%= child.name %><br />
 					<%= child.birthday.strftime('%b %d, %Y')  %><br />
 			        <%= child.school_level %><br />
 			    	<%= child.email %><br />		    	
 			      </p>
 			      <% end %>
+			
+			      <% form_for(@family) do |f| %>
+					<div id = "form">
+				    <%= render :partial => "family", :object => f %>
+					<p>
+				    <%= f.submit 'Save' %>
+				    </p>
+					</div>
+				  <% end %>
+			
 			  <% end %>
 			
 			
 			<h1>Pets</h1>
 			  <% if @pets.empty? %>
 				  <% form_for(@pet) do |f| %>
+					<div id = "form">
 				    <%= render :partial => "pet", :object => f %>
+					<p>
+				    <%= f.submit 'Create' %>
+				  </p>
+				  </div>
 				  <% end %>
 			  <% else %>
-				<%= image_tag("icons/pets.png") %>
 			   <p>
-			    <% @pets.each do |pet| %>
-			    <%= pet.name %><br />
-			    <%= pet.pet_type %><br />
-			    <%= pet.breed %><br />
-			    <%= pet.microchip %><br />
-			    </p>
-
+			      <% @pets.each do |pet| %>
+			    	<%= pet.name %><br />
+			    	<%= pet.pet_type %><br />
+			   		<%= pet.breed %><br />
+			    	<%= pet.microchip %><br />
 				  <% end %>
+			    </p>
+				 
+				
 				  <% form_for(@pet) do |f| %>
+				    <div id = "form">
 				    <%= render :partial => "pet", :object => f %>
+					<p>
+				    <%= f.submit 'Save' %>
+				  </p>
+				  </div>
 				  <% end %>
 				<% end %>
-        </div>
-	  </div>
+        
 	  </div>
     </div>  
   </div>

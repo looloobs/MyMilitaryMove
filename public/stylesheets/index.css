@@ -51,6 +51,11 @@ p {
   background:#930A0A;
   color:white;
 }
+#LoginErrorExplanation {
+  margin:0px;
+  padding:0px;
+  color: #930A0A;
+}
 
 #errorExplanation {
   margin-left:60px;
@@ -87,7 +92,7 @@ p {
 /* Header styles */
 #header {
 	margin: 0;
-	height:70px;
+	height:60px;
 	background: #041128;
 	padding: 5px 0 0 0;
 	color: #ccc;
@@ -118,6 +123,7 @@ p {
 	position:absolute;
 }
 #new_user_form {
+
 	float:left;
 	margin-left:35px;
 	font-family: 'Droid Sans', arial, serif;
@@ -138,6 +144,7 @@ p {
 	color:#fff;
 }
 #new_user_form input {
+	margin-bottom:4px;
 	background:#fff;
 	border: 1px solid #999;
 	font-family: 'Droid Sans', arial, serif;
@@ -170,8 +177,7 @@ p {
 
 #header_form {
 	float:right;
-	margin-right:50px;
-	margin-top:30px;
+	margin-right:10px;
 	font-family: Arial, "MS Verdana", sans-serif;
 	font-size: 12px;
 	color: white;

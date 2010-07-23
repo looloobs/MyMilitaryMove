@@ -15,10 +15,17 @@ class MovesController < ApplicationController
   def show
     @move = Move.find(params[:id])
     @user = current_user
-    @spouse = Family.find(:all, :conditions=> ["family_type = ? AND user_id = ?", "Spouse", @user.id])
-    @children = Family.find(:all, :conditions=> ["family_type = ? AND user_id = ?", "Child", @user.id])
+    @family = @user.families
+    @spouse = @user.spouse
     @pets = @user.pets
-    
+    @events = @move.events
+    @today = Event.find(:all, :conditions => ['move_id = ? AND start_at >= ? AND start_at < ?', @move.id, Date.today, Date.today+1.day], :order => :start_at)
+    @tomorrow = Event.find(:all, :conditions => ['move_id = ? AND start_at >= ? AND start_at < ?', @move.id, Date.today + 1.day, Date.today + 2.days], :order => :start_at)
+    @nextday = Event.find(:all, :conditions => ['move_id = ? AND start_at >= ? AND start_at < ?', @move.id, Date.today + 2.days, Date.today + 3.days], :order => :start_at)
+    @lists = List.find(:all, :conditions => ['move_id = ?', @move])
+    @neighborhoods = Neighborhood.find(:all, :conditions => ['move_id = ?', @move])
+    @homes = Home.find(:all, :conditions => ['move_id = ?', @move])
+    @schools = School.find(:all, :conditions => ['move_id = ?', @move])
   end
 
   # GET /moves/new
@@ -42,7 +49,7 @@ class MovesController < ApplicationController
     respond_to do |format|
       if @move.save
         flash[:notice] = 'Move was successfully created.'
-        format.html { redirect_to user_path(current_user) }
+        format.html { redirect_to move_path(@move) }
         format.xml  { render :xml => @move, :status => :created, :location => @move }
       else
         format.html { render :action => "new" }

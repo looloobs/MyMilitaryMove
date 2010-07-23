@@ -7,7 +7,7 @@
 </div>
 <div id="nav">
 	<div id="logo">
-	  <%= link_to image_tag("icons/logo.png", :border=>0), users_path %>	
+	  <%= link_to image_tag("icons/logo.png", :border=>0), account_path %>	
 	</div>
 <ul>
 	<li><%= link_to "Schools", move_schools_path(@move) %></li>
@@ -17,6 +17,7 @@
 	<li><%= link_to "Lists", move_lists_path(@move)  %></li>
 	<li><%= link_to "Itinerary", move_itineraries_path(@move) %></li>
 	<li><%= link_to "Calendar", calendar_path(@move, Date.today.year, Date.today.month) %></li>	
+	<li><%= link_to "Dashboard", move_path(@move) %></li>
 </ul>
 
 </div>

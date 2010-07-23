@@ -22,7 +22,7 @@
 		<div class="col1">
 			<!-- Column 1 start -->
 		  <div id="account_move">
-		  <img src="../images/icons/move_map.png" alt="Moving" width="65" height="40" border="none" />
+		  <%= image_tag("icons/move_map.png", :border=>0) %>
 			<p>
 			<%= @move.to.upcase %> to <%= @move.from.upcase %> <br />
 			<%= @move.date.strftime("%B %d, %Y") %> <span class="edit"><%= link_to "edit your move information", edit_move_path(@move) %></span><br />
@@ -30,121 +30,128 @@
 			
 			</p> 
 		  </div>
-		  <div id="weather_dashboard">
-		  	Today's Weather in <%= @move.to.upcase %>
-		  	<div id="weather_dashboard_temps">
-		  	  HIGH TEMP: 75<br />
-		  	  LOW TEMP: 55
-		  	</div>
-		    <div id="weather_dashboard_icon">
-		  	  <img src="../images/icons/sunny.png" alt="Add A Neighborhood" width="60" height="60" border="none" />
-		  	</div>
-		 
-		  </div>
-		      <div id="day_border_one">
+		  
+		   <div id="day_border_one">
 		    <div id="day">
-		      <h1>Tuesday, March 7th</h1>
-		        <ul>
-		    		<li>Pick up shot records for dogs.</li>
-		    		<li>Pick up medical records for kids.</li>
-		    		<li>Movers Walk Through.</li>
-		    	</ul>
+			  
+		      <h1>Today</h1>
+		        <% if @today.blank? %>
+					Nothing on the agenda.
+				<% else %>
+				  <% @today.each do |t| %>
+					<ul>
+		    			<li><%= t.name %></li>
+		    		</ul>	
+				  <% end %>
+				<%end %>
 		    </div>
 		    <div id="day">
-		      <h1>Wednesday, March 8th</h1>
-		        <ul>
-		    		<li>Get POAs renewed.</li>
-		    	</ul>
+		      <h1>Tomorrow</h1>
+				<% if @tomorrow.blank? %>
+					Kick your feet up and relax, nothing on schedule today!
+				<% else %>
+				  <% @tomorrow.each do |t| %>
+					<ul>
+		    			<li><%= t.name %></li>
+		    		</ul>
+				  <% end %>
+				<%end %>
 		    </div>
-		    <div id="day_padding">
-		    </div>
+
 		    <div id="day">
-		      <h1>Thursday, March 9th</h1>
-		        <ul>
-		    		<li>Take apart swing set.</li>
-		    		<li>Take things to Good Will.</li>
-		    	</ul>
+		      	<h1><%=(Date.today + 2.days).strftime('%B %d') %></h1>
+					<% if @nextday.blank? %>
+						In two days you will have nothing to do!
+					<% else %>
+					<ul>
+						<li>
+					  		<% @nextday.each do |t| %>
+						</li>
+					</ul>
+						<%= t.name %>
+					  <% end %>
+					<%end %>
 		    </div>
 		  </div>
 		  <div id="border">
 		    <div id="lists">
 		    <h1>Your Current Lists</h1>
-		    	<ul>
-		    		<li>To Pack in the Car for DITY</li>
-		    		<li>To Pack Before the Movers Arrive</li>
-		    		<li>Phone Calls to Make</li>
-		    		<li>Paper Work to Get in Order for Closing Date</li>
-		    	</ul>
+				<% if @list.blank? %>
+					You have no lists written yet. Time to <span class='highlight'><%= link_to 'get started!', move_lists_path(@move) %></span>
+				<% else %>
+				<% @lists.each do |l| %>
+		    	  <ul>
+		    		<li><% l.name %></li>
+		    	  </ul>
+				<% end %>
+			  <% end %>
 		    </div>
 		  </div>
 		  <div id="border">
-		  Research
-		    <ul>
-		      <li>You have 5 Neighborhoods Saved</li>
-		      <li>Your have 17 Homes Saved</li>
-		      <li>Your have 10 Schools Saved</li>
-		    </ul>
-
+		  <h1>Research</h1>
+			You have <%= @neighborhoods.size %> Neighborhoods saved. Work on my <span class='highlight'><%= link_to 'neighborhoods', neighborhoods_path(@neighborhoods) %>.</span><br />
+		    You have <%= @homes.size %> Homes saved. Work on my <span class='highlight'><%= link_to 'homes', homes_path(@homes) %>.</span><br />
+		    You have <%= @schools.size %> Schools saved. Work on my <span class='highlight'><%= link_to 'schools', schools_path(@schools) %>.</span><br />
 		  </div>
 			<!-- Column 1 end -->
 		</div>
 		<div class="col2">
 			<!-- Column 2 start -->
 		  <div id="account_user">
-		  <p>
-		  User Account Information
-		  </p>
-		  Lauren Rothlisberger (get name in user data)<br />
-		  <%= @user.login %><br />
-		  <%= @user.email %><br />
-		  <span class="edit_user"><%= link_to "edit your profile", edit_user_path(@user) %></span>
-		  </div>
-		  <% if @spouse.empty? %>
-
-		  <% else %>
-			<div id="account_family">
-			  <p>
-			  <% @spouse.each do |spouse| %>
-		    	<%= spouse.name %><br />
-		    	<%= spouse.email %><br />
-		    	<span class="edit_family"><%= link_to "edit your profile", edit_user_path(spouse) %></span>
-		      </p>
-		    </div>
-			  <% end %>
-		  <% end %>
+		    	<span class="edit_user"><%= link_to "edit your profile", edit_user_path(@user) %></span>
+		    <h1>User Account Information</h1>
+		      <p>
+		        <%= @user.name %><br />
+		  		<%= @user.login %><br />
+		  		<%= @user.email %><br />
+		  	  </p>
 		
-		  <% if @children.empty? %>
+		  	<h1>Spouse</h1>
+		  
+		  		<% if @spouse.nil? %>
 
-		  <% else %>
-			<div id="account_family">
-			  <p>
-			  <% @children.each do |child| %>
-		    	<%= child.name %><br />
-		        <%= child.school_level %><br />
-		    	<%= child.email %><br />
-		    	<span class="edit_family"><%= link_to "edit your profile", edit_user_path(child) %></span>
-		      </p>
-		    </div>
-			  <% end %>
-		  <% end %>
-		  <% if @children.empty? %>
+		  		<% else %>
+			
+		  		  <p>
+		      		<%= @spouse.name %><br />
+		      		<%= @spouse.email %><br />
+		      	  </p>
+		  		<% end %>
+		  
+		
+		  		<% if @family.nil? %>
 
-		  <% else %>
-		  <div id="account_family">
-		   <p>
-		    <% @pets.each do |pet| %>
-		    <%= pet.name %><br />
-		    <%= pet.pet_type %><br />
-		    <%= pet.breed %><br />
-		    <%= pet.microchip %><br />
-		    <span class="edit_family"><%= link_to "edit your pet", edit_user_pet_path(@user, pet) %></span>
-		    </p>
-		  </div>
-			  <% end %>
-			<% end %>
-			<!-- Column 2 end -->
+		  		<% else %>
+				  <h1>Kids</h1>
+			  		
+			  		<% @family.each do |child| %>
+					<p>
+		    			<%= child.name %><br />
+		        		<%= child.school_level %><br />
+		    			<%= child.email %><br />
+					</p>
+					<% end %>
+		      		
+			  		
+		  		<% end %>
+		
+		  		<% if @pets.empty? %>
+
+		  		<% else %>
+		  		  <h1>Pets</h1>
+		   			<p>
+		    		  <% @pets.each do |pet| %>
+		    			<%= pet.name %><br />
+		    			<%= pet.pet_type %><br />
+		    			<%= pet.breed %><br />
+		    			<%= pet.microchip %><br />
+		    		</p>
+			  		  <% end %>
+				<% end %>
 		</div>
+			<!-- Column 2 end -->
 	</div>
+  </div>
 </div>
 <div id="footer">
 	<p> Copyright Lauren Rothlisberger</p>

@@ -7,7 +7,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @events }
+      format.xml { render :xml => @events }
     end
   end
 
@@ -33,7 +33,7 @@ class EventsController < ApplicationController
     
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @event }
+      format.xml { render :xml => @event }
     end
   end
 
@@ -56,11 +56,11 @@ class EventsController < ApplicationController
     
     respond_to do |format|
       if @event.save
-        format.html { redirect_to :back }
-        format.xml  { render :xml => @event, :status => :created, :location => @event }
+        format.html { redirect_to calendar_path(@move, Date.today.year, Date.today.month) }
+        format.xml { render :xml => @event, :status => :created, :location => @event }
       else
-        format.html { render :template => 'calendar/index', :layout => 'calendar'   }
-        format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
+        format.html { render :template => 'calendar/index', :layout => 'calendar' }
+        format.xml { render :xml => @event.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -74,10 +74,10 @@ class EventsController < ApplicationController
       if @event.update_attributes(params[:event])
         flash[:notice] = 'Event was successfully updated.'
         format.html { redirect_to(@event) }
-        format.xml  { head :ok }
+        format.xml { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
+        format.xml { render :xml => @event.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -90,7 +90,9 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to :back }
-      format.xml  { head :ok }
+      format.xml { head :ok }
     end
   end
 end
+
+

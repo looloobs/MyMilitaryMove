@@ -1,0 +1,22 @@
+<div id="form">
+
+<%= address.error_messages %>
+    <%= address.hidden_field :user_id, :value => @user.id %>
+  <p>
+    <%= address.label :address %><br />
+    <%= address.text_field :address %>
+  </p>
+  <p>
+	<div class="city">
+	<%= address.label :city %><br />
+    <%= address.text_field :city, :size=> "25" %>
+	</div>
+   <div class="state">
+    <%= address.label :state %><br />
+    <%= address.text_field :state, :size=> "2" %>
+   </div>
+   <div class="zip">
+    <%= address.label :zip %><br />
+    <%= address.text_field :zip, :size=> "5" %>
+   </p>
+</div>

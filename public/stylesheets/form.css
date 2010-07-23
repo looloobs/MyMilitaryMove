@@ -238,7 +238,7 @@
 	}
 	#nav ul {
 	    float:left;
-		margin-left:485px;
+		margin-left:405px;
 		margin-top:-20px;
 		margin-bottom:0px;
 	}
@@ -347,7 +347,24 @@
   }
 
 	/* -- */
+  /* Itinerary */
 
+	#itinerary_instructions {	
+		width:916px;
+		float:left;
+		background-color: #FCF8C3;
+		margin-top:15px;
+		margin-left:15px;
+		margin-bottom:15px;
+		padding:5px;
+		position:relative;
+		font-weight: normal;
+		font-family:"Arial";
+		font-size: 16px;
+	}
+	#itinerary_new {
+		margin-left:15px;
+	}
 	/* Footer styles */
 	#footer {
 		clear:both;

@@ -1,33 +1,20 @@
 ActionController::Routing::Routes.draw do |map|
+  map.connect "logged_exceptions/:action/:id", :controller => "logged_exceptions"
   map.resources :orders
-
   map.resources :spouses
-
   map.resources :addresses
-
   map.resources :events
-
   map.calendar 'moves/:move/calendar/:year/:month', :controller => 'calendar', :action => 'index', :year => Time.zone.now.year, :month => Time.zone.now.month
-
   map.resources :apartments
-
   map.resources :cons
-
   map.resources :pros
-
   map.resources :pets
-
   map.resource :account, :controller => "users"
   map.resources :notes
-
   map.resources :neighborhoods
-
   map.resources :schools
-
   map.resources :homes
-
   map.resources :researches
-
   map.resources :trips
 
   map.resources :itineraries do |itinerary|
