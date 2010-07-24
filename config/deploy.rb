@@ -2,7 +2,7 @@
 set :application, "MilitaryMoveIt"
 
 # The URL to your applications repository
-set :repository,  "git@github.com/looloobs/MyMilitaryMove.git"
+set :repository,  "git@github.com:looloobs/MyMilitaryMove.git"
 set :scm, "git"
 set :scm_verbose, true
 set :git_enable_submodules, 1
