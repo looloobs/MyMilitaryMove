@@ -6,6 +6,7 @@ set :repository,  "git@github.com:looloobs/MyMilitaryMove.git"
 set :scm, "git"
 set :scm_verbose, true
 set :git_enable_submodules, 1
+set :scm_passphrase, "juYcxXE3a73y"
 
 # Uncomment this line if you're using SVN.  It makes deployments much faster
 set :deploy_via, :remote_cache
