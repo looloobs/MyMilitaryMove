@@ -15,7 +15,7 @@ set :deploy_via, :remote_cache
 set :checkout, 'export'
 
 # The user you are using to deploy with (This user should have SSH access to your server)
-set :user, "afmove"
+set :user, "afmove2"
 
 # We want to deploy everything under your user, and we don't want to use sudo
 set :use_sudo, false
