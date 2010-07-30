@@ -39,7 +39,7 @@ production:
   encoding: utf8
   reconnect: true
   database: militarymoveit
-  host: 67.214.213.13
+  host: localhost
   pool: 5
   username: admin
   password: lufury2

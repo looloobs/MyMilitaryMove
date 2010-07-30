@@ -21,7 +21,7 @@ set :user, "deploy"
 set :use_sudo, false
 
 # Where to deploy your application to.
-set :deploy_to, "militarymoveit.com/"
+set :deploy_to, "/home/deploy/militarymoveit.com/"
 
 # -------------------------------- Server Definitions --------------------------------
 # Define the hostname of your server.  If you have multiple servers for multiple purposes, we can define those below as well.
@@ -48,14 +48,15 @@ namespace :deploy do
   end
   
   task :symlink do
-    run "cd #{deploy_to} && rm current ; ln -s releases/#{release_name} current"
-    run <<-CMD
-      rm -rf #{latest_release}/log /home/#{user}/#{latest_release}/public/system #{latest_release}/tmp/pids &&
-      ln -s /home/#{user}#{shared_path}/log /home/#{user}#{latest_release}/log &&
-      ln -s /home/#{user}#{shared_path}/system /home/#{user}#{latest_release}/public/system &&
-      ln -s /home/#{user}#{shared_path}/pids /home/#{user}#{latest_release}/tmp/pids
-    CMD
-  end
+     run "cd #{deploy_to} && rm current ; ln -s releases/#{release_name} current"
+     run <<-CMD
+       rm -rf #{latest_release}/log #{deploy_to}/#{latest_release}/public/system #{latest_release}/tmp/pids &&
+       ln -s #{shared_path}/log #{latest_release}/log &&
+       ln -s #{shared_path}/system #{latest_release}/public/system &&
+       ln -s #{shared_path}/pids #{latest_release}/tmp/pids
+     CMD
+   end
+
   
   task :stop do
     run "rm #{deploy_to}public_html"
