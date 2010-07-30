@@ -38,10 +38,10 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: true
-  database: afmove_militarymoveit
-  host: 127.0.0.1
+  database: militarymoveit
+  host: 67.214.213.13
   pool: 5
-  username: afmove_admin
+  username: admin
   password: lufury2
   socket: /var/lib/mysql/mysql.sock
   
