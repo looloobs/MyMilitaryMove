@@ -13,10 +13,10 @@ class UserSessionsController < ApplicationController
       @user_session = UserSession.new(params[:user_session])
       @user = User.new
       if @user_session.save
-        if @user_session.user.level == 'trial' && @user_session.user.created_at > 5.days.ago
+        if @user_session.user.level == 'Trial' && @user_session.user.created_at > 5.days.ago
           flash[:notice] = "Login successful!"
           redirect_back_or_default account_url
-        elsif @user_session.user.level == 'basic' && @user_session.user.created_at > 365.days.ago
+        elsif @user_session.user.level == 'Basic' && @user_session.user.created_at > 365.days.ago
           flash[:notice] = "Login successful!"
           redirect_back_or_default account_url
         else 

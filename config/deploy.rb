@@ -48,14 +48,14 @@ namespace :deploy do
   end
   
   task :symlink do
-     run "cd #{deploy_to} && rm current ; ln -s releases/#{release_name} current"
-     run <<-CMD
-       rm -rf #{latest_release}/log #{deploy_to}/#{latest_release}/public/system #{latest_release}/tmp/pids &&
-       ln -s #{shared_path}/log #{latest_release}/log &&
-       ln -s #{shared_path}/system #{latest_release}/public/system &&
-       ln -s #{shared_path}/pids #{latest_release}/tmp/pids
-     CMD
-   end
+    run "cd #{deploy_to} && rm current ; ln -s releases/#{release_name} current"
+    run <<-CMD
+      rm -rf #{latest_release}/log #{latest_release}/public/system #{latest_release}/tmp/pids &&
+      ln -s #{shared_path}/log #{latest_release}/log &&
+      ln -s #{shared_path}/system #{latest_release}/public/system &&
+      ln -s #{shared_path}/pids #{latest_release}/tmp/pids
+    CMD
+  end
 
   
   task :stop do
