@@ -470,7 +470,7 @@
 		font-weight: bold;
 		font-family:"Arial";
 		font-size: 17px;
-		background-color: #F4F76F;
+		background-color: #FCF8C3;
 	}
 	.highlight a {
 		text-decoration:none;
@@ -664,8 +664,11 @@
 		height:50px;		
 	}
 	#itinerary_name {
+		width:700px;
+		margin-left:25px;
 		margin-top:15px;
 		float:left;
+		
 	}
 	#itinerary_title {
 		color: black;
@@ -779,15 +782,15 @@
 	
 	#account_move {
 		background-color:#C8D3E6;
-		width:662px;
-		height:75px;
+		width:650px;
 		margin:3px;
+		height:75px;
 		margin-bottom:25px;
 		margin-top:25px;
 		padding:5px;
 		float:left;
 		position:relative;
-		border: 3px solid #657FAD;
+		border: 8px solid #657FAD;
 	}
 	#account_move p {
 		margin:0px;
@@ -894,7 +897,7 @@
 		width:650px;
 		margin:3px;
 		margin-bottom:25px;
-		padding-left:5px;
+		padding: 5px;
 		float:left;
 		border: 8px solid #657FAD;
 	}

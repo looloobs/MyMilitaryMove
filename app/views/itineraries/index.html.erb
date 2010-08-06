@@ -24,27 +24,32 @@
 		<div class="col1">
 		  
 
-		  <% if @itineraries.nil? %>
+		  <% if @itineraries.blank? %>
 		  <div id="itinerary_instructions">	
-		    It looks like you don't have any itineraries yet, let's get started by filling out the first leg of your trip. You can always edit this later.
+			<div class="highlight">
+		    It looks like you don't have any itineraries yet, let's get started by filling out the first leg of your trip. You can always edit this later.</div>
 		  </div>
 		
-		  <div id ="form">
-			<div id ="itinerary_new">
+
+		
+				<div id="form">
+					<div id="itinerary_new">
 				<% form_for([@move, @itinerary]) do |f| %>
 			  		<%= f.error_messages :header_message => nil, :message => "Please fix the following field(s):"%>
 					<%= f.hidden_field :id, :value => @itinerary.id %>
 					<%= f.hidden_field :move_id, :value => @move.id %>
-					<%= f.label :name, "Name Your Itinerary"%>
-					<%= f.text_field :name %>
-			</div>
+					<%= f.label :name, "Name Your Itinerary"%><br />
+					<%= f.text_field(:name, :size => 5) %>
+					</div>
+			    </div>
 					<% f.fields_for :trips do |builder| %>
 						<%= render "shared/trip_fields", :f => builder %>
 					<% end %>
-					<p><%= f.submit "Submit" %></p>
+					
+					
 				<% end %>
 			
-		  </div>
+		
 		  <% else %>
 			<!-- Column 1 start -->
 		
@@ -65,7 +70,7 @@
 				<%= f.hidden_field :move_id, :value => @move.id %>
 				<p>
 				<%= f.label :name, "Name Your Itinerary"%><br />
-				<%= f.text_field :name, :size => '50' %>
+				<%= f.text_field :name, :size => '10' %>
 				</p>
 				<p><%= f.submit "Submit" %></p>
 			<% end %>

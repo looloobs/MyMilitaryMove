@@ -2,7 +2,8 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.xml
   def index
-    @notes = Note.all
+    @move= Move.find(params[:move_id])
+    @notes = @move.notes
     @note = Note.new
     @move= Move.find(params[:move_id])
 
@@ -37,17 +38,16 @@ class NotesController < ApplicationController
   def edit
     @note = Note.find(params[:id])
     @move= Move.find(params[:move_id])
-    @itinerary = @move.itinerary
     render :layout => "form"
   end
 
   # POST /notes
   # POST /notes.xml
   def create
-    @notes = Note.all
+    @move= Move.find(params[:move_id])
+    @notes = @move.notes
     @note = Note.new(params[:note])
     @event = Event.new(params[:event])
-    @move= Move.find(params[:move_id])
     @month = Time.now.month
     @year = Time.now.year
 

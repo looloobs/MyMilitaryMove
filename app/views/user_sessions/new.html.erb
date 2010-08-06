@@ -33,21 +33,25 @@
 	<div id="blue_square">
 			
 		<div id="price_tag">
-			<%= image_tag("index/price_tag.png", :border=>0) %>
+			<!--%= image_tag("index/price_tag.png", :border=>0) %-->
 		</div>
 		<%= error_messages_for "user", :header_message => nil, :message => nil %>
 		<div id="new_user_form">
 		<% form_for @user do |f| %>
 			
 			<br />
-			<%= f.label :name %><br />
-			<%= f.text_field :name %><br />
-			<%= f.label :email %><br />
-			<%= f.text_field :email %><br />
-			<%= f.label :login %><br />
-			<%= f.text_field :login %><br />
-			<%= f.label :password, f.object.new_record? ? nil : "Change password" %><br />
-			<%= f.password_field :password %><br />
+			<div id= 'new_user_form_row'>
+			<%= f.label :name %>
+			<%= f.text_field :name, :size =>'21' %><br /></div>
+			<div id= 'new_user_form_row'>
+			<%= f.label :email, "Email " %>
+			<%= f.text_field :email, :size =>'21' %><br /></div>
+			<div id= 'new_user_form_row'>
+			<%= f.label :login, "Login " %>
+			<%= f.text_field :login, :size =>'21' %><br /></div>
+			<div id= 'new_user_form_row'>
+			<%= f.label :password, f.object.new_record? ? nil : "Change password" %>
+			<%= f.password_field :password, :size =>'21' %><br /></div>
 			</div>
 			<div id="submit">
 		    <%= image_submit_tag ("buttons/get_started.png", :border=>0) %>

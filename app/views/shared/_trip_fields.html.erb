@@ -1,5 +1,5 @@
 
-<div class="fields">
+
 <div id="border">
   <div id="form">
   <div id="sidebar">
@@ -32,7 +32,7 @@
   <p>
     <%= f.label :destination_name, "Where are you staying?" %><br />
 	<span class="highlight">eg. Marriott, Mom's House</span><br /> 
-    <%= f.text_field :destination_name, :size=> "50" %>
+    <%= f.text_field :destination_name, :size=> "36" %>
   </p>
   <p>
   
@@ -67,9 +67,13 @@
     $<%= f.text_field :cost, :size => "5" %>
 	</div>
   </p>
+  
 </div>
+</div>
+<div>
+	<div id="submit">
+	  <%= f.submit "Submit" %>
+	</div>
 </div>
 
-</div>
-</div>
 

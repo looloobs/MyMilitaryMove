@@ -39,6 +39,7 @@ class MovesController < ApplicationController
   # GET /moves/1/edit
   def edit
     @move = Move.find(params[:id])
+    render :layout => "form"
   end
 
   # POST /moves

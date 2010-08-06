@@ -1,4 +1,4 @@
-
+<div id="form">
 <%= family.error_messages %>
 
   <p>
@@ -20,7 +20,8 @@
     <%= family.select(:school_level, [["Please Select", ""], ["N/A", "N/A"], ["Daycare", "Daycare"], ["Preschool", "Preschool"],["Elementary School", "Elementary School"],["Middle School", "Middle School"],["High School", "High School"],["College", "College"]]) %>
   </p>
   <p>
-    <%= family.label :birthday %><br />
+    <%= family.label :birthday %><span class="highlight"><br />
+	Information about your child's birthday will help with future budgeting tools. Dependents travel pay is different depending on their age. </span><br />
     <%= family.date_select(:birthday, :order => [:month, :day, :year], :start_year => 1960) %>
   </p>
-
+</div>

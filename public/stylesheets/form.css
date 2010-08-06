@@ -39,8 +39,6 @@
 		background:#fff;
 	}
 	.highlight {
-		font-family: Arial, "MS Verdana", sans-serif;
-		font-size: 12px;
 		background-color: #FCF8C3;
 		margin-top:3px;
 		margin-bottom:3px;
@@ -93,6 +91,7 @@
 		font-family: Arial, "MS Verdana", sans-serif;
 		font-size: 16px;
 		color: black;
+
 	}
 	#form input {
 		background:#fff;
@@ -348,7 +347,39 @@
 
 	/* -- */
   /* Itinerary */
-
+	#itinerary_form {
+		padding:10px;
+		font-family: Arial, "MS Verdana", sans-serif;
+		font-size: 16px;
+		color: black;
+		background:#E6EBF4;
+		
+		margin-left:30px;
+		margin-top:20px;
+	}
+	#itinerary_form input {
+		background:#fff;
+		border: 1px solid #999;
+		font-family: Arial, "MS Verdana", sans-serif;
+		font-size: 16px;
+		color: #666;
+		margin: 10px;	
+	}
+	#itinerary_form select {
+		background:#fff;
+		border:0px;
+		font-family: Arial, "MS Verdana", sans-serif;
+		font-size: 16px;
+		color: #666;	
+	}
+	#itinerary_form h1 {
+		color: black;
+		font-family: Arial, "MS Verdana", sans-serif;
+		font-size: 25px;	
+	}
+	#itinerary_form h2 {
+		color: black;	
+	}
 	#itinerary_instructions {	
 		width:916px;
 		float:left;
@@ -364,6 +395,13 @@
 	}
 	#itinerary_new {
 		margin-left:15px;
+	}
+	#itinerary_name {
+		width:700px;
+		margin-left:25px;
+		margin-top:15px;
+		float:left;
+		
 	}
 	/* Footer styles */
 	#footer {

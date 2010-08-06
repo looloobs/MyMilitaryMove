@@ -1,32 +1,56 @@
-<h1>Editing move</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+	<div id="logo">
+	  <%= link_to image_tag("icons/logo.png", :border=>0), users_path %>	
+	</div>
+    <div id ="login">
+	    <ul>
+		  <li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
+		  <li><%= link_to "Account", user_path(current_user) %></li>
+		</ul>
+	  </div>
+</div>
+<div id="main">
+	<div id="border">
+	  <div id="form">
+		  <h1>Editing move</h1>
 
-<% form_for(@move) do |f| %>
-  <%= f.error_messages %>
+		<% form_for(@move) do |f| %>
+		  <%= f.error_messages %>
 
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </p>
-  <p>
-    <%= f.label :to %><br />
-    <%= f.text_field :to %>
-  </p>
-  <p>
-    <%= f.label :from %><br />
-    <%= f.text_field :from %>
-  </p>
-  <p>
-    <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
-  </p>
-  <p>
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
+		  <p>
+		    <%= f.label :to %><br />
+		    <%= f.text_field :to %>
+		  </p>
+		  <p>
+		    <%= f.label :from %><br />
+		    <%= f.text_field :from %>
+		  </p>
+		  <p>
+		    <%= f.label :date %><br />
+		    <%= f.date_select(:date, :order => [:month, :day, :year]) %>
+		  </p>
+		  <p>
+		    <%= f.submit 'Update' %>
+		  </p>
+		<% end %>
 
-<%= link_to 'Show', @move %> |
-<%= link_to 'Back', moves_path %>
+</div>
+  </div>
+    </div>
+      </div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+
+</body>
+</html>

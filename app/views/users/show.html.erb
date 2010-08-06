@@ -27,21 +27,21 @@
 	  <div id="add_move">
 	    <%= link_to image_tag("icons/add_a_move.png", :border=>0), new_move_path %>
 	  </div>
-	  <div id="account_move">
-		<p>
-	    Payment Status: <%= @user.level %> <span class="highlight">You have <%= Date.today - @user.created_at.to_date + 5 %> days until your trial is over.</span><br />
-		</p>
-		<div id="move_info">
+      <div id="move_info">
 			<div id="move_info_icon">
 				<%= image_tag ("icons/moving_truck.png") %>
-			</div>
+		    </div>
 		<p>
 	    <% @moves.each do |move| %>
 	    Work on my move to: <%= link_to move.to, user_move_path(@user, move) %><br />
 		<% end %>
 		</p>
-		</div>
-	  </div>
+	</div>
+	  <div id="account_move">
+		<p>
+	    Payment Status: <span class="highlight"><%= @user.level %> </span><br />
+		</p>
+	  </div>	
 
 	  <div id= "sidebar">
 		<div id="account_user">
@@ -121,10 +121,10 @@
 				  <% form_for(@family) do |f| %>
 					<div id = "form">
 				    <%= render :partial => "family", :object => f %>
+					  <p>
+				      <%= f.submit 'Create' %>
+				      </p>
 				    </div>
-					<p>
-				    <%= f.submit 'Create' %>
-				  </p>
 				  <% end %>
 			  <% else %>
 				 
@@ -133,10 +133,13 @@
 			    	<%= child.name %><br />
 					<%= child.birthday.strftime('%b %d, %Y')  %><br />
 			        <%= child.school_level %><br />
-			    	<%= child.email %><br />		    	
+					<% if child.email.blank? %>
+					<% else %>
+			    	<%= child.email %><br />
+					<% end %>
 			      </p>
 			      <% end %>
-			
+			      <h2> Add Another Kid </h2>
 			      <% form_for(@family) do |f| %>
 					<div id = "form">
 				    <%= render :partial => "family", :object => f %>
@@ -174,7 +177,7 @@
 				    <div id = "form">
 				    <%= render :partial => "pet", :object => f %>
 					<p>
-				    <%= f.submit 'Save' %>
+				    <%= f.submit 'Create' %>
 				  </p>
 				  </div>
 				  <% end %>

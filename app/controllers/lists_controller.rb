@@ -2,9 +2,9 @@ class ListsController < ApplicationController
   # GET /lists
   # GET /lists.xml
   def index
-    @lists = List.all
-    @list = List.new
     @move= Move.find(params[:move_id])
+    @lists = @move.lists
+    @list = List.new
     @task = Task.new
     respond_to do |format|
       format.html # index.html.erb
@@ -36,7 +36,6 @@ class ListsController < ApplicationController
   def edit
     @list = List.find(params[:id])
     @move= Move.find(params[:move_id])
-    @itinerary = @move.itinerary
     render :layout => "form"
   end
 

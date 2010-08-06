@@ -36,7 +36,7 @@
 			</p>
 			<p>
 				<%= f.label :date, "Move Date (*just take a guess)" %><br />
-				<%= f.text_field :date %>
+				<%= f.date_select(:date, :order => [:month, :day, :year]) %>
 
 			</p>
 			<%= f.submit 'Create' %>

@@ -12,7 +12,8 @@ class UsersController < ApplicationController
       @user.level = 'Trial'
       if @user.save
         flash[:notice] = "Account registered!"
-        redirect_back_or_default account_url
+        @user.deliver_welcome_email!
+        redirect_to account_url
       else
         render :layout => 'user_sessions_new', :template => 'user_sessions/new'
       end
@@ -34,9 +35,9 @@ class UsersController < ApplicationController
 
     def edit
       @user = @current_user
-      @address = @user.address
       @family = @user.families
       @pets = @user.pets
+      @address = @user.address
       render :layout => "form"
     end
 

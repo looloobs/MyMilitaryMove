@@ -109,13 +109,17 @@
 		color:#000;
 		position:relative;
 		margin:0px;
+		font-family:"Arial";
+		font-size: 22px;
 	}
 	#move_info a {
-		color:#AC0000;
+		color:#000;
+		background:#FCF8C3;
+		text-decoration:none;
 	}
 	#move_info_icon {
 		float:left;
-		margin-top:5px;
+		padding-right:5px;
 	}
 	
 	/* FORMS FORMS FORMS */
