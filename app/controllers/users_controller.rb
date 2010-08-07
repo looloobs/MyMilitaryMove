@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     def create
       @user = User.new(params[:user])
-      @user_session = UserSession.new
+      #@user_session = UserSession.new
       @user.level = 'Trial'
       if @user.save
         flash[:notice] = "Account registered!"
