@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       @user = User.new(params[:user])
       #@user_session = UserSession.new
       @user.level = 'Trial'
-      if @user.save
+      if @user.signup!(params)
         flash[:notice] = "Account registered!"
         #UserSession.create(@user, false)
         @user.deliver_welcome_email!
