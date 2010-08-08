@@ -17,6 +17,14 @@ config.action_controller.perform_caching             = false
 config.action_mailer.default_content_type = "text/html"
 config.action_mailer.raise_delivery_errors = true
 config.action_mailer.perform_deliveries = true
+config.action_mailer.smtp_settings = {
+  :address => "mail-gw.frgcms.com",
+  :port => 25,
+  :domain => "frgcms.com",
+  }
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.default_url_options = { :host => "frgcms.com" }
+
 
 config.after_initialize do
   ActiveMerchant::Billing::Base.mode = :test
