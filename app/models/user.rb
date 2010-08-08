@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :login, :email, :password
 
   def deliver_welcome_email!  
+    reset_perishable_token!
     UserMailer.deliver_welcome_email(self)  
   end
 
