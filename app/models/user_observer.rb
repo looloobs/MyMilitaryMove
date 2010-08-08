@@ -1,6 +1,6 @@
 class UserObserver < ActiveRecord::Observer 
-  def after_save(user)  
-    reset_perishable_token!
-    UserMailer.deliver_welcome_email(user)  
+  def after_save(self)  
+    #reset_perishable_token!
+    UserMailer.deliver_welcome_email(self)  
   end 
 end 
