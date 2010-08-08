@@ -20,9 +20,9 @@ class User < ActiveRecord::Base
       save_without_session_maintenance
   end
   
-  def deliver_welcome_email!  
+  def deliver_welcome!  
     reset_perishable_token!
-    UserMailer.deliver_welcome_email(self)  
+    UserMailer.deliver_welcome(self)  
   end
 
 end
