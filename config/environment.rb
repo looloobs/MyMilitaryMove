@@ -10,7 +10,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   
-
+  config.active_record.observers = :user_observer
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
@@ -39,18 +39,22 @@ Rails::Initializer.run do |config|
   # Run "rake -D time" for a list of tasks for finding time zone names.
   config.time_zone = 'UTC'
 
-  config.action_mailer.default_content_type = "text/html"
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.smtp_settings = {
-    :address => "mail-gw.frgcms.com",
-    :port => 25,
-    :domain => "frgcms.com",
-    }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => "frgcms.com" }
+  
+  config.action_mailer.smtp_settings = { 
+    :tls => true,
+    :address => "smtp.gmail.com",
+    :port => "587",
+    #:domain => "militarymoveit.com", 
+    :user_name => "militarymoveit@gmail.com", 
+    :password => "lroth.101", 
+    :authentication => :plain
+  }
+  
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
-  config.active_record.observers = :user_observer
+  
 end
