@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :pets, :families, :spouse, :address
 
   def deliver_welcome_email!  
-    #reset_perishable_token!
     UserMailer.deliver_welcome_email(self)  
   end
 

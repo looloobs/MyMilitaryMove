@@ -8,10 +8,11 @@ class UsersController < ApplicationController
 
     def create
       @user = User.new(params[:user])
-      @user_session = UserSession.new
+      #@user_session = UserSession.new
       @user.level = 'Trial'
       if @user.save
         flash[:notice] = "Account registered!"
+        UserSession.create(@user, false)
         @user.deliver_welcome_email!
         redirect_to account_url
       else
