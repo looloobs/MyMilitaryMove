@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       @user.level = 'Trial'
       if @user.save
         flash[:notice] = "Account registered!"
+        @user.deliver_welcome_email!
         redirect_to account_url
       else
         render :layout => 'user_sessions_new', :template => 'user_sessions/new'
