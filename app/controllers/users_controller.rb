@@ -10,10 +10,10 @@ class UsersController < ApplicationController
       @user = User.new(params[:user])
       #@user_session = UserSession.new
       @user.level = 'Trial'
-      if @user.signup!(params)
+      if @user.save
         flash[:notice] = "Account registered!"
         #UserSession.create(@user, false)
-        #@user.deliver_welcome!
+        @user.deliver_welcome!
         redirect_to account_url
       else
         render :layout => 'user_sessions_new', :template => 'user_sessions/new'

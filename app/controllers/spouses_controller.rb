@@ -42,7 +42,7 @@ class SpousesController < ApplicationController
   def create
     @spouse = Spouse.new(params[:spouse])
 
-    respond_to do |format|
+   respond_to do |format|
       if @spouse.save
         flash[:notice] = 'Spouse was successfully created.'
         format.html { redirect_to :back }

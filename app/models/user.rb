@@ -11,13 +11,14 @@ class User < ActiveRecord::Base
   has_one :spouse
   accepts_nested_attributes_for :pets, :families, :spouse, :address
   
-  attr_accessible :name, :login, :email, :password
+  #attr_accessible :name, :login, :email, :password
 
   def signup!(params)
       self.email = params[:user][:email]
       self.name = params[:user][:name]
       self.login = params[:user][:login]
-      save_without_session_maintenance
+      self.password = params[:user][:password]
+      #save_without_session_maintenance
   end
   
   def deliver_welcome!  
