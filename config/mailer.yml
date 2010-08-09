@@ -1,0 +1,5 @@
+:address => 'smtp.gmail.com'
+:port => '587'
+:user_name => 'militarymoveit@gmail.com' 
+:password => 'lroth.101'
+:authentication => :plain

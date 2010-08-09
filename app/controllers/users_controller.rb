@@ -13,8 +13,8 @@ class UsersController < ApplicationController
       if @user.signup!(params)
         flash[:notice] = "Account registered!"
         #UserSession.create(@user, false)
-        @user.deliver_welcome!
-        redirect_to user_path(@user)
+        #@user.deliver_welcome!
+        redirect_to account_url
       else
         render :layout => 'user_sessions_new', :template => 'user_sessions/new'
       end
