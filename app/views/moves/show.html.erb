@@ -76,12 +76,12 @@
 		  <div id="border">
 		    <div id="lists">
 		    <h1>Your Current Lists</h1>
-				<% if @list.blank? %>
+				<% if @lists.blank? %>
 					You have no lists written yet. Time to <span class='highlight'><%= link_to 'get started!', move_lists_path(@move) %></span>
 				<% else %>
 				<% @lists.each do |l| %>
 		    	  <ul>
-		    		<li><% l.name %></li>
+		    		<li><%= l.name %></li>
 		    	  </ul>
 				<% end %>
 			  <% end %>
