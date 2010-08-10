@@ -13,7 +13,7 @@
 	<div class="colleft">
 		<div id="move">
 				<p>
-				<%= @move.to.upcase %> to <%= @move.from.upcase %> on <%= @move.date.strftime("%B %d, %Y") %> 
+				<%= @move.from.upcase %> to <%= @move.to.upcase %> on <%= @move.date.strftime("%B %d, %Y") %> 
 				</p> 
 				<span class="edit"><%= link_to 'edit your move', edit_move_path(@move)%></span>
 		</div>
