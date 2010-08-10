@@ -102,6 +102,11 @@
 	#login ul li a span {
 		display:block;
 	}
+	#welcome_message{
+		width:420px;
+		float:left;
+		margin-left:20px;
+	}
 	#move_info {
 		width:450px;
 		clear:both;
