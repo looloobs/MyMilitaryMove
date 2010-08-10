@@ -45,6 +45,7 @@ class HomesController < ApplicationController
   def create
     @home = Home.new(params[:home])
     @move= Move.find(params[:move_id])
+    @home.move_id = @move.id
     @neighborhoods = @move.neighborhoods
 
     respond_to do |format|

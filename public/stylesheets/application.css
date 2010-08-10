@@ -526,13 +526,10 @@
 		font-size: 14px;
 	}
 	/* HOMES MAIN INFO AREA */
-	#homes-header {
-	    width:700px;
-		height:50px;
-	
-	}
+
 	#add_home_button {
 		float: right;
+		margin-bottom:35px;
 			
 	}
 	#home_note {
