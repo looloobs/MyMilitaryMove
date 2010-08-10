@@ -24,7 +24,7 @@
 		  <div id="account_move">
 		  <%= image_tag("icons/move_map.png", :border=>0) %>
 			<p>
-			<%= @move.to.upcase %> to <%= @move.from.upcase %> <br />
+			<%= @move.from.upcase %> to <%= @move.to.upcase %> <br />
 			<%= @move.date.strftime("%B %d, %Y") %> <span class="edit"><%= link_to "edit your move information", edit_move_path(@move) %></span><br />
 			<span class="highlight">You have <%= (@move.date.to_date - Date.today) %> days until your move.</span>
 			
