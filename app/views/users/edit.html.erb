@@ -32,36 +32,9 @@
   </div>
   <h2>Edit your address</h2>
 	<div id="account_family">
-		<% if @user.address.blank? %>
-		  	<% form_for(@address) do |address| %>
-			    <%= address.hidden_field :user_id, :value => @user.id %>
-			  <p>
-			    <%= address.label :address %><br />
-			    <%= address.text_field :address %>
-			  </p>
-			  <p>
-				<div class="city">
-				<%= address.label :city %><br />
-			    <%= address.text_field :city, :size=> "25" %>
-				</div>
-			   <div class="state">
-			    <%= address.label :state %><br />
-			    <%= address.text_field :state, :size=> "2" %>
-			   </div>
-			   <div class="zip">
-			    <%= address.label :zip %><br />
-			    <%= address.text_field :zip, :size=> "5" %>
-			   </div>
-			   </p>
-			  <p>
-			    <%= address.submit 'Create' %>
-			  </p>
-			 <% end %>
-		<% else %>
 		  <% f.fields_for :address do |address| %>
 	        <%= render "add", :address => address %>
 		  <% end %>
-		<% end %>
 	</div>
 	</div>
 	<h2>Edit your spouse </h2>
