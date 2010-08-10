@@ -32,7 +32,7 @@
   </div>
   <h2>Edit your address</h2>
 	<div id="account_family">
-		<% if @user.address.nil? %>
+		<% if @user.address.blank? %>
 		  	<% form_for(@address) do |address| %>
 			    <%= address.hidden_field :user_id, :value => @user.id %>
 			  <p>

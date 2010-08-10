@@ -14,10 +14,10 @@
 
 	<div class="colleft">
 		<div id="move">
-			<p>
-			FORT BENNING to FORT JACKSON on MARCH 3, 2010
-			</p> 
-			<span class="header_edit"><a href="edit.html">edit your move</a></span>
+				<p>
+				<%= @move.to.upcase %> to <%= @move.from.upcase %> on <%= @move.date.strftime("%B %d, %Y") %> 
+				</p> 
+				<span class="edit"><%= link_to 'edit your move', edit_move_path(@move)%></span>
 		</div>
 		
 <div class="col1">
