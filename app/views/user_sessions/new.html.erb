@@ -42,16 +42,16 @@
 			<br />
 			<div id= 'new_user_form_row'>
 			<%= f.label :name %>
-			<%= f.text_field :name, :size =>'21' %><br /></div>
+			<%= f.text_field :name, :size =>'30' %><br /></div>
 			<div id= 'new_user_form_row'>
 			<%= f.label :email, "Email " %>
-			<%= f.text_field :email, :size =>'21' %><br /></div>
+			<%= f.text_field :email, :size =>'30' %><br /></div>
 			<div id= 'new_user_form_row'>
 			<%= f.label :login, "Login " %>
-			<%= f.text_field :login, :size =>'21' %><br /></div>
+			<%= f.text_field :login, :size =>'30' %><br /></div>
 			<div id= 'new_user_form_row'>
 			<%= f.label :password, f.object.new_record? ? nil : "Change password" %>
-			<%= f.password_field :password, :size =>'21' %><br /></div>
+			<%= f.password_field :password, :size =>'30' %><br /></div>
 			</div>
 			<div id="submit">
 		    <%= image_submit_tag ("buttons/get_started.png", :border=>0) %>

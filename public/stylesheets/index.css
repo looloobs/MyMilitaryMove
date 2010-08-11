@@ -130,7 +130,7 @@ p {
 	position:absolute;
 }
 #new_user_form {
-	margin-top:40px;
+	margin-top:10px;
 	float:left;
 	margin-left:35px;
 	font-family: 'Droid Sans', arial, serif;
@@ -140,7 +140,7 @@ p {
 }
 #new_user_form h1 {
 	font-family: 'Droid Sans', arial, serif;
-	font-size:16px;
+	font-size:14px;
 }
 #new_user_form h3 {
 	font-family: 'Droid Sans', arial, serif;
@@ -161,7 +161,7 @@ p {
 	background:#fff;
 	border: 1px solid #999;
 	font-family: 'Droid Sans', arial, serif;
-	font-size: 30px;
+	font-size: 20px;
 	color: #666;
 }
 #new_user_form select {
@@ -184,7 +184,6 @@ p {
 	background:none;
 	float:right;
 	margin-right:40px;
-	margin-top:15px;
 	margin-bottom:15px;
 }
 
