@@ -31,7 +31,7 @@ h1 {
 	margin-left:15px;
 	margin-top:15px;
 	font-family: 'Droid Sans', arial, serif;
-	font-size:65px;
+	font-size:55px;
 	color:#041128;
 	
 }
@@ -39,7 +39,7 @@ h2 {
 	margin:5px;
 	margin-left:20px;
 	font-family: 'Droid Sans', arial, serif;
-	font-size:22.5px;
+	font-size:19px;
 	color:#041128;
 }
 p {
@@ -47,7 +47,7 @@ p {
     padding:0;
 }
 .wrap {
-	width:960px;
+	width:800px;
 	margin: 0px auto;
 }
 
@@ -113,7 +113,7 @@ p {
 #blue_square {
 	position:relative;
 	float:left;
-	margin-left:175px;
+	margin-left:110px;
 	width:550px;
 
 	background:#8C9EB5;
@@ -121,7 +121,7 @@ p {
 	
 }
 #index_image {
-	margin-top:-50px;
+	margin-top:-25px;
 	position:relative;
 }
 #price_tag {
@@ -153,7 +153,7 @@ p {
 }
 #new_user_form_row {
 	position:relative;
-	margin-bottom:25px;
+	margin-bottom:15px;
 }
 #new_user_form input {
 	float:right;
