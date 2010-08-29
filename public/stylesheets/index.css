@@ -50,7 +50,30 @@ p {
 	width:800px;
 	margin: 0px auto;
 }
-
+#beta {
+	margin-left:25px;
+	margin-top:10px;
+	width:500px;
+	float:left;
+	background:#FCB4B4;
+	height:100px;
+	border: 1px solid #AC0000;
+}
+#beta h2 {
+	margin-left:20px;
+	font-family: 'Droid Sans', arial, serif;
+	font-size:19px;
+	color:#AC0000;
+}
+#beta a {
+	float:right;
+	margin-right:20px;
+	font-family: 'Droid Sans', arial, serif;
+	font-size:17px;
+	color:#AC0000;
+	text-decoration:none;
+	background:white;
+}
 /* ERROR ERROR */
 
 .field_error {
@@ -130,7 +153,6 @@ p {
 	position:absolute;
 }
 #new_user_form {
-	margin-top:10px;
 	float:left;
 	margin-left:35px;
 	font-family: 'Droid Sans', arial, serif;

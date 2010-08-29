@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :homes
   map.resources :researches
   map.resources :trips
+  map.resources :tour
 
   map.resources :itineraries do |itinerary|
     itinerary.resources :trips

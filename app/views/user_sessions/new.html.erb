@@ -31,7 +31,11 @@
 	<h2>itinerary, calendar, lists & notes, research on neighborhoods, homes & schools</h2>
 
 	<div id="blue_square">
-			
+	  <div id="beta">	
+	    <p><h2>We Need Beta Users!</h2></p>
+	    <p><h2>Sign up today and get the next year free.</h2></p>
+	    <p><%= link_to "What is militarymoveit.com? Take A Tour", {:controller => "/tour", :action => "index"} %></p>
+	  </div>		
 		<div id="price_tag">
 			<!--%= image_tag("index/price_tag.png", :border=>0) %-->
 		</div>
@@ -46,9 +50,7 @@
 			<div id= 'new_user_form_row'>
 			<%= f.label :email, "Email " %>
 			<%= f.text_field :email, :size =>'30' %><br /></div>
-			<div id= 'new_user_form_row'>
-			<%= f.label :login, "Login " %>
-			<%= f.text_field :login, :size =>'30' %><br /></div>
+			
 			<div id= 'new_user_form_row'>
 			<%= f.label :password, f.object.new_record? ? nil : "Change password" %>
 			<%= f.password_field :password, :size =>'30' %><br /></div>
@@ -59,7 +61,7 @@
 		    </p>
 			
 		<% end %>
-			
+		</div>	
 	</div>
 </div>
 <div id="footer">
