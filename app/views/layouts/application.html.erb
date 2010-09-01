@@ -9,6 +9,8 @@
   <%= stylesheet_link_tag 'datePicker' %>
   <%= javascript_include_tag 'jquery', 'jquery_ui', 'jquery.datePicker', 'jquery.validate', 'application' %>
   <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
+  <%= javascript_include_tag "analytics/one" %>
+  <%=javascript_include_tag "analytics/two" %>
 </head>
 <body>
 
