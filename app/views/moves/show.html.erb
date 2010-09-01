@@ -89,9 +89,9 @@
 		  </div>
 		  <div id="border">
 		  <h1>Research</h1>
-			You have <%= @neighborhoods.size %> Neighborhoods saved. Work on my <span class='highlight'><%= link_to 'neighborhoods', neighborhoods_path(@neighborhoods) %>.</span><br />
-		    You have <%= @homes.size %> Homes saved. Work on my <span class='highlight'><%= link_to 'homes', homes_path(@homes) %>.</span><br />
-		    You have <%= @schools.size %> Schools saved. Work on my <span class='highlight'><%= link_to 'schools', schools_path(@schools) %>.</span><br />
+			You have <%= @neighborhoods.size %> Neighborhoods saved. Work on my <span class='highlight'><%= link_to 'neighborhoods', move_neighborhoods_path(@move) %>.</span><br />
+		    You have <%= @homes.size %> Homes saved. Work on my <span class='highlight'><%= link_to 'homes', move_homes_path(@move) %>.</span><br />
+		    You have <%= @schools.size %> Schools saved. Work on my <span class='highlight'><%= link_to 'schools', move_schools_path(@move) %>.</span><br />
 		  </div>
 			<!-- Column 1 end -->
 		</div>
@@ -102,7 +102,6 @@
 		    <h1>User Account Information</h1>
 		      <p>
 		        <%= @user.name %><br />
-		  		<%= @user.login %><br />
 		  		<%= @user.email %><br />
 		  	  </p>
 		

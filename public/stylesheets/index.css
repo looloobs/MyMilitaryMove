@@ -26,6 +26,9 @@ a:hover {
 	margin-top:3px;
 	margin-bottom:3px;
 }
+.notify {
+	color: #930A0A;
+}
 h1 {
 	margin:0px;
 	margin-left:15px;

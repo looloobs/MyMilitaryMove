@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  acts_as_authentic
+  acts_as_authentic do |c|
+    c.validate_login_field = false
+  end
   
   has_many :families
   has_many :homes
@@ -16,7 +18,6 @@ class User < ActiveRecord::Base
   def signup!(params)
       self.email = params[:user][:email]
       self.name = params[:user][:name]
-      self.login = params[:user][:login]
       self.password = params[:user][:password]
       #save_without_session_maintenance
   end

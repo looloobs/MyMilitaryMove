@@ -16,13 +16,14 @@
 		<% form_for @user_session, :url => user_session_path do |f| %>
 		  <%= error_messages_for "user_session", :header_message => nil, :message => nil, :id => 'LoginErrorExplanation' %>
 
-		  <%= f.label :login %>
-		  <%= f.text_field :login, :size => '20' %>
+		  <%= f.label :email %>
+		  <%= f.text_field :email, :size => '20' %>
 		  <%= f.label :password %>
 		  <%= f.password_field :password, :size => '20' %>
 		  <%= f.check_box :remember_me %><%= f.label :remember_me %>
 		  <%= f.submit "Login" %>
 		<% end %>
+		<p><span class="notify">**If you are logging in with the user name "guest" login with the email guest@mail.com instead.</span></p>
 		</div>
 	  
 	</div>
