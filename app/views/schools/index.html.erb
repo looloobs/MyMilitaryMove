@@ -114,7 +114,7 @@ Tuition: <%= school.cost %><br />
 <div id="home_note">
 	<%= image_tag("buttons/take_a_school_note.png", :border=>0) %>
 	<p>
-      <%= school.note %>
+      <%= simple_format(school.note) %>
 	</p>
 </div>
 </div>

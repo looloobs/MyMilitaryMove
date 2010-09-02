@@ -115,7 +115,7 @@ Neighborhood: <%= home.neighborhood.name %><br />
 <div id="home_note">
 	<%= image_tag("buttons/take_a_home_note.png", :border=>0) %>
 	<p>
-      <%= home.note %>
+      <%= simple_format(home.note) %>
 	</p>
 </div>
 </div>
