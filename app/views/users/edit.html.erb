@@ -17,68 +17,66 @@
 			  <li><%= link_to "Account", user_path(current_user) %></li>
 			</ul>
 		</div>
-	</div>
+	  </div>
 <div id="main">
 	
-	<div id="border">
+  <div id="border">
 		
-	  <div id="form">
-<% form_for @user, :url => account_path do |f| %>
-  <%= f.error_messages %>
-<div id="sidebar">
- <h2>Edit your profile </h2>
-  <div id="account_family">
-	<%= render :partial => "form", :object => f %>
-  </div>
-  <h2>Edit your address</h2>
-	<div id="account_family">
-		  <% f.fields_for :address do |address| %>
-	        <%= render "add", :address => address %>
-		  <% end %>
-	</div>
-	</div>
-	<h2>Edit your spouse </h2>
-		<div id="account_family">
-	<% f.fields_for :spouse do |spouse| %>
-      <%= render "spouse", :spouse => spouse %>
-	  	<p>
-	    <%= f.submit 'Save' %>
-	  </p>
-	<% end %>
-		</div>
- </div>
-</div>
-<div id ="form">
-<div id="sidebar_two">
-	<h2>Edit your children </h2>
-	<div id="account_family">	  
-  	  <% f.fields_for :families do |family| %>
-		
-        <%= render "family", :family => family %>
-		<p>
-	    <%= f.submit 'Save' %>
-	  </p>
-	  <% end %>
-	</div>
-	<h2>Edit your pets </h2>
-	<div id="account_family">
-  	  <% f.fields_for :pets do |pet| %>	
-        <%= render "pet", :pet => pet %>
-		<p>
-	    <%= f.submit 'Save' %>
-	  </p>
-	  <% end %>
-	</div>
-
-<% end %>
-</div>
-</div>
-  </div>
-    </div>
+  	<div id ="form">
+    <% form_for @user, :url => account_path do |f| %>
+    <%= f.error_messages %>
+      <div id="sidebar">
+        <h2>Edit your profile </h2>
+        	<div id="account_family">
+	     	<%= render :partial => "form", :object => f %>
+        	</div>
+       <h2>Edit your address</h2>
+			<div id="account_family">
+		  	  <% f.fields_for :address do |address| %>
+	          <%= render "add", :address => address %>
+		  	  <% end %>
+			</div>
+	  </div>
+		<h2>Edit your spouse </h2>
+			<div id="account_family">
+			  <% f.fields_for :spouse do |spouse| %>
+              <%= render "spouse", :spouse => spouse %>
+	  	      <p>
+	          <%= f.submit 'Save' %>
+	          </p>
+	          <% end %>
+		    </div>
       </div>
+    
+  	<div id ="form">
+	<div id="sidebar_two">
+	  <h2>Edit your children </h2>
+	  <div id="account_family">	  
+  	    <% f.fields_for :families do |family| %>
+		  <%= render "family", :family => family %>
+		  <p>
+	      <%= f.submit 'Save' %>
+	      </p>
+	      <% end %>
+	  </div>
+	<h2>Edit your pets </h2>
+	  <div id="account_family">
+  	    <% f.fields_for :pets do |pet| %>	
+          <%= render "pet", :pet => pet %>
+		  <p>
+	      <%= f.submit 'Save' %>
+	      </p>
+	    <% end %>
+	  </div>
+    <% end %>
+    </div>
+  </div>
+  </div>
+</div>
+
 <div id="footer">
 	<p> Copyright Lauren Rothlisberger</p>
-
+</div>
 </div>
 
 </body>

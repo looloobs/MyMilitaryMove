@@ -1,0 +1,122 @@
+body { margin: -10px 0 0 -10px; }
+html body { margin: 0; padding: 0; }
+body {
+    border:0px;			/* This removes the border around the viewport in old versions of IE */
+    width:100%;
+    background:#fff;
+    min-width:600px;    /* Minimum width of layout - remove line if not required */
+						/* The min-width property does not work in old versions of Internet Explorer */
+	font-size:90%;
+	background-image:url('/images/articles/off_post_housing/background.png');
+	background-repeat:repeat-x;
+}
+#wrap {
+	width:960px;
+	margin: 0 auto;
+	background:white;
+}
+/* Header styles */
+#header {
+	margin: 0;
+	height:60px;
+	background: #041128;
+	padding: 5px 0 0 0;
+	color: #ccc;
+
+}
+#logo {
+	float:left;
+	margin-left:20px;
+}
+
+/* main styles */
+
+#main {
+  position:absolute;
+  width:960px;
+  background:#ffffff;
+}
+#intro {
+  margin:10px;	
+}
+#intro p {
+	font-family:Times;
+	font-style:italic;
+	font-size:16px;
+}
+#intro a {
+	background:#fffb95;
+	margin:2px;
+	text-decoration:none;
+	color:black;
+}
+#container_one {
+  float:left;
+  width:600px;
+  margin:10px;
+}
+#container_one p {
+  margin-top:0px;
+  margin-left:25px;
+  font-family:arial;
+  font-size:14px;
+}
+#container_one img {
+  margin-top:10px;
+}
+#container_one ul {
+  margin-top:0px;
+  font-family:arial;
+  font-size:14px;
+}
+#container_two {
+  float:left;
+  margin:10px;
+  background:#E8F5F9;
+  width:300px;
+}
+#container_two td {
+  font-family:arial;
+  font-size:11px;
+  padding-bottom:8px;
+}
+#container_two img {
+  margin:3px;
+}
+#container_two table {
+	clear:right;
+}
+#container_two h1 {
+  float:right;
+  margin-right:5px;
+  font-family:arial;
+  font-size:16px;
+  font-style:bold;
+}
+.links {
+  margin-left:25px;
+  font-family:arial;
+  font-size:14px;
+}
+.links a {
+	background:#fffb95;
+	margin:2px;
+	text-decoration:none;
+	color:black;
+}
+.bonus {
+  margin-left:25px;
+  font-family:arial;
+  font-size:14px;	
+}
+.bonus a {
+	background:#cedcf8;
+	margin:2px;
+	text-decoration:none;
+	color:black;
+}
+#footer {
+  font-family:arial;
+  font-size:16px;
+  font-style:bold;
+}

@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.off_post_housing '/off_post_housing', :controller => 'posts', :action => 'off_post_housing'
+  map.resources :posts, :member => { :off_post_housing => :any }
   map.connect "logged_exceptions/:action/:id", :controller => "logged_exceptions"
   map.resources :orders
   map.resources :spouses

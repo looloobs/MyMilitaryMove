@@ -1,0 +1,20 @@
+<%= stylesheet_link_tag @post.style %>
+
+<div id="header">
+  	<div id="logo">
+	<%= link_to image_tag("icons/logo_small.png", :border=>0), root_url %>
+</div>	
+
+</div>
+<div class="wrap">
+<p>
+
+  <%=h @post.title %>
+</p>
+
+<p>
+
+  <%=h @post.body %>
+</p>
+
+</div>
