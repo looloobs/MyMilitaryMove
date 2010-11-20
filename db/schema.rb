@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100914142723) do
+ActiveRecord::Schema.define(:version => 20101120034524) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -51,10 +51,25 @@ ActiveRecord::Schema.define(:version => 20100914142723) do
     t.datetime "updated_at"
   end
 
+  create_table "communities", :force => true do |t|
+    t.integer  "move_id"
+    t.integer  "neighborhood_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "cons", :force => true do |t|
     t.string   "con"
     t.integer  "negative_id"
     t.string   "negative_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "move_id"
+  end
+
+  create_table "ends", :force => true do |t|
+    t.integer  "move_id"
+    t.integer  "installation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -110,6 +125,14 @@ ActiveRecord::Schema.define(:version => 20100914142723) do
     t.integer  "move_id"
   end
 
+  create_table "installations", :force => true do |t|
+    t.integer  "state_id"
+    t.string   "name"
+    t.string   "branch"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "itineraries", :force => true do |t|
     t.integer  "user_id"
     t.integer  "move_id"
@@ -151,6 +174,23 @@ ActiveRecord::Schema.define(:version => 20100914142723) do
     t.string   "active"
   end
 
+  create_table "moves_neighborhoods", :force => true do |t|
+    t.integer  "neighborhood_id"
+    t.integer  "move_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "neighborhood_notes", :force => true do |t|
+    t.integer  "neighborhood_id"
+    t.integer  "move_id"
+    t.text     "note"
+    t.string   "public"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "privacy"
+  end
+
   create_table "neighborhoods", :force => true do |t|
     t.integer  "research_id"
     t.string   "name"
@@ -161,6 +201,17 @@ ActiveRecord::Schema.define(:version => 20100914142723) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "move_id"
+    t.integer  "installation_id"
+    t.string   "location"
+    t.string   "category"
+    t.text     "info"
+  end
+
+  create_table "neighborhoods_parts", :force => true do |t|
+    t.integer  "neighborhood_id"
+    t.integer  "move_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "notes", :force => true do |t|
@@ -225,12 +276,20 @@ ActiveRecord::Schema.define(:version => 20100914142723) do
     t.string   "positive_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "move_id"
   end
 
   create_table "researches", :force => true do |t|
     t.integer  "user_id"
     t.integer  "move_id"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reviews", :force => true do |t|
+    t.integer  "neighborhood_id"
+    t.text     "review"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -265,6 +324,13 @@ ActiveRecord::Schema.define(:version => 20100914142723) do
     t.string   "branch"
     t.string   "rank"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "starts", :force => true do |t|
+    t.integer  "move_id"
+    t.integer  "installation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -3,6 +3,8 @@ class ListsController < ApplicationController
   # GET /lists.xml
   def index
     @move= Move.find(params[:move_id])
+    @start = @move.start.installation
+    @end = @move.end.installation
     @lists = @move.lists
     @list = List.new
     @task = Task.new

@@ -39,7 +39,7 @@
 		<span class="highlight">It looks like you don't have any moves started yet. To start a move click the "Add A Move" button above.</span>
 		<% else %>
 	    	<% @moves.each do |move| %>
-	    	Work on my move to: <%= link_to move.to, user_move_path(@user, move) %><br />
+	    	Work on my move to: <%= link_to move.end.installation.name, user_move_path(@user, move) %><br />
 			<% end %>
 		<% end %>
 		</p>

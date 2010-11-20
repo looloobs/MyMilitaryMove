@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  state_id: 1
+  name: MyString
+  branch: MyString
+
+two:
+  state_id: 1
+  name: MyString
+  branch: MyString

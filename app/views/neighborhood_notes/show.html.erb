@@ -1,0 +1,23 @@
+<p>
+  <b>Neighborhood:</b>
+  <%=h @neighborhood_note.neighborhood_id %>
+</p>
+
+<p>
+  <b>Move:</b>
+  <%=h @neighborhood_note.move_id %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%=h @neighborhood_note.note %>
+</p>
+
+<p>
+  <b>Public:</b>
+  <%=h @neighborhood_note.public %>
+</p>
+
+
+<%= link_to 'Edit', edit_neighborhood_note_path(@neighborhood_note) %> |
+<%= link_to 'Back', neighborhood_notes_path %>

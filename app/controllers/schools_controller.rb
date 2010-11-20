@@ -3,6 +3,8 @@ class SchoolsController < ApplicationController
   # GET /schools.xml
   def index
     @move= Move.find(params[:move_id])
+    @start = @move.start.installation
+    @end = @move.end.installation
     @schools = School.find(:all, :conditions => ['move_id = ?', @move.id])
     @pro = Pro.new
     @con = Con.new

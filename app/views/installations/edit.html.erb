@@ -1,0 +1,24 @@
+<h1>Editing installation</h1>
+
+<% form_for(@installation) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :state_id %><br />
+    <%= f.text_field :state_id %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :branch %><br />
+    <%= f.text_field :branch %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @installation %> |
+<%= link_to 'Back', installations_path %>

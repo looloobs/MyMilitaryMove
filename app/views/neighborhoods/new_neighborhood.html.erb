@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+  	<div id="logo">
+	<%= link_to image_tag("icons/logo_small.png", :border=>0), root_url %>
+	</div>
+</div>
+<div id="main">
+	<div id="border">
+<div class = "notice"><%= flash[:notice] %></div>
+	  <div id="form">
+<h1>Choose Your Installation</h1>
+
+
+  
+<div id="sidebar">
+
+	  <p>
+		  <% form_tag installation_path :method => :get do %>
+		  <%= select_tag :id, options_from_collection_for_select(Installation.find(:all), :id, :name) %>
+		<div id="button">
+		  <p>
+		    <%= submit_tag "Go", :name => nil %>
+		  </p>
+		</div>
+	  </p>
+</div>
+
+	<% end %>
+
+  </div>
+    </div>
+      </div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+
+</body>
+</html>

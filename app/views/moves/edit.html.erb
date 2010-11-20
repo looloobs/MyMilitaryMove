@@ -23,21 +23,35 @@
 	  <div id="form">
 		  <h1>Editing move</h1>
 
-		<% form_for(@move) do |f| %>
+		<% form_for(@move, @start) do |f| %>
 		  <%= f.error_messages %>
 
-		  <p>
-		    <%= f.label :to %><br />
-		    <%= f.text_field :to %>
-		  </p>
-		  <p>
-		    <%= f.label :from %><br />
-		    <%= f.text_field :from %>
-		  </p>
-		  <p>
-		    <%= f.label :date %><br />
-		    <%= f.date_select(:date, :order => [:month, :day, :year]) %>
-		  </p>
+
+			<p>
+				<% f.fields_for :start do |s| %>
+				    <%= s.hidden_field :move_id, :value => @move.id %>
+				    
+					<%= s.label :installation_id, "Moving To" %><br />
+					<%= s.collection_select :installation_id, Installation.find(:all), :id, :name, :prompt => "Select a Location" %>     
+					or create one:
+					 <%= s.text_field :new_installation_name %>
+					
+			     <% end %>
+			</p>
+			<p>
+				<% f.fields_for :end do |e| %>
+				    <%= e.hidden_field :move_id, :value => @move.id %>
+					<%= e.label :installation_id, "Moving From" %><br />
+					<%= e.collection_select :installation_id, Installation.find(:all), :id, :name, :prompt => "Select a Location" %>
+					or create one:
+					<%= e.text_field :new_installation_name  %>
+				<% end %>
+			</p>
+			<p>
+				<%= f.label :date, "Move Date (*just take a guess)" %><br />
+				<%= f.date_select(:date, :order => [:month, :day, :year]) %>
+
+			</p>
 		  <p>
 		    <%= f.submit 'Update' %>
 		  </p>

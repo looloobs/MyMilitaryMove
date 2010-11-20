@@ -3,6 +3,8 @@ class ItinerariesController < ApplicationController
   # GET /itineraries.xml
   def index
     @move = Move.find(params[:move_id])
+    @start = @move.start.installation
+    @end = @move.end.installation
     @itineraries = @move.itineraries
     @user = current_user
     @itinerary = Itinerary.new

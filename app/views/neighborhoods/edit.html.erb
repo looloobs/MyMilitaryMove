@@ -8,30 +8,43 @@
 <body>
 <div class="wrap">
 <div id="header">
-<%= render :partial => "shared/navigation_bar" %>
+<% if current_user.blank? %>
+   	<div id="logo">
+	<%= link_to image_tag("icons/logo_small.png", :border=>0), root_url %>
+	</div>
+<% else %>
+   <%= render :partial => "shared/navigation_bar" %>
+<% end %>
 </div>
 <div id="main">
 	<div id="border">
 	  <div id="form">
 <h1>Edit This Neighborhood</h1>
-
-<% form_for([@move, @neighborhood]) do |f| %>
+Please remember when you edit, there is a place for fact and a place for opinion. If you are editing facts that are incorrect please do so, if you are offering an opinion use the <span class="highlight"><%= link_to 'review area.', new_neighborhood_review_path(@neighborhood) %></span>
+<% form_for([@move,@neighborhood]) do |f| %>
   <%= f.error_messages :header_message => nil, :message => "Please fix the following field(s):"%>
 <div id="sidebar">
-		<%= hidden_field :move_id, :value => @move.id %>
   	  <p>
 	    <%= f.label :name, "Neighborhood/Town/Subdivision Name" %><br />
 	    <%= f.text_field :name %>
 	  </p>
 	  <p>
 	    <%= f.label :distance %><br />
-	    <span class="highlight">How far (in miles) is this neighborhood to <%= @move.to %>?</span><br />
+	    <span class="highlight">How far (in miles) is this neighborhood?</span><br />
 	    <%= f.text_field :distance, :size => '2' %> Miles
 	  </p>
 	  <p>
 	    <%= f.label :drive_distance %><br />
-	    <span class="highlight">How long will it take to drive to <%= @move.to %>?</span><br />
+	    <span class="highlight">How long will it take to drive?</span><br />
 	    <%= f.text_field :drive_distance, :size => '2' %> Minutes
+	  </p>
+	<p>
+	    <%= f.label :location, "This neighborhood is located:" %> 
+	    <%= f.select(:location, [["Please Select", ""], ["On-Post/Base", "On-Post/Base"], ["Off-Post/Base", "Off-Post/Base"]]) %>
+	  </p>
+	  <p>
+	    <%= f.label :category, "This neighborhood is best described as a:" %> 
+	    <%= f.select(:category, [["Please Select", ""], ["City/Town", "City/Town"], ["Sub-Division", "Sub-Division"], ["Neighborhood", "Neighborhood"], ["General Area", "General Area"]]) %>
 	  </p>
 	  <p>
 	    <%= f.label :school_district %><br />
@@ -41,8 +54,8 @@
 	</div>
 	<div id="note">
 	  <p>
-	    <%= f.label :notes %><br />
-	    <%= f.text_area :notes, :size => '75x10' %>
+	    <%= f.label :info %><br />
+	    <%= f.text_area :info, :size => '75x10' %>
 	  </p>
 	</div>
 	<div id="button">

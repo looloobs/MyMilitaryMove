@@ -2,7 +2,9 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.xml
   def index
-    @move= Move.find(params[:move_id])
+    @move= Move.find(params[:move_id]) 
+    @start = @move.start.installation
+    @end = @move.end.installation
     @notes = @move.notes
     @note = Note.new
     @move= Move.find(params[:move_id])

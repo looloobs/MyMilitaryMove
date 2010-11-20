@@ -1,0 +1,22 @@
+<h1>Listing ends</h1>
+
+<table>
+  <tr>
+    <th>Move</th>
+    <th>Installation</th>
+  </tr>
+
+<% @ends.each do |end| %>
+  <tr>
+    <td><%=h end.move_id %></td>
+    <td><%=h end.installation_id %></td>
+    <td><%= link_to 'Show', end %></td>
+    <td><%= link_to 'Edit', edit_end_path(end) %></td>
+    <td><%= link_to 'Destroy', end, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New end', new_end_path %>

@@ -21,20 +21,30 @@
 <div id="main">
 	<div id="border">
 	  <div id="form">
-		  <% form_for(@move) do |f| %>
+		  <% form_for(@move, @start) do |f| %>
 			<p>
 				<%= f.hidden_field :user_id, :value => @user.id %>
 				<%= f.hidden_field :active, :value => 'Yes' %>
 			</p>
 			<p>
-				<%= f.label :to, "Moving To" %><br />
-				<span class="highlight">Put the military post and state. e.g. Fort Drum</span><br />
-				<%= f.text_field :to %>
+				<% f.fields_for :start do |s| %>
+				    <%= s.hidden_field :move_id, :value => @move.id %>
+				    
+					<%= s.label :installation_id, "Moving To" %><br />
+					<%= s.collection_select :installation_id, Installation.find(:all), :id, :name, :prompt => "Select a Location" %>     
+					or create one:
+					 <%= s.text_field :new_installation_name %>
+					
+			     <% end %>
 			</p>
 			<p>
-				<%= f.label :from, "Moving From" %><br />
-				<span class="highlight">Put the military post and state. e.g. Fort Hood</span><br />
-				<%= f.text_field :from %>
+				<% f.fields_for :end do |e| %>
+				    <%= e.hidden_field :move_id, :value => @move.id %>
+					<%= e.label :installation_id, "Moving From" %><br />
+					<%= e.collection_select :installation_id, Installation.find(:all), :id, :name, :prompt => "Select a Location" %>
+					or create one:
+					<%= e.text_field :new_installation_name  %>
+				<% end %>
 			</p>
 			<p>
 				<%= f.label :date, "Move Date (*just take a guess)" %><br />

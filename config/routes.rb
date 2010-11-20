@@ -1,5 +1,19 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :reviews
+
+  map.resources :neighborhood_notes
+
+  map.resources :notes
+
+  map.resources :ends
+  map.resources :starts
+  map.resources :installations do |installation|
+     installation.neighborhood '/neighborhood', :controller => 'installations', :action => 'neighborhood'
+  end
+  map.resources :communities
+
   map.off_post_housing '/off_post_housing', :controller => 'posts', :action => 'off_post_housing'
+  map.new_neighborhood '/new_neighborhood', :controller => 'neighborhoods', :action => 'new_neighborhood' 
   map.resources :posts, :member => { :off_post_housing => :any }
   map.connect "logged_exceptions/:action/:id", :controller => "logged_exceptions"
   map.resources :orders
@@ -12,8 +26,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :pros
   map.resources :pets
   map.resource :account, :controller => "users"
+  
   map.resources :notes
-  map.resources :neighborhoods
+  map.resources :neighborhoods do |neighborhood|
+     neighborhood.resources :reviews
+  end
   map.resources :schools
   map.resources :homes
   map.resources :researches
@@ -44,10 +61,14 @@ ActionController::Routing::Routes.draw do |map|
     move.resources :researches
     move.resources :lists
     move.resources :schools
-    move.resources :neighborhoods
+    move.resources :neighborhoods do |neighborhood|
+       neighborhood.resources :communities
+       neighborhood.resources :neighborhood_notes
+    end
     move.resources :homes
     move.resources :notes
     move.resources :events
+    move.resources :communities
     move.resources :itineraries do |itinerary|
       itinerary.resources :trips
     end
@@ -59,6 +80,7 @@ ActionController::Routing::Routes.draw do |map|
     research.resources :schools
   end
   
+  map.connect '/add_new_neighborhood', :controller => "installations", :action => "index"
   
   # The priority is based upon order of creation: first created -> highest priority.
 

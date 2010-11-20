@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  neighborhood_id: 1
+  move_id: 1
+
+two:
+  neighborhood_id: 1
+  move_id: 1

@@ -15,6 +15,9 @@ class MovesController < ApplicationController
   def show
     @move = Move.find(params[:id])
     @user = current_user
+    @start = @move.start.installation
+    @end = @move.end.installation
+    
     @family = @user.families
     @spouse = @user.spouse
     @pets = @user.pets
@@ -32,6 +35,9 @@ class MovesController < ApplicationController
   # GET /moves/new.xml
   def new
     @move = Move.new
+    @move.build_start
+    @move.build_end
+    @move.build_installation
     @user = current_user
     render :layout => "form"
   end

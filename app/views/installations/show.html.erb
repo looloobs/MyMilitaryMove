@@ -1,0 +1,53 @@
+	
+<html>
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link href="../application.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+  	<div id="logo">
+	<%= link_to image_tag("icons/logo_small.png", :border=>0), root_url %>
+	</div>
+</div>
+<div class="colmask rightmenu">
+  <div class="colleft">		
+    <div class="col1">
+<p>
+  <h1>Neighborhoods currently listed for <%= @installation.name %></h1>
+</p>		
+<% @neighborhood.each do |neighborhood| %>
+<div id="border">
+<div id="info">
+<h1><%= neighborhood.name %> </h1>
+
+<span class="highlight"><%= neighborhood.drive_distance %> Miles</span><br />
+<%= neighborhood.distance %> Miles
+</div>
+<div id= "start_an_account_button">
+  <%= link_to "log in or start a new account to save this neighborhood.", root_url %>	
+</div>
+<div id="home_note">
+Notes others have taken about <%= neighborhood.name %>?:
+<% neighborhood.neighborhood_notes.each do |nn| %>
+  <p><%= nn.note %> added <span class="neighborhood_chatter_date"><%= nn.created_at.strftime("%B %Y") %></span></p>
+<% end %>
+</div>
+</div>
+<% end %>
+</div>
+
+<div class="col2">
+	<!-- Column 2 start -->
+
+</div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+</div>
+</body>
+</html>

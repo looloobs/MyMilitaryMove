@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+	
+<html>
 <head>
 	<title>My Military Move</title>
 	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
@@ -16,7 +16,7 @@
 	<div class="colleft">
 		<div id="move">
 				<p>
-				<%= @move.from.upcase %> to <%= @move.to.upcase %> on <%= @move.date.strftime("%B %d, %Y") %> 
+				<%= @start.name.upcase %> to <%= @end.name.upcase %>  on <%= @move.date.strftime("%B %d, %Y") %> 
 				</p> 
 				<span class="edit"><%= link_to 'edit your move', edit_move_path(@move)%></span>
 		</div>
@@ -34,20 +34,24 @@
 			</div>
 <% @neighborhoods.each do |neighborhood| %>
 <div id="border">
+	<div id="delete_button">
+		<span class="delete"><%= link_to 'delete', neighborhood.communities.find_by_neighborhood_id(neighborhood.id), :confirm => 'Are you sure?', :method => :delete %> </span> 
+	</div>
 <div id="info">
-<h1><%= neighborhood.name %> <span class="edit"><%= link_to 'edit | ', edit_move_neighborhood_path(@move,neighborhood)%></span><span class="delete"><%= link_to 'delete', neighborhood, :confirm => 'Are you sure?', :method => :delete %></span> </h1>
+<h1><%= link_to neighborhood.name, move_neighborhood_path(@move, neighborhood) %></h1> 
 
 <span class="highlight"><%= neighborhood.drive_distance %> Miles</span><br />
 <%= neighborhood.distance %> Miles
 <div class="homes_saved">
 <p>
 <strong>Homes saved in <%= neighborhood.name %>:</strong><br />
-<% neighborhood.homes.each do |h| %>
+<% neighborhood.homes.find(:all, :conditions => ['move_id = ?', @move.id]).each do |h| %>
   <%= h.address %>
 <% end %><br />
 <%= link_to image_tag("buttons/add_a_home_small.png", :border=>0), new_move_home_path(@move)%>
 </p>
 </div>
+
 </div>
 <div id="con_list">
 	<h1>Cons</h1>
@@ -61,9 +65,11 @@
 		  </p>
 		  <p>
 		    <%= f.hidden_field :negative_id, :value => neighborhood.id %>
+		    <%= f.hidden_field :move_id, :value => @move.id %>
 		  </p>
 		  <p>
 		    <%= f.hidden_field :negative_type, :value => "Neighborhood" %>
+		    
 		  </p>
 		  <p>
 		    <%= f.submit 'Add' %>
@@ -72,7 +78,7 @@
 	</p>
 	</div>
 	<ul>
-	<% neighborhood.cons.each do |c| %>
+	<% neighborhood.cons.find(:all, :conditions =>['move_id = ?', @move.id]).each do |c| %>
 	<li><%= c.con %> <span class= "delete"><%= link_to 'delete', c, :confirm => 'Are you sure?', :method => :delete %> </span></li>
 	<% end %>
 	</ul>
@@ -92,6 +98,7 @@
 	  </p>
 	  <p>
 	    <%= f.hidden_field :positive_type, :value => "Neighborhood" %>
+	    <%= f.hidden_field :move_id, :value => @move.id %>
 	  </p>
 	  <p>
 	    <%= f.submit 'Add' %>
@@ -100,16 +107,28 @@
 </p>
 </div>
 <ul>
-<% neighborhood.pros.each do |p| %>
+<% neighborhood.pros.find(:all, :conditions =>['move_id = ?', @move.id]).each do |p| %>
 <li><%= p.pro %> <span class= "delete"><%= link_to 'delete', p, :confirm => 'Are you sure?', :method => :delete %> </span></li>
 <% end %>
 </ul>
 </div>
 
 <div id="home_note">
-	<%= image_tag("buttons/take_a_neigh_note.png", :border=>0) %>
+	<% if neighborhood.neighborhood_notes.find(:all, :conditions => ['move_id =?', @move.id]).size.to_i == 0 %>
+	   <%= link_to image_tag("buttons/add_note.png", :border=>0), new_move_neighborhood_neighborhood_note_path(@move,neighborhood) %>
+	
+  
+	 
+	<% elsif neighborhood.neighborhood_notes.find(:all, :conditions => ['move_id =?', @move.id]).size.to_i > 0 %>
+	<% neighborhood.neighborhood_notes.find(:all, :conditions => ['move_id =?', @move.id]).each do |n| %>
+	  <%= link_to image_tag("buttons/edit_note.png", :border=>0), edit_move_neighborhood_neighborhood_note_path(@move, neighborhood, n) %>
+	  
+	   <%= simple_format(n.note) %>
+	<% end %>
 	<p>
-      <%= simple_format(neighborhood.notes) %>
+		
+    
+  <% end %>
 	</p>
 </div>
 </div>
@@ -118,7 +137,15 @@
 
 <div class="col2">
 	<!-- Column 2 start -->
-	
+	Neighborhoods Others Have Entered for <%= @end.name %>
+	<p>
+	<% @all.each do |a| %>
+	   <%= link_to a.name, move_neighborhood_path(@move, a) %> (click to read more)<br />
+	   Distance: <%= a.distance %> miles<br />
+	   Drive time: <%= a.drive_distance %> minutes<br />
+	   <br />
+	<% end %>
+	</p>
 </div>
 <div id="footer">
 	<p> Copyright Lauren Rothlisberger</p>

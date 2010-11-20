@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  neighborhood_id: 1
+  move_id: 1
+  note: MyText
+  public: MyString
+
+two:
+  neighborhood_id: 1
+  move_id: 1
+  note: MyText
+  public: MyString

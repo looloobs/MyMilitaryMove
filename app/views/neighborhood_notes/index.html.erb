@@ -1,0 +1,26 @@
+<h1>Listing neighborhood_notes</h1>
+
+<table>
+  <tr>
+    <th>Neighborhood</th>
+    <th>Move</th>
+    <th>Note</th>
+    <th>Public</th>
+  </tr>
+
+<% @neighborhood_notes.each do |neighborhood_note| %>
+  <tr>
+    <td><%=h neighborhood_note.neighborhood_id %></td>
+    <td><%=h neighborhood_note.move_id %></td>
+    <td><%=h neighborhood_note.note %></td>
+    <td><%=h neighborhood_note.public %></td>
+    <td><%= link_to 'Show', neighborhood_note %></td>
+    <td><%= link_to 'Edit', edit_neighborhood_note_path(neighborhood_note) %></td>
+    <td><%= link_to 'Destroy', neighborhood_note, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New neighborhood_note', new_neighborhood_note_path %>

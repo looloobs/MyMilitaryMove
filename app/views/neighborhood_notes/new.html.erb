@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+  	<div id="logo">
+	<%= link_to image_tag("icons/logo_small.png", :border=>0), root_url %>
+	</div>
+</div>
+<div id="main">
+	<div id="border">
+<div class = "notice"></div>
+	  <div id="form">
+
+		<h1>Take a note about <%= @neighborhood.name %>.</h1>
+
+		<% form_for([@move, @neighborhood, @neighborhood_note]) do |f| %>
+		  <%= f.error_messages %>
+
+		  <p>
+		    <%= f.hidden_field :neighborhood_id, :value => @neighborhood.id %>
+		  </p>
+		  <p>
+		    <%= f.hidden_field :move_id, :value => @move.id %>
+		  </p>
+		  <p>
+		    <%= f.label :note %><br />
+		    <%= f.text_area :note %>
+		  </p>
+		  <p>
+		    <%= f.label :privacy, "Do you care if other users interested in this neighborhood read this note? Your name will not be attached." %><br />
+		    <%= f.select (:privacy, [["Please Select", ""], ["Public Note", "Public"], ["Private Note", "Private"]]) %>
+		  </p>
+		  <p>
+		    <%= f.submit 'Create' %>
+		  </p>
+		<% end %>
+
+  </div>
+    </div>
+      </div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+</div>
+</body>
+</html>

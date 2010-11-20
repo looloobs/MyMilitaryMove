@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  neighborhood_id: 1
+  review: MyText
+
+two:
+  neighborhood_id: 1
+  review: MyText

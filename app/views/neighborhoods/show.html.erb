@@ -1,43 +1,106 @@
-<p>
-  <b>Research:</b>
-  <%=h @neighborhood.research_id %>
-</p>
+	
+<html>
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link href="../application.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+  	<div id="logo">
+	<%= link_to image_tag("icons/logo_small.png", :border=>0), root_url %>
+	</div>
+</div>
+<div class="colmask rightmenu">
 
-<p>
-  <b>Name:</b>
-  <%=h @neighborhood.name %>
-</p>
+  <div class="colleft">
+		<div id="move">
+          <p></p>
+		</div>
+    <div class="col1">
+		
+			<!-- Column 1 start -->
 
-<p>
-  <b>Distance:</b>
-  <%=h @neighborhood.distance %>
-</p>
+<h1> Neighborhood Profile </h1>
+<div id="border">
+	<% unless current_user.blank? %>
+  <div id= "save_button">
+	<div id= "form">
+	<% form_for([@move, @neighborhood, @community]) do |f| %>
+	  	<div id="button">
+			    <%= f.hidden_field :move_id, :value => @move.id %>
+			    <%= f.hidden_field :neighborhood_id, :value => @neighborhood.id %>
+			<div id="red_submit">
+		      <%= image_submit_tag 'buttons/save_to_my_move.png', :style => "border:none" %>
+		    </div>
+		</div>
+	  </div>
+	</div>
+	<% end %>
+    <% else %>
+     <div id= "start_an_account_button">
+	  <%= link_to "log in or start a new account to save this neighborhood.", root_url %>	
+	</div>
+	<% end %>
+<div id="info">
+<h1><%=h @neighborhood.name %> 
+<% if current_user.blank? %>
+  <%= link_to image_tag("buttons/edit_neighborhood.png", :border=>0), edit_neighborhood_path (@neighborhood) %>
+<% else %>
+  <%= link_to image_tag("buttons/edit_neighborhood.png", :border=>0), edit_move_neighborhood_path (@move, @neighborhood) %>
+<% end %>
+</h1>
 
+<span class="highlight"><%=h @neighborhood.drive_distance %> Miles</span><br />
+<%=h @neighborhood.distance %> Miles
 <p>
-  <b>Drive distance:</b>
-  <%=h @neighborhood.drive_distance %>
-</p>
-
-<p>
+  Location: <%=h @neighborhood.location %><br />
+  Type of Neighborhood: <%=h @neighborhood.category %><br />
   <b>School district:</b>
   <%=h @neighborhood.school_district %>
 </p>
-
-<p>
-  <b>Pros:</b>
-  <%=h @neighborhood.pros %>
-</p>
-
-<p>
-  <b>Cons:</b>
-  <%=h @neighborhood.cons %>
-</p>
-
-<p>
-  <b>Notes:</b>
-  <%=h @neighborhood.notes %>
-</p>
+</div>
 
 
-<%= link_to 'Edit', edit_neighborhood_path(@neighborhood) %> |
-<%= link_to 'Back', neighborhoods_path %>
+<div id="neighborhood_info">
+	Information about <%=h @neighborhood.name %>: <br />
+	<p>
+		
+		<%=h @neighborhood.info %>
+	</p>
+</div>
+<div id="home_note">
+	<div id= "save_button">
+	  <%= link_to image_tag("buttons/add_review.png", :border=>0), new_neighborhood_review_path(@neighborhood) %>
+	</div>
+	
+	<%=h @neighborhood.name %> Reviews:
+		<% @neighborhood.reviews.each do |c| %>
+		  <p>
+		  <%=h c.review %> <span class="neighborhood_chatter_date"><%= c.created_at.strftime("%B %Y") %></span><br />
+		  </p>
+		<% end %>
+	
+</div>
+</div>
+</div>
+
+<div class="col2">
+	<!-- Column 2 start -->
+	<div id="chatter">
+      <h1>Neighborhood Chatter </h1>
+      <p> <span class="chatter_highlight">These are the thoughts and concerns others have jotted down in their research. </span></p>
+   	  <% @neighborhood.neighborhood_notes.find(:all, :conditions => ['privacy = ?', 'Public']).each do |nn| %>
+	    <%=h nn.note %> <span class="neighborhood_chatter_date"><%= nn.created_at.strftime("%B %Y") %></span><%= image_tag("icons/dot.png", :border=>0)%>
+	  <% end %>
+	</div>
+</div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+</div>
+</body>
+</html>

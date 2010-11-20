@@ -17,11 +17,24 @@
 
 <% form_for([:move, @neighborhood]) do |f| %>
   <%= f.error_messages :header_message => nil, :message => "Please fix the following field(s):"%>
+  <% f.fields_for :communities do |c| %>
+    <%= c.hidden_field :move_id, :value => @move.id %>
+    <%= c.hidden_field :neighborhood_id, :value => @neighborhood.id %>
+  <% end %>
 <div id="sidebar">
 		<%= f.hidden_field :move_id, :value => @move.id %>
+		<%= f.hidden_field :installation_id, :value => @move.end.installation.id %>
   	  <p>
 	    <%= f.label :name, "Neighborhood/Town/Subdivision Name" %><br />
 	    <%= f.text_field :name %>
+	  </p>
+	<p>
+	    <%= f.label :location, "This neighborhood is located:" %> 
+	    <%= f.select(:location, [["Please Select", ""], ["On-Post/Base", "On-Post/Base"], ["Off-Post/Base", "Off-Post/Base"]]) %>
+	  </p>
+	  <p>
+	    <%= f.label :category, "This neighborhood is best described as a:" %> 
+	    <%= f.select(:category, [["Please Select", ""], ["City/Town", "City/Town"], ["Sub-Division", "Sub-Division"], ["Neighborhood", "Neighborhood"], ["General Area", "General Area"]]) %>
 	  </p>
 	  <p>
 	    <%= f.label :distance %><br />
@@ -39,10 +52,18 @@
 	    <%= f.text_field :school_district %>
 	  </p>
 	</div>
+
 	<div id="note">
+		<p>
+	    <%= f.label :info, "What other information do you know about this neighborhood?" %><br />
+	    <%= f.text_area :info, :size => '75x10' %>
+	  </p>
 	  <p>
-	    <%= f.label :notes %><br />
-	    <%= f.text_area :notes, :size => '75x10' %>
+	    <% f.fields_for :neighborhood_notes do |n| %>
+	       <%= n.hidden_field :move_id, :value => @move.id %>
+	       <%= n.label :note, "Do you have any personal notes you would like to jot down about this place?"%>
+	       <%= n.text_area :note, :size => '75x10' %>
+	    <% end %>
 	  </p>
 	</div>
 	<div id="button">

@@ -1,0 +1,13 @@
+<p>
+  <b>Neighborhood:</b>
+  <%=h @review.neighborhood_id %>
+</p>
+
+<p>
+  <b>Review:</b>
+  <%=h @review.review %>
+</p>
+
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>

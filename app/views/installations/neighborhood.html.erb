@@ -1,0 +1,79 @@
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+  	<div id="logo">
+	<%= link_to image_tag("icons/logo_small.png", :border=>0), root_url %>
+	</div>
+</div>
+<div id="main">
+	<div id="border">
+<div class = "notice"></div>
+	  <div id="form">
+<h1>Add A Neighborhood To <%= @installation.name %></h1>
+  
+<div id="sidebar_wide">
+<% unless @installation.neighborhoods.blank? %>	
+These neighborhoods have already been added to <%= @installation.name %>.<br />
+Please add a review if your neighborhood already exists. <br />
+    <div id="neighborhood_review">
+  <% @installation.neighborhoods.each do |n| %>
+    <%= n.name %> <%= link_to "Review this Neighborhood", new_neighborhood_review_path(n) %><br />
+  <% end %>
+     </div>
+<h1> Don't see your neighborhood? Add it! </h1>
+<% else %>
+<% end %>
+<p>
+
+</p>
+<% form_for (@neighborhood) do |f|%>
+    <%= f.hidden_field :installation_id, :value => @installation.id %>
+  <p>
+    <%= f.label :name, "Neighborhood/Town/Subdivision Name" %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :location, "This neighborhood is located:" %> 
+    <%= f.select(:location, [["Please Select", ""], ["On-Post/Base", "On-Post/Base"], ["Off-Post/Base", "Off-Post/Base"]]) %>
+  </p>
+  <p>
+    <%= f.label :location, "This neighborhood is best described as a:" %> 
+    <%= f.select(:location, [["Please Select", ""], ["City/Town", "City/Town"], ["Sub-Division", "Sub-Division"], ["Neighborhood", "Neighborhood"], ["General Area", "General Area"]]) %>
+  </p>
+  <p>
+    <%= f.label :distance %><br />
+    <span class="highlight">How far is it to the above location (in miles)?</span><br />
+    <%= f.text_field :distance, :size => '2' %> Miles
+  </p>
+  <p>
+    <%= f.label :drive_distance %><br />
+    <span class="highlight">How far is it to drive to the above location?</span><br />
+    <%= f.text_field :drive_distance, :size => '2' %> Minutes
+  </p>
+  <p>
+    <%= f.label :school_district %><br />
+    <span class="highlight">Choosing a school district may help you narrow down your neighborhoods or homes of interest.</span><br />
+    <%= f.text_field :school_district %>
+  </p>
+  <p>
+    <%= f.label :info, "Give us the facts. Where do you shop, eat, play? What is this close to? (Save the opinions for the review area.)" %><br />
+    <%= f.text_area :info, :size => '75x10' %>
+  </p>
+<% end %>
+
+</div>
+
+  </div>
+    </div>
+      </div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+
+</body>
+</html>
