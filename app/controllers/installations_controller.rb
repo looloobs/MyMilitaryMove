@@ -1,20 +1,21 @@
 class InstallationsController < ApplicationController
   # GET /installations
   # GET /installations.xml
+
+  
+
   def index
-    @installations = Installation.all
+    @installations = Installation.all(:order => "name")
     render :layout => "installation"
   end
 
   # GET /installations/1
   # GET /installations/1.xml
   def show
+    
     @installation = Installation.find(params[:id])
     @neighborhood = @installation.neighborhoods
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @installation }
-    end
+
   end
 
   # GET /installations/new
@@ -82,5 +83,9 @@ class InstallationsController < ApplicationController
      @neighborhood = Neighborhood.new
      @installation = Installation.find(params[:installation_id])
      render :layout => "form"
+  end
+  def goto_installation
+    @installations = Installation.all
+    render :layout => "installation"
   end
 end

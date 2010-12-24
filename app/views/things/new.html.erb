@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+	<div id="header">
+	  	<div id ="login">
+		<ul>
+			<li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
+			<li><%= link_to "Account", user_path(current_user) %></li>
+		</ul>
+		</div>
+		<div id="nav">
+			<div id="logo">
+			  <%= link_to image_tag("icons/logo.png", :border=>0), account_path %>	
+			</div>
+		</div>
+	</div>
+<div id="main">
+	<div id="border">
+	  <div id="form">
+<h1>Add A New Thing</h1>
+
+<% form_for(@thing, :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </p>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+  <span class="highlight">You do not need to put information about brand, model number or serial number. However any information you track will help ease a potential claim process. </span>
+  <p>
+    <%= f.label :brand %><br />
+    <%= f.text_field :brand %>
+  </p>
+  <p>
+    <%= f.label :model_number %><br />
+    <%= f.text_field :model_number %>
+  </p>
+  <p>
+    <%= f.label :serial_number %><br />
+    <%= f.text_field :serial_number %>
+  </p>
+  <p>
+    <%= f.label :purchase_date %><br />
+    <%= f.date_select :purchase_date, :order => [:year, :month, :day] %>
+  </p>
+  <p>
+    <%= f.label :info %><br />
+    <%= f.text_area :info %>
+  </p>
+<p>
+  Attach a file or image <br />
+  <%= f.file_field :data %>
+</p>
+	<div id="button">
+	  <p>
+	    <%= f.submit 'Create' %>
+	  </p>
+	</div>
+	<% end %>
+
+  </div>
+    </div>
+      </div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+	
+<html>
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link href="../application.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+  	<div id ="login">
+	<ul>
+		<li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
+		<li><%= link_to "Account", user_path(current_user) %></li>
+	</ul>
+	</div>
+	<div id="nav">
+		<div id="logo">
+		  <%= link_to image_tag("icons/logo.png", :border=>0), account_path %>	
+		</div>
+	</div>
+</div>
+<div class="colmask rightmenu">
+
+	<div class="colleft">
+		
+<div class="col1">
+	<div id="research_header">
+	<p>
+	   		<h1>My Things</h1>
+	</p>
+	<div id="add_button">
+	<%= link_to image_tag("buttons/add_things_large.png", :border=>0), new_user_thing_path(current_user) %>
+	</div>
+	</div>
+	
+
+    <div id="things">
+
+	<% @things.each do |thing| %>
+	  <div id="each_thing">
+		
+	  <p>
+		<div id="each_thing_info">
+	  <% thing.assets.all(:limit => 1).each do |asset| %>
+	
+		<%= image_tag asset.url(:small) %>
+	  <% end %><br />
+	  <h1><%= link_to thing.name, thing %></h1><div class="highlight">(Click to View All Details)</div>
+	    </div>
+	   <%= link_to image_tag("buttons/edit_neighborhood.png", :border=>0), edit_user_thing_path(current_user, thing) %>
+	   <%= link_to image_tag("icons/con.png", :border=>0), thing, :confirm => 'Are you sure?', :method => :delete %>
+       </p>
+      </div>
+	<% end %>
+	 
+   </div>
+
+</div>
+
+<div class="col2">
+
+</div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<% form_for(@thing, :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+
+
+<p>
+  Attach a file or image <br />
+  <%= f.file_field :data %>
+</p>
+	<div id="button">
+	  <p>
+	    <%= f.submit 'Create' %>
+	  </p>
+	</div>
+
+<% end %>

@@ -1,4 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
+   map.resources :installations do |installation|
+      installation.neighborhood '/neighborhood', :controller => 'installations', :action => 'neighborhood'
+   end
+  
+   map.places '/installation', :controller => 'installations', :action => 'show'
+
+  map.resources :things do |thing|
+     thing.add_photos '/add_photos', :controller => 'things', :action => 'add_photos'
+  end
+
   map.resources :reviews
 
   map.resources :neighborhood_notes
@@ -7,12 +17,12 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :ends
   map.resources :starts
-  map.resources :installations do |installation|
-     installation.neighborhood '/neighborhood', :controller => 'installations', :action => 'neighborhood'
-  end
+
+  
   map.resources :communities
 
   map.off_post_housing '/off_post_housing', :controller => 'posts', :action => 'off_post_housing'
+  map.add_photos '/add_photos', :controller => 'things', :action => 'add_photos'
   map.new_neighborhood '/new_neighborhood', :controller => 'neighborhoods', :action => 'new_neighborhood' 
   map.resources :posts, :member => { :off_post_housing => :any }
   map.connect "logged_exceptions/:action/:id", :controller => "logged_exceptions"
@@ -55,6 +65,7 @@ ActionController::Routing::Routes.draw do |map|
     user.resources :moves
     user.resources :families
     user.resources :pets
+    user.resources :things
   end
   
   map.resources :moves do |move|
@@ -81,6 +92,8 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.connect '/add_new_neighborhood', :controller => "installations", :action => "index"
+  #map.goto_installations '/installations', :controller => 'installations', :action => 'show', :id => 'page_id_or_permalink'
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
 

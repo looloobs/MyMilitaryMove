@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  category: MyString
+  brand: MyString
+  model_number: MyString
+  serial_number: MyString
+  purchase_date: 2010-11-27 16:34:57
+  info: MyText
+
+two:
+  name: MyString
+  category: MyString
+  brand: MyString
+  model_number: MyString
+  serial_number: MyString
+  purchase_date: 2010-11-27 16:34:57
+  info: MyText

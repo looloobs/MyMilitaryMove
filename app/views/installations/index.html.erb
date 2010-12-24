@@ -21,12 +21,16 @@
 
   
 <div id="sidebar">
-
 	  <p>
 		<div id= "form">
-		  <ul><% @installations.each do |i| %> 
-			      <li><%= link_to i.name, installation_neighborhood_path(i.id) %></li>
-		  <% end %></ul>
+          <p>
+	        <% form_tag places_path, :method => :get do %>
+			<%= select_tag :id, options_from_collection_for_select(Installation.find(:all), :id, :name) %>
+			<div id="submit">
+			  <%= submit_tag 'Go' %>
+			</div>
+			<% end %>
+	      </p>
         </div>
 	  </p>
 </div>

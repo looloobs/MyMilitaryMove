@@ -1,0 +1,81 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+  	<div id ="login">
+	<ul>
+		<li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
+		<li><%= link_to "Account", user_path(current_user) %></li>
+	</ul>
+	</div>
+	<div id="nav">
+		<div id="logo">
+		  <%= link_to image_tag("icons/logo.png", :border=>0), account_path %>	
+		</div>
+	</div>
+</div>
+
+<div class="col1">
+	  <div id="back_button">
+		<p>
+	    <%= link_to image_tag("buttons/see_all_things.png", :border=>0), user_things_path(current_user) %> 	 <%= link_to image_tag("buttons/edit_things.png", :border=>0), edit_thing_path(@thing) %>
+			   <%= link_to image_tag("buttons/delete_things.png", :border=>0), @thing, :confirm => 'Are you sure?', :method => :delete %>
+	    </p>
+	  </div>
+
+    <div id="things">
+		<p>
+		   <h1> <%=h @thing.name %> <span class="required">purchased on: <%=h @thing.purchase_date.strftime("%B %d, %Y") %></span> for $<%=h @thing.price %> </h1>	
+		       
+		</p>
+	  <div id="each_thing">
+         <p>
+		  <b>Brand:</b>
+		  <span class="highlight"><%=h @thing.brand %></span>
+
+		  <b>Model number:</b>
+		  <span class="highlight"><%=h @thing.model_number %></span>
+
+		  <b>Serial number:</b>
+		  <span class="highlight"><%=h @thing.serial_number %></span>
+         </p>
+         <p>
+		  <b>Info:</b>
+		  <div id="thing_info">
+		    <%=h @thing.info %>
+		  </div>
+         </p>
+        
+            <div id="add_more_photos">
+		      <%= link_to image_tag("buttons/add_more_photos.png", :border=>0), thing_add_photos_path(@thing.id) %><br />
+		    </div>
+        <% for asset in @thing.assets %>
+        <div id="each_thing_image_date">
+		<%= image_tag asset.url(:medium) %><br />
+		
+		Photo taken: <span class="highlight"><%= EXIFR::JPEG.new(asset.data.path).date_time.strftime("%B %d, %Y")  %></span>
+		</div>
+		<% end %>
+		</div>
+
+
+      	 
+    </div>
+
+</div>
+</div>
+
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+
+</body>
+</html>

@@ -48,6 +48,8 @@ Rails::Initializer.run do |config|
   
 end
 require "smtp_tls"
+require 'exifr'
+
 
 ActionMailer::Base.smtp_settings = {
 :address => "smtp.gmail.com",

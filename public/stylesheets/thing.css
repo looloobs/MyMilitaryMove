@@ -1,0 +1,257 @@
+/* General styles */
+	body {
+		margin:0;
+		padding:0;
+		border:0;			/* This removes the border around the viewport in old versions of IE */
+		width:100%;
+		background:#666;
+		min-width:600px;    	/* Minimum width of layout - remove line if not required */
+						/* The min-width property does not work in old versions of Internet Explorer */
+		font-size:90%;
+
+	}
+
+	h1, h2, h3 {
+		margin:.8em 0 .2em 0;
+		padding:0;
+	}
+	p {
+		margin:.4em 0 .8em 0;
+		padding:0;
+	}
+	img {
+		margin:10px 0 5px;
+	}
+	.col1 {
+		position:relative;
+		min-height:700px;
+		padding:0 0 1em 0;
+		overflow:hidden;
+	}
+	.error {
+		margin-left:5px;
+		font-family:"Arial";
+		font-size: 16px;
+		font-weight: normal;
+		color: #AC0000;
+	}
+	.wrap {
+		width:960px;
+
+		margin: 0 auto;
+		background:#fff;
+	}
+	.highlight {
+		background-color: #FCF8C3;
+		margin-top:3px;
+		margin-bottom:3px;
+	}
+	.highlight a {
+		font-family: Arial, "MS Verdana", sans-serif;
+		font-size: 15px;
+		text-decoration:none;
+		color:black;
+	}
+	.highlight_red {
+		background-color:#F9AD9B;
+		font-family: Arial, "MS Verdana", sans-serif;
+		font-size: 14px;
+		margin-top:3px;
+		margin-bottom:3px;
+	}
+	.required {
+		font-family: Arial, "MS Verdana", sans-serif;
+		font-size: 12px;
+		color: #AC0000;
+	}
+	.edit {
+		font-family:"Arial";
+		font-weight: bolder;
+		font-size: 12px;
+		color: #AC0000;
+	}
+	.edit a {
+		text-decoration: none;
+		font-family:"Arial";
+		font-weight: bolder;
+		font-size: 12px;
+		color: #AC0000;
+	}
+	.edit a:hover {
+		font-family:"Arial";
+		font-weight: bolder;
+		font-size: 12px;
+		color: #AC0000;
+	}
+	#move {
+		background-color:#C8D3E6;
+		
+		padding:7px;
+	}
+	#move p {
+		display: inline;
+		margin-left: 10px;
+		font-family:"Arial";
+		font-size: 16px;	
+	}
+  .notice {
+	font-size:18px;
+	color:#AC0000;
+	font-family:"Arial";
+	font-weight: bolder;
+   }
+	/* Header styles */
+	#header {
+		background-color: #041128;
+		clear:both;
+		position:relative;
+		width:100%;
+		height: 95px;
+	}
+	#header p,
+	#header h1,
+	#header h2 {
+
+	}
+	#research_header{
+		clear:both;
+		height:50px;
+		margin-left:20px;
+		font-family:"Arial";
+		font-size: 12px;
+	}
+	#add_button {
+		clear:both;
+		float: right;
+		margin-right:20px;
+		margin-top: -60px;
+		
+	}
+	#back_button {
+		float: left;
+		height:50px;
+		margin-left:20px;
+	}
+	#logo {
+		float:left;
+		margin-left:30px;
+	}
+	#nav {
+
+	}
+	#nav ul {
+	    float:left;
+		margin-left:405px;
+		margin-top:-20px;
+		margin-bottom:0px;
+	}
+	#nav ul li {
+		display:inline;
+		list-style:none;
+		margin:0;
+		padding:0;
+		font-family:"Arial";
+		font-size: 14px;
+	}
+	#nav ul li a {
+		display:block;
+		float:right;
+		padding: 5px;
+		color: white;
+		text-decoration: none;
+	}
+	#nav ul li a:hover {
+        color:#C3CFDD;
+	}
+	#nav ul li a.active,
+	#nav ul li a.active:hover {
+		color:#fff;
+		background:#000;
+		font-weight:bold;
+	}
+	#nav ul li a span {
+		display:block;
+	}
+	#login ul{
+		margin-top:20px;
+		margin-right:5px;
+	}
+	#login ul li {
+		display:inline;
+		list-style:none;
+		margin:0;
+		padding:0;
+		font-family:"Arial";
+		font-size: 14px;
+	}
+	#login ul li a {
+		display:block;
+		float:right;
+		padding: 5px;
+		color: white;
+		text-decoration: none;
+	}
+	#login ul li a:hover {
+		color:#C3CFDD;
+	}
+	#login ul li a.active,
+	#login ul li a.active:hover {
+		color:#fff;
+		background:#000;
+		font-weight:bold;
+	}
+	#login ul li a span {
+		display:block;
+	}
+
+#things {
+	float:left;
+	margin-left:30px;
+	position:relative;
+}
+#things h1 {
+	font-family:"Arial";
+	font-size: 25px;
+	font-weight:normal;
+}
+#each_thing {
+	position:relative;
+	float:left;
+	margin-right:15px;
+	font-family:"Arial";
+	font-size: 15px;
+}
+
+#each_thing_info h1{
+	font-family:"Arial";
+	font-size: 18px;
+	font-weight:normal;
+}
+#each_thing_info a {
+	text-decoration:none;
+	color:black;
+}
+#each_thing_info a:hover {
+	text-decoration:none;
+	color:white;
+	background:#657FAD;
+}
+#each_thing img {
+	position:relative;
+	float:left;
+	margin-left:5px;
+}
+#each_thing_image_date {
+	float:left;
+}
+#thing_info {
+	clear: both;
+	border: 1px dotted #657FAD;
+	min-height: 75px;
+	width:550px;
+	background-color: #E6EBF4;
+}
+#add_more_photos {
+	float:right;
+	margin-top:-65px;
+}

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   acts_as_authentic do |c|
     c.validate_login_field = false
-    c.logged_in_timeout = 10.minutes
+    #c.logged_in_timeout = 10.minutes
   end
   
   has_many :families
@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :lists
   has_many :moves
   has_many :pets
+  has_many :things
   has_one :address
   has_one :spouse
   accepts_nested_attributes_for :pets, :families, :spouse, :address
