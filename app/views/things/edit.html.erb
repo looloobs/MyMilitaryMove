@@ -55,7 +55,7 @@
   </p>
   <p>
     <%= f.label :purchase_date %><br />
-    <%= f.date_select :purchase_date, :order => [:year, :month, :day] %>
+    <%= f.date_select :purchase_date, :order => [:month, :day, :year], :start_year => 1970, :end_year => Time.now.year %>
   </p>
   <p>
     <%= f.label :info %><br />

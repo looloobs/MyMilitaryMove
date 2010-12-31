@@ -34,28 +34,29 @@
   </p>
   <p>
     <%= f.label :category %><br />
-    <%= f.text_field :category %>
+    <%= f.select :category, [["Please Select", ""], ["Electronics", "Electronics"], ["Furniture", "Furniture"], ["Jewelry", "Jewelry"], ["Sports/Outdoor Eqip.", "Sports/Outdoor Eqip."], ["Other", "Other"]] %>
   </p>
   <p>
     <%= f.label :price %><br />
     <%= f.text_field :price %>
   </p>
-  <span class="highlight">You do not need to put information about brand, model number or serial number. However any information you track will help ease a potential claim process. </span>
+ 
   <p>
+	 <span class="highlight">You do not need to put information about brand, model number or serial number. However any information you track will help ease a potential claim process.<br /> </span>
     <%= f.label :brand %><br />
     <%= f.text_field :brand %>
   </p>
   <p>
-    <%= f.label :model_number %><br />
+    <%= f.label :model_number %><br /><span class="highlight">If you do not have this available now you can enter it later.</span><br />
     <%= f.text_field :model_number %>
   </p>
   <p>
-    <%= f.label :serial_number %><br />
+    <%= f.label :serial_number %><br /><span class="highlight">If you do not have this available now you can enter it later.</span><br />
     <%= f.text_field :serial_number %>
   </p>
   <p>
     <%= f.label :purchase_date %><br />
-    <%= f.date_select :purchase_date, :order => [:year, :month, :day] %>
+    <%= f.date_select :purchase_date, :order => [:month, :day, :year], :start_year => 1970, :end_year => Time.now.year %>
   </p>
   <p>
     <%= f.label :info %><br />

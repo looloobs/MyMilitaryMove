@@ -31,11 +31,14 @@
 	  </div>
 
     <div id="things">
+
+	<div class="pdf_link"><%= link_to image_tag("buttons/download.png", :border=>0), thing_path(@thing, :format => "pdf") %></div>
+
 		<p>
 		   <h1> <%=h @thing.name %> <span class="required">purchased on: <%=h @thing.purchase_date.strftime("%B %d, %Y") %></span> for $<%=h @thing.price %> </h1>	
 		       
 		</p>
-	  <div id="each_thing">
+	  <div id="each_thing_show">
          <p>
 		  <b>Brand:</b>
 		  <span class="highlight"><%=h @thing.brand %></span>
@@ -56,12 +59,13 @@
             <div id="add_more_photos">
 		      <%= link_to image_tag("buttons/add_more_photos.png", :border=>0), thing_add_photos_path(@thing.id) %><br />
 		    </div>
-        <% for asset in @thing.assets %>
+        <% @thing.assets.each do |asset| %>
         <div id="each_thing_image_date">
 		<%= image_tag asset.url(:medium) %><br />
 		
 		Photo taken: <span class="highlight"><%= EXIFR::JPEG.new(asset.data.path).date_time.strftime("%B %d, %Y")  %></span>
 		</div>
+		
 		<% end %>
 		</div>
 

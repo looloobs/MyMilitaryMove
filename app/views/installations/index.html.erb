@@ -15,27 +15,26 @@
 <div id="main">
 	<div id="border">
 <div class = "notice"></div>
-	  <div id="form">
-<h1>Choose Your Installation</h1>
+	  
 
-
-  
-<div id="sidebar">
 	  <p>
-		<div id= "form">
+	
           <p>
 	        <% form_tag places_path, :method => :get do %>
-			<%= select_tag :id, options_from_collection_for_select(Installation.find(:all), :id, :name) %>
-			<div id="submit">
-			  <%= submit_tag 'Go' %>
-			</div>
+	        <div id="form">
+		<h1>Choose Your Installation</h1>
+			<%= select_tag :id, options_from_collection_for_select(Installation.find(:all, :order => "name"), :id, :name) %>
+              </div>
+             	<div id="submit">
+			  <%= image_submit_tag ("buttons/go.png", :border=>0) %>
+				</div>
 			<% end %>
 	      </p>
-        </div>
-	  </p>
-</div>
 
-  </div>
+	  </p>
+
+
+
     </div>
       </div>
 <div id="footer">

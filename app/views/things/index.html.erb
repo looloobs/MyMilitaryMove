@@ -35,7 +35,37 @@
 	</div>
 	</div>
 	
+<% if @things.blank? %>
+  <div id="blank">
+	<span class="required">It looks like you don't have any "things" yet. Read below to learn more about what this is and how to get started.</span>
+   	<h1>What is for?</h1>
+    <p>
+	Many of us have experienced having an item lost or destroyed in a military move. If you haven’t, your number might be up next. Be prepared. The claims process can be very painful, however with the correct preparation it will be simpler.
+	</p>
+	<p>
+	<span class="highlight">This section allows you to document information and photos about any "thing" in your home, particularly your high dollar items.</span>
+	</p>
+  </div>
+	<div id="screenshots">
+	  <div id="screenshot_left">
+		<%= image_tag("screenshots/things.png", :border=>0) %>
+	  </div>
+	  <div id="screenshot_left_text">
+		<h2>Getting Started:</h2>
+		<div class='left'>
+			
+		</div>
+		<b>1. What to inventory.</b> <br /><div id="highlight_blue">Furniture, electronics, sporting or outdoor equipment; anything you consider to be a high dollar item.</div>
+		<b>2. Take pictures.<br /><span class="required">**Ensure your camera date is correct.** </span></b><br /><div id="highlight_blue">Every "thing" can have a gallery of photos. It is always a good idea to include a picture of the receipt from the original purchase.</div>
+		<b>3. Start Adding Your "Things."</b> <div id="highlight_blue">Use the button in the upper-right hand corner to get started.</div>
+		<b>4. KEEP A RUNNING LIST! </b> <div id="highlight_blue">If you buy something of value document it!</div><br />
+		
+		<p><span class="highlight">Tip: If you ever need this information about one of your “things” you simply export it to PDF.</span></p>
+	  </div>
+	</div>
 
+
+<% else %>
     <div id="things">
 
 	<% @things.each do |thing| %>
@@ -56,6 +86,7 @@
 	<% end %>
 	 
    </div>
+<% end %>
 
 </div>
 
@@ -63,7 +94,7 @@
 
 </div>
 <div id="footer">
-	<p> Copyright Lauren Rothlisberger</p>
+
 
 </div>
 </div>
