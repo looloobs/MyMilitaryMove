@@ -3,9 +3,9 @@ development:
   password: 'password'
   signature: 'signature'
 production:
-  login: 'login'
-  password: 'password'
-  signature: 'signature'
+  login: 'militarymoveit_api1.gmail.com'
+  password: '787UD3KRWNV24QPY'
+  signature: 'A-yiJEVBh8yLP9Edia6KWBXPXCz1AHfksu85jFHPWaki7O-7LwGn8Rl0'
 test:
   login: 'login'
   password: 'password'
