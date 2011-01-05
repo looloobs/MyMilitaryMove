@@ -29,8 +29,8 @@ config.action_mailer.default_url_options = { :host => "frgcms.com" }
 config.after_initialize do
   ActiveMerchant::Billing::Base.mode = :test
   ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
-    :login => "lauren_1276744875_biz_api1.gmail.com",
-    :password => "1276744882",
-    :signature => "AJVlf54ouFIlxmXW4xpsOfhZQM0aAujuSVK03Y9nHE4DmTSLA.lHy3Ks"
+    :login => "militarymoveit_api1.gmail.com",
+    :password => "787UD3KRWNV24QPY",
+    :signature => "A-yiJEVBh8yLP9Edia6KWBXPXCz1AHfksu85jFHPWaki7O-7LwGn8Rl0"
   )
 end

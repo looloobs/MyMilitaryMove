@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  has_many :transactions, :class_name => "OrderTransaction"
+   has_many :transactions, :class_name => "OrderTransaction"
 
     attr_accessor :card_number, :card_verification
 
@@ -13,7 +13,7 @@ class Order < ActiveRecord::Base
     end
 
     def price_in_cents
-      (10*100).round
+      (1*100).round
     end
 
     private
@@ -23,11 +23,11 @@ class Order < ActiveRecord::Base
         :ip => ip_address,
         :billing_address => {
           :name     => "Lauren Rothlisberger",
-          :address1 => "123 Main St.",
-          :city     => "New York",
-          :state    => "NY",
+          :address1 => "111 Barbara Dr.",
+          :city     => "Deridder",
+          :state    => "LA",
           :country  => "US",
-          :zip      => "10001"
+          :zip      => "70634"
         }
       }
     end
@@ -39,17 +39,18 @@ class Order < ActiveRecord::Base
         end
       end
     end
-    
+
     def credit_card
-        @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
-          :type               => card_type,
-          :number             => card_number,
-          :verification_value => card_verification,
-          :month              => card_expires_on.month,
-          :year               => card_expires_on.year,
-          :first_name         => first_name,
-          :last_name          => last_name
-        )
+      @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
+        :type               => card_type,
+        :number             => card_number,
+        :verification_value => card_verification,
+        :month              => card_expires_on.month,
+        :year               => card_expires_on.year,
+        :first_name         => first_name,
+        :last_name          => last_name
+      )
     end
+   
     
 end

@@ -9,6 +9,15 @@ config.action_controller.consider_all_requests_local = false
 config.action_controller.perform_caching             = true
 config.action_view.cache_template_loading            = true
 
+config.after_initialize do
+  ActiveMerchant::Billing::Base.mode = :production
+  ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+  :login => "militarymoveit_api1.gmail.com",
+  :password => "787UD3KRWNV24QPY",
+  :signature => "A-yiJEVBh8yLP9Edia6KWBXPXCz1AHfksu85jFHPWaki7O-7LwGn8Rl0"
+  )
+end
+
 # See everything in the log (default is :info)
 # config.log_level = :debug
 

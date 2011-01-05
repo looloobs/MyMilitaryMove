@@ -1,42 +1,77 @@
-<h1>Listing orders</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+	<div id="logo">
+	  <%= link_to image_tag("icons/logo.png", :border=>0), root_url %>	
+	</div>
+</div>
+<div id="main">
+	<div id="border">
+	  <div id="form">
+		<div id="sidebar">
+			<h1>Purchase an eBook</h1>
 
-<table>
-  <tr>
-    <th>Card</th>
-    <th>Ip address</th>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Card type</th>
-    <th>Card expires on</th>
-    <th>Address1</th>
-    <th>Address2</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip</th>
-    <th>Country</th>
-  </tr>
+			<%= content_tag('div', "There was an error processing your payment: #{@paypal_error}", :class => 'error') if @paypal_error %>
 
-<% @orders.each do |order| %>
-  <tr>
-    <td><%=h order.card_id %></td>
-    <td><%=h order.ip_address %></td>
-    <td><%=h order.first_name %></td>
-    <td><%=h order.last_name %></td>
-    <td><%=h order.card_type %></td>
-    <td><%=h order.card_expires_on %></td>
-    <td><%=h order.address1 %></td>
-    <td><%=h order.address2 %></td>
-    <td><%=h order.city %></td>
-    <td><%=h order.state %></td>
-    <td><%=h order.zip %></td>
-    <td><%=h order.country %></td>
-    <td><%= link_to 'Show', order %></td>
-    <td><%= link_to 'Edit', edit_order_path(order) %></td>
-    <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+			<% if @creditcard.errors.any? %>
+			  <div class="error">
+			    Errors encountered with your credit card information:
+			    <ul>
+			      <%= @creditcard.errors.full_messages.map {|m| content_tag('li', m)} %>
+			    </ul>
+			  </div>
+			<% end %>
 
-<br />
+			<p>
+			  Pay by credit card...
+			</p>
 
-<%= link_to 'New order', new_order_path %>
+			<% form_for :creditcard, @creditcard, :url => { :action => 'credit' } do |f| %>
+			  <label>Card Number</label>
+			  <%= f.text_field :number %>
+			  <label>Card Type</label>
+			  <%= f.select :type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+			  <label>Expiration</label>
+			  <%= f.select :month, (1 .. 12) %>
+			  <%= f.select :year, (Time.now.year .. 10.years.from_now.year) %>
+			  <label>CVV</label>
+			  <%= f.text_field :verification_value, :size => 4 %>
+			  <label>Name on Card (first, last)</label>
+			  <%= f.text_field :first_name %>
+			  <%= f.text_field :last_name %>
+
+			  <br/>
+			  <%= submit_tag 'Purchase eBook' %>
+			<% end %>
+
+			<p>
+			  ...or by PayPal
+			</p>
+
+			<% form_tag :action => 'express' do %>
+			  <input type="image" src="<%= image_path('paypal.gif') %>">
+			<% end %>
+		</div>
+	</div>
+</div>
+  </div>
+    </div>
+      </div>
+<div id="footer">
+	<p> Copyright Lauren Rothlisberger</p>
+
+</div>
+
+</body>
+</html>
+
+
+
+
