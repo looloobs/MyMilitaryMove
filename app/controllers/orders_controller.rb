@@ -4,10 +4,7 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml { render :xml => @orders }
-    end
+     
   end
 
   # GET /orders/1
@@ -25,6 +22,7 @@ class OrdersController < ApplicationController
   # GET /orders/new.xml
   def new
     @order = Order.new
+    @user = current_user
     render :layout => "form"
   end
 
@@ -33,19 +31,20 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
   def create
-    @order = Order.new(params[:order])
-    @order.ip_address = request.remote_ip
-    if @order.save
-      if @order.purchase
-        render :action => "success"
+      @order = Order.new(params[:order])
+      @user = current_user
+      @order.ip_address = request.remote_ip
+      if @order.save
+         
+        if @order.purchase
+          
+          redirect_to user_path(@user)
+        else
+          render :action => "failure"
+        end
       else
-        render :action => "failure"
+        render :action => 'new', :layout => "form"
       end
-    else
-      render :action => 'new'
     end
-  end
-
-
   
 end

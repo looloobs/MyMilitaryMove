@@ -13,14 +13,14 @@
 </div>
 </div>
 <div id="main">
+	<% form_for @order do |f| %>
+	<%= f.error_messages %>
 <div id="border">
+
 <div id="form">
+
 <div id="sidebar">
-
-<%= flash[:notice] %>
-
-<% form_for @order do |f| %>
-<%= f.error_messages %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
 <p>
 <%= f.label :first_name %><br />
 <%= f.text_field :first_name %>

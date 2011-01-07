@@ -1,5 +1,7 @@
 class Order < ActiveRecord::Base
    has_many :transactions, :class_name => "OrderTransaction"
+   belongs_to :user
+
 
     attr_accessor :card_number, :card_verification
 
@@ -22,12 +24,12 @@ class Order < ActiveRecord::Base
       {
         :ip => ip_address,
         :billing_address => {
-          :name     => "Lauren Rothlisberger",
-          :address1 => "111 Barbara Dr.",
-          :city     => "Deridder",
-          :state    => "LA",
-          :country  => "US",
-          :zip      => "70634"
+          :name     => name,
+          :address1 => address,
+          :city     => city,
+          :state    => state,
+          :country  => country,
+          :zip      => zip
         }
       }
     end

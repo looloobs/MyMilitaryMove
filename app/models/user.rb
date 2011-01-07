@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :things
   has_one :address
   has_one :spouse
+  has_one :order
   accepts_nested_attributes_for :pets, :families, :spouse, :address
   
   #attr_accessible :name, :login, :email, :password
