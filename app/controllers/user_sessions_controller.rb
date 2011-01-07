@@ -18,6 +18,10 @@ class UserSessionsController < ApplicationController
           @user = @user_session.user
           flash[:notice] = "Login successful!"
           redirect_back_or_default account_url
+        elsif @user.level == 'Basic'
+            @user = @user_session.user
+            flash[:notice] = "Login successful!"
+            redirect_back_or_default account_url
         elsif @user.order.created_at > 365.days.ago && @user_session.user.created_at > 365.days.ago
           @user = @user_session.user
           flash[:notice] = "Login successful!"
