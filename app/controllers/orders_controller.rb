@@ -1,10 +1,9 @@
 class OrdersController < ApplicationController
   #include SslRequirement
   #ssl_required :index, :credit
+  
   def index
-    @orders = Order.all
-
-     
+    @orders = Order.all    
   end
 
   # GET /orders/1

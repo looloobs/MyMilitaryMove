@@ -2,7 +2,8 @@ class ThingsController < ApplicationController
   # GET /things
   # GET /things.xml
   def index
-    @things = Thing.all
+    @user = current_user
+    @things = @user.things
     @things.each do |thing|
       @images = thing.assets
     end
@@ -35,9 +36,10 @@ class ThingsController < ApplicationController
   # POST /things.xml
   def create
     @thing = Thing.new(params[:thing])
-
+    @thing.user_id = current_user.id
     respond_to do |format|
       if @thing.save
+
         flash[:notice] = 'Thing was successfully created.'
         format.html { redirect_to user_thing_path(current_user, @thing.id) }
         format.xml  { render :xml => @thing, :status => :created, :location => @thing }

@@ -389,7 +389,18 @@
 	margin-bottom:15px;
 }
 #footer {
-	clear:both;
-	float:left;
-	width:100%;
+		clear:both;
+		float:left;
+		width:100%;
+	}
+#footer p {
+		padding:10px;
+		margin:0;
+		font-family:"Arial";
+		font-size: 18px;
+		color:white;
+	}
+#footer a {
+	color:white;
+	text-decoration:none;
 }

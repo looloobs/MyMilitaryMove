@@ -46,6 +46,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :researches
   map.resources :trips
   map.resources :tour
+  map.resources :whypay
 
   map.resources :itineraries do |itinerary|
     itinerary.resources :trips

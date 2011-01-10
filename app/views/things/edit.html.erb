@@ -61,6 +61,10 @@
     <%= f.label :info %><br />
     <%= f.text_area :info %>
   </p>
+  <p>
+  Attach a file or image <br />
+  <%= f.file_field :data %>
+  </p>
 	<div id="button">
 	  <p>
 	    <%= f.submit 'Create' %>
@@ -71,10 +75,10 @@
   </div>
     </div>
       </div>
-<div id="footer">
-	<p> Copyright Lauren Rothlisberger</p>
+	<div id="footer">
+		<p>Contact Us: <%= mail_to 'militarymove@gmail.com' , "militarymoveit@gmail.com"%></p>
 
-</div>
+	</div>
 
 </body>
 </html>
