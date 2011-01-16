@@ -19,29 +19,31 @@
 		  <div id="title">
             <h2>MilitaryMoveIt offers a <span class="highlight">5 day trial period</span> and after that your membership is <span class="highlight">$20 for the year</span>. That is <span class="highlight">$1.66 a month</span>.</h2>
           </div>
+        <h1>What do I get? 	<span class="beta">
+			<%= link_to "Want to know more? Take A Tour", {:controller => "/tour", :action => "index"} %>
+	      </span></h1>
 	    </div>
+	
 	  <div id="sidebar">
-		<h1>What do I get?</h1>
+		
 		<div id="subtitle">
-		  <p>Organize your military move.</p>
-		<p>- our biggest feature is our “things” section which allows you to manage your personal inventory of your high-dollar items. in the event you have to claim an item all your information will be documented and easily accessible online. this alone could saved you hundreds of dollars in denied claims. </p>
-		<p>
-		  <ul>
-			<li>itinerary</li>
-			<li>calendar</li>
-			<li>lists & notes</li>
-			<li>neighborhood research</li>
-			<li>home research</li>
-			<li>school research</li>
-		  </ul>
-		</p>
+			<h2>Organize Your Household Inventory...</h2>
+			<p>
+           MilitaryMoveIt's "my things” allows you to manage your personal inventory of high-dollar items.</p> <p>In the event you have to claim an item, all your information is documented and easily accessible online.</p><p> This alone could saved you hundreds of dollars in denied claims.</p>
 		</div>
-		  <div id="security">
-			<%= image_tag("icons/security.png", :border=>0) %>
-		  </div>
+
 	  </div>
+	  <div id="sidebar_two">
 
-
+		  
+		<%= image_tag("screenshots/things.png", :border=>0) %>
+	  </div>
+	
+    <div id="mini_tour">
+	
+		<h2>... and the rest of your military move. </h2>
+	  <%= image_tag("index/itinerary_square.png", :border=>0)%> <%= image_tag("index/calendar_square.png", :border=>0)%> <%= image_tag("index/lists_square.png", :border=>0) %> <%= image_tag("index/home_square.png", :border=>0) %> <%= image_tag("index/neighborhood_square.png", :border=>0) %> <%= image_tag("index/school_square.png", :border=>0) %>
+	</div>
 	<div id="screenshot_footer">
 		<%= link_to image_tag("icons/get_started_large.png", :border=>0), new_user_session_path %>
 	</div>
