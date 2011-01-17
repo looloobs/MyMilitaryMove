@@ -33,12 +33,10 @@
 
 	<div id="blue_square">
 	  <div id="beta">	
-	    <p><h2>We Need Beta Users!</h2></p>
-	    <p><h2>Sign up today and get the next year free.</h2></p>
-	    <p><%= link_to "What is militarymoveit.com? Take A Tour", {:controller => "/tour", :action => "index"} %></p>
+	    <p><h2>Sign up today, first 5 days free! <%= link_to "Why Pay?", {:controller => "/whypay", :action => "index"} %></h2></p>
 	  </div>		
 		<div id="price_tag">
-			<!--%= image_tag("index/price_tag.png", :border=>0) %-->
+			<%= image_tag("index/price_tag.png", :border=>0) %>
 		</div>
 		<%= error_messages_for "user", :header_message => nil, :message => nil %>
 		<div id="new_user_form">
