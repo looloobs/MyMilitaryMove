@@ -18,10 +18,6 @@ class UserSessionsController < ApplicationController
             @user = @user_session.user
             flash[:notice] = "Login successful!"
             redirect_back_or_default account_url
-        elsif @user.created_at > 5.days.ago
-          redirect_to new_order_path
-        elsif @user.order.created_at > 365.days.ago && @user_session.user.created_at > 365.days.ago
-          redirect_to new_order_path
         else 
           redirect_to new_order_path
           flash[:notice] = "Looks like your account is past the trial date or yearly membership has ended."
