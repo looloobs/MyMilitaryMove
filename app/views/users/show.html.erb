@@ -47,7 +47,7 @@
 	</div>
 	  <div id="account_move">
 		<p>
-		<% if @user.created_at > 5.days.ago%>
+		<% if @user.created_at < @user.created_at+5.days %>
 		
 		<% else %>
 	    Your membership was last renewed: <%= @user.order.created_at.strftime("%B %d, %Y") %> <br />
