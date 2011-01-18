@@ -247,6 +247,11 @@ img {
 	font-size:25px;
 	color:#041128;
 }
+#subtitle a {
+	font-family: 'Droid Sans', arial, serif;
+	font-size:17px;
+	color:#041128;
+}
 #video {
 	float:left;
 	margin-top:25px;
@@ -328,39 +333,46 @@ img {
 #title h2 {
 	margin-top:5px;
 	font-family: 'Droid Sans', arial, serif;
-	font-size:22px;
+	font-size:28px;
 	color:#000;
+	text-align:center
 }
 #title a {
 	float:right;
-	margin-right:20px;
 	font-family: 'Droid Sans', arial, serif;
 	font-size:17px;
 	color:#000;
 	text-decoration:none;
-	background:white;
 }
 #plan_one{
 	float:left;
 	background:#DCF2F7;
 	width:300px;
-	height:200px;
+	height:380px;
 	margin-left:120px;
 	padding:10px;
 	font-family: 'Droid Sans', arial, serif;
-	font-size:20px;
-	text-align:center
+	font-size:18px;
+}
+#plan_one ul {
+	font-family: 'Droid Sans', arial, serif;
+	font-size:12px;
 }
 #plan_two{
 	float:left;
-	background:#DCF2F7;
-	width:300px;
-	height:200px;
+	background:#EDEDED;
+	width:270px;
+	height:300px;
 	padding:10px;
 	margin-left:10px;
+	margin-top:15px;
 	font-family: 'Droid Sans', arial, serif;
 	font-size:20px;
-	text-align:center
+
+}
+#plan_two ul {
+	font-family: 'Droid Sans', arial, serif;
+	font-size:12px;
 }
 #why_pay {
 	clear:both;

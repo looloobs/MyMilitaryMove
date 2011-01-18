@@ -193,10 +193,14 @@ p {
 	background:#fff;
 	border:0px;
 	font-family: 'Droid Sans', arial, serif;
-	font-size: 16px;
+	font-size: 28px;
 	color: #666;	
 }
-
+#new_user_form a {
+	font-family: 'Droid Sans', arial, serif;
+	font-size: 15px;
+	color:#AC0000;
+}
 #new_user_form h2 {
 	color: black;	
 }

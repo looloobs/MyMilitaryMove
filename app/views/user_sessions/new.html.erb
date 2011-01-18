@@ -33,11 +33,11 @@
 
 	<div id="blue_square">
 	  <div id="beta">	
-	    <p><h2>Sign up today, first 5 days free! <%= link_to "Why Pay?", {:controller => "/whypay", :action => "index"} %></h2></p>
+	    <p><h2>Learn More! <%= link_to "Take a tour", {:controller => "/tour", :action => "index"} %></h2></p>
 	  </div>		
-		<div id="price_tag">
+		<!--div id="price_tag">
 			<%= image_tag("index/price_tag.png", :border=>0) %>
-		</div>
+		</div-->
 		<%= error_messages_for "user", :header_message => nil, :message => nil %>
 		<div id="new_user_form">
 		<% form_for @user do |f| %>
@@ -53,8 +53,10 @@
 			<div id= 'new_user_form_row'>
 			<%= f.label :password, f.object.new_record? ? nil : "Change password" %>
 			<%= f.password_field :password, :size =>'30' %><br />
-			<%= f.label :level, "Payment Level"%>
-			<%= f.select :level, [["Basic", "Basic"], ["Premium", "Premium"]] %> <%= link_to "Plan Options", {:controller => "/whypay", :action => "index"} %>
+			</div>
+			<div id= 'new_user_form_row'>
+			<%= f.label :level, "Payment Level"%> <%= link_to "Plan Options", {:controller => "/whypay", :action => "index"} %>
+			<%= f.select :level, [["Basic", "Basic"], ["Premium", "Premium"]] %> 
 			</div>
 			
 			</div>

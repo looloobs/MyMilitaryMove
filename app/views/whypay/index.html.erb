@@ -18,12 +18,36 @@
 	    <div id="top">
 		  <div id="title">
 			<div id="plan_one">
-				<h2>MilitaryMoveIt Premium </h2>
-				Place an UNLIMITED number of household items in your "my things" account.<br /> <span class="highlight">$20 for the year</span>.<br /> That is <span class="highlight">$1.66 a month</span>.</h2>
+				<h2>PREMIUM </h2>
+				<p>Place an UNLIMITED number of household items in your "my things" section (read more below).</p> <span class="highlight">$20 for the year</span>.<br /> That is <span class="highlight">$1.66 a month</span>.</h2>
+				<p> Organize the rest of your move.
+				  <ul>
+					<li>itinerary</li>
+					<li>calendar</li>
+					<li>lists & notes</li>
+					<li>neighborhood research</li>
+					<li>home research</li>
+					<li>school research</li>
+				  </ul>
+				  <%= link_to image_tag("buttons/get_started.png", :border=>0), root_url %>
+				</p>
+              
 			</div>
 			<div id="plan_two">
-				<h2>MilitaryMoveIt Free </h2>
-				Place an 5 number of household items in your "my things" account.
+				<h2>FREE </h2>
+				Limited to 5 household items in your "my things" section.
+				<p> Organize your move.
+				  <ul>
+					<li>itinerary</li>
+					<li>calendar</li>
+					<li>lists & notes</li>
+					<li>neighborhood research</li>
+					<li>home research</li>
+					<li>school research</li>
+				  </ul>
+				  <%= link_to image_tag("buttons/get_started.png", :border=>0), root_url %>
+				</p>
+				
 			</div>
           </div>
 
@@ -39,7 +63,8 @@
 			
 			<h2>Organize Your Household Inventory...</h2>
 			<p>
-           MilitaryMoveIt's "my things” allows you to manage your personal inventory of high-dollar items.</p> <p>In the event you have to claim an item, all your information is documented and easily accessible online.</p><p> This alone could saved you hundreds of dollars in denied claims.</p>
+           MilitaryMoveIt's "my things” allows you to manage your personal inventory of high-dollar items.</p> <p>In the event you have to claim an item, all your information is documented and easily accessible online.</p><p> This alone could saved you hundreds of dollars in denied claims.<br /><%= link_to "Learn more, watch a video tour.", {:controller => "/thing_tours", :action => "index"} %></p>
+
 		</div>
 
 	  </div>
