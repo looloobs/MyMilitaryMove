@@ -53,7 +53,8 @@
 			<div id= 'new_user_form_row'>
 			<%= f.label :password, f.object.new_record? ? nil : "Change password" %>
 			<%= f.password_field :password, :size =>'30' %><br />
-			<%= f.select :level, [["Basic", "Basic"], ["Premium", "Premium"]] %>
+			<%= f.label :level, "Payment Level"%>
+			<%= f.select :level, [["Basic", "Basic"], ["Premium", "Premium"]] %> <%= link_to "Plan Options", {:controller => "/whypay", :action => "index"} %>
 			</div>
 			
 			</div>

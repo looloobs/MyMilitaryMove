@@ -12,12 +12,15 @@ class UserSessionsController < ApplicationController
     def create
       @user_session = UserSession.new(params[:user_session])
       @user = User.new
+      @user = @user_session.user
       if @user_session.save
          @user = @user_session.user
         if @user.level == "Basic"
             flash[:notice] = "Login successful!"
             redirect_to account_url
-        elsif @user.level == "Premium" and @user_session.user.order.created_at = Time.now
+        elsif @user.level == "Premium" and @user.order.nil?
+           redirect_to new_order_path
+        elsif @user.level == "Premium" and @user.order.created_at < 365.days.ago
           redirect_to account_url
           flash[:notice] = "Looks like your account is past the trial date or yearly membership has ended."
         else 
