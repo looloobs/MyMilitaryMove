@@ -19,6 +19,7 @@ class UserSessionsController < ApplicationController
             flash[:notice] = "Login successful!"
             redirect_back_or_default account_url
         elsif @user.level = "Premium"
+           @user = @user_session.user
           redirect_to new_order_path
           flash[:notice] = "Looks like your account is past the trial date or yearly membership has ended."
         else
