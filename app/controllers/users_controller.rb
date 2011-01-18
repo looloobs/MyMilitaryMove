@@ -13,10 +13,10 @@ class UsersController < ApplicationController
          if @user.level == "Premium"
             flash[:notice] = "Account registered!"
             #UserSession.create(@user, false)
-            #@user.deliver_welcome!
+            @user.deliver_welcome!
             redirect_to new_order_path
          else 
-            #@user.deliver_welcome!
+            @user.deliver_welcome!
             redirect_to account_url
          end
       else
