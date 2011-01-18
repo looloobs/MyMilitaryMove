@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       @user = User.new(params[:user])
       #@user_session = UserSession.new
       if @user.save
-         if @user.level = "Premium"
+         if @user.level == "Premium"
             flash[:notice] = "Account registered!"
             #UserSession.create(@user, false)
             @user.deliver_welcome!
