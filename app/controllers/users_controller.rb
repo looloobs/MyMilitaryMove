@@ -9,12 +9,16 @@ class UsersController < ApplicationController
     def create
       @user = User.new(params[:user])
       #@user_session = UserSession.new
-      @user.level = 'Trial'
       if @user.save
-        flash[:notice] = "Account registered!"
-        #UserSession.create(@user, false)
-        @user.deliver_welcome!
-        redirect_to account_url
+         if @user.level = "Basic"
+            flash[:notice] = "Account registered!"
+            #UserSession.create(@user, false)
+            @user.deliver_welcome!
+            redirect_to account_url
+         else
+            @user.deliver_welcome!
+            redirect_to new_order_path
+         end
       else
         render :layout => 'user_sessions_new', :template => 'user_sessions/new'
       end

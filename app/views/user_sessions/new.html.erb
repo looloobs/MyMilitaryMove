@@ -52,8 +52,12 @@
 			
 			<div id= 'new_user_form_row'>
 			<%= f.label :password, f.object.new_record? ? nil : "Change password" %>
-			<%= f.password_field :password, :size =>'30' %><br /></div>
+			<%= f.password_field :password, :size =>'30' %><br />
+			<%= f.select :level, [["Basic", "Basic"], ["Premium", "Premium"]] %>
 			</div>
+			
+			</div>
+			
 			<div id="submit">
 		    <%= image_submit_tag ("buttons/get_started.png", :border=>0) %>
 			</div>

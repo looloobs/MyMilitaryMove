@@ -14,7 +14,7 @@ class UserSessionsController < ApplicationController
       @user = User.new
       if @user_session.save
          @user = @user_session.user
-        if @user.created_at < @user.created_at+5.days
+        if @user.level = "Basic"
             @user = @user_session.user
             flash[:notice] = "Login successful!"
             redirect_back_or_default account_url
