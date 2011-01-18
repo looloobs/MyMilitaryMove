@@ -18,9 +18,10 @@ class UserSessionsController < ApplicationController
             @user = @user_session.user
             flash[:notice] = "Login successful!"
             redirect_back_or_default account_url
-        elsif @user.created_at > @user.created_at+5.days
+        elsif @user.level = "Premium"
           redirect_to new_order_path
           flash[:notice] = "Looks like your account is past the trial date or yearly membership has ended."
+        else
         end
       else
        render :layout => 'user_sessions_new', :action => "new"
