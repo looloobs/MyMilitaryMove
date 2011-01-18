@@ -20,7 +20,7 @@ class UserSessionsController < ApplicationController
         elsif @user.level == "Premium" && @user_session.user.order.created_at = Time.now
           redirect_to account_url
           flash[:notice] = "Looks like your account is past the trial date or yearly membership has ended."
-        else @user.level == "Premium"
+        else @user.level == "Premium" && @user_session.user.order.created_at = Time.now - 1.day
            redirect_to new_order_path
         end
       else
