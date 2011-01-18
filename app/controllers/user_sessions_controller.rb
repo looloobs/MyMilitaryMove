@@ -17,10 +17,10 @@ class UserSessionsController < ApplicationController
         if @user.level == "Basic"
             flash[:notice] = "Login successful!"
             redirect_to account_url
-        elsif @user.level == "Premium" && @user_session.user.order.created_at < 365.days.ago
+        elsif @user.level == "Premium" && @user_session.user.order.created_at = Time.now
           redirect_to account_url
           flash[:notice] = "Looks like your account is past the trial date or yearly membership has ended."
-        else @user.level == "Premium" && @user_session.user.order.created_at > 365.days.ago
+        else @user.level == "Premium"
            redirect_to new_order_path
         end
       else
