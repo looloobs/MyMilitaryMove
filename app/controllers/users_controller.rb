@@ -15,9 +15,10 @@ class UsersController < ApplicationController
             #UserSession.create(@user, false)
             @user.deliver_welcome!
             redirect_to account_url
-         else
+         elsif @user.level = "Premium"
             @user.deliver_welcome!
             redirect_to new_order_path
+         else 
          end
       else
         render :layout => 'user_sessions_new', :template => 'user_sessions/new'
