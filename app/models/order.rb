@@ -24,7 +24,7 @@ class Order < ActiveRecord::Base
       {
         :ip => ip_address,
         :billing_address => {
-          :address1 => address,
+          :address1 => address1,
           :city     => city,
           :state    => state,
           :country  => country,
