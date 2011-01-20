@@ -15,7 +15,7 @@ class Order < ActiveRecord::Base
     end
 
     def price_in_cents
-      (1*100).round
+      (20*100).round
     end
 
     private

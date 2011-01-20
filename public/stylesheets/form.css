@@ -80,6 +80,10 @@
 		font-size: 12px;
 		color: #AC0000;
 	}
+	.paypal {
+		float:right;
+		margin-right:20px;
+	}
 	#move {
 		background-color:#C8D3E6;
 		

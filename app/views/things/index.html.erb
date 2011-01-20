@@ -31,7 +31,13 @@
 	   		<h1>My Things</h1>
 	</p>
 	<div id="add_button">
-	<%= link_to image_tag("buttons/add_things_large.png", :border=>0), new_user_thing_path(current_user) %>
+	  <% if @user.level == 'Premium' %>
+	      <%= link_to image_tag("buttons/add_things_large.png", :border=>0), new_user_thing_path(current_user) %>
+	  <% elsif @user.level == 'Basic' and @user.things.size < 5 %>
+	      <%= link_to image_tag("buttons/add_things_large.png", :border=>0), new_user_thing_path(current_user) %>
+	  <% else %>
+	     <%= link_to image_tag("buttons/upgrade_things_large.png", :border=>0), new_order_path %>
+	  <% end %>
 	</div>
 	</div>
 	
