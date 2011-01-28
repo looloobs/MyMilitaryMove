@@ -27,7 +27,7 @@
 <% @neighborhood.each do |neighborhood| %>
 <div id="border">
 <div id="info">
-<h1><%= neighborhood.name %> </h1>
+<h1><%= link_to neighborhood.name, neighborhood_path(neighborhood) %> </h1>
 <%= neighborhood.location %> <br />
 <%= neighborhood.category %> <br />
 
