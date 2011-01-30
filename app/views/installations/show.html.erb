@@ -39,7 +39,7 @@
 </div>
 <div id="home_note">
 Notes others have taken about <%= neighborhood.name %>:
-<% neighborhood.neighborhood_notes.each do |nn| %>
+<% neighborhood.neighborhood_notes.find(:all, :conditions => ['privacy = ?', 'Public']).each do |nn| %>
   <p><%= nn.note %> added <span class="neighborhood_chatter_date"><%= nn.created_at.strftime("%B %Y") %></span></p>
 <% end %>
 </div>
