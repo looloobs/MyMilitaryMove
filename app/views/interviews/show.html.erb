@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link href=' http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="wrap">
+	<div id="header">
+	  	<div id="logo">
+		<%= link_to image_tag("icons/logo_small.png", :border=>0), root_url %>
+		</div>
+		<div id="pcs_logo">
+			<%= link_to image_tag("icons/pcs_school.png", :border=>0) %>
+		</div>	
+	</div>
+    <div id="main">
+	  
+	    <div id="top">
+	    </div>
+	  <div id="sidebar">
+
+		<div id="map">
+		  <h2>Listen to this interview.</h2><br />
+		  <%= mp3_player("/mp3/dixie_rapuano.mp3") %> 
+		  <h2>Pentagon/ Fort Belvoir/ D.C. Area</h2>
+		<%= image_tag("maps/washingtondc.jpg", :border=>0) %>
+       </div>
+	  </div>
+	  <div id="sidebar_two">
+
+		<div id="video">
+			Interview with: <br />
+			<p>
+			  <%= @real_estate.name %><br />	
+			  <%= @real_estate.phone %><br />
+			  <%= @real_estate.email %><br />
+			  <%= @real_estate.business %><br />
+			</p>
+			<div id="form">
+				
+				<% form_for(@question) do |f| %>
+				    Ask a question about moving to this area:
+				    <%= f.hidden_field :interview_id, :value => @interview.id %><br />
+				    <%= f.hidden_field :to, :value => @real_estate_ques.email %><br />
+					<%= f.label :question %><br />
+					<%= f.text_area :question, :size =>"22x15" %><br />
+				    <%= f.label :name, 'Your Name' %><br />
+					<%= f.text_field :name, :size =>'20' %><br />
+					<%= f.label :from, 'Your Email' %><br />
+					<%= f.text_field :from, :size =>'20' %><br />
+
+					<%= f.submit 'Create' %>
+				<% end %>
+				
+			</div>
+		</div>
+	  </div>
+	<div id="comments">
+		<div id="form">
+		<% form_for(@interview_comment) do |f| %>
+		    <%= f.hidden_field :interview_id, :value => @interview.id %><br />
+			<%= f.label :comment %><br />
+			<%= f.text_field :comment, :size =>'30' %><br />
+		    <%= f.label :name %><br />
+			<%= f.text_field :name, :size =>'30' %><br />
+
+			<%= f.submit 'Create' %>
+		<% end %>
+		</div>
+		<% @interview.interview_comments.each do |i| %>
+		  <%= i.comment %> <br />
+		  <%= i.name %>
+		<% end %>
+		
+	</div>
+	</body>
+</html>

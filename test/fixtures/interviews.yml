@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  installation_id: 1
+  name: MyString
+  phone: MyString
+  email: MyString
+  business: MyString
+  description: MyString
+
+two:
+  installation_id: 1
+  name: MyString
+  phone: MyString
+  email: MyString
+  business: MyString
+  description: MyString

@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  to: MyString
+  name: MyString
+  interview_id: 1
+  question: MyString
+  from: MyString
+  sender: MyString
+
+two:
+  to: MyString
+  name: MyString
+  interview_id: 1
+  question: MyString
+  from: MyString
+  sender: MyString

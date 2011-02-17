@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  interview_id: 1
+  comment: MyString
+  name: MyString
+
+two:
+  interview_id: 1
+  comment: MyString
+  name: MyString

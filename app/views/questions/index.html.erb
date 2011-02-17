@@ -1,0 +1,30 @@
+<h1>Listing questions</h1>
+
+<table>
+  <tr>
+    <th>To</th>
+    <th>Name</th>
+    <th>Interview</th>
+    <th>Question</th>
+    <th>From</th>
+    <th>Sender</th>
+  </tr>
+
+<% @questions.each do |question| %>
+  <tr>
+    <td><%=h question.to %></td>
+    <td><%=h question.name %></td>
+    <td><%=h question.interview_id %></td>
+    <td><%=h question.question %></td>
+    <td><%=h question.from %></td>
+    <td><%=h question.sender %></td>
+    <td><%= link_to 'Show', question %></td>
+    <td><%= link_to 'Edit', edit_question_path(question) %></td>
+    <td><%= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New question', new_question_path %>

@@ -1,0 +1,33 @@
+<p>
+  <b>Name:</b>
+  <%=h @real_estate.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @real_estate.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @real_estate.phone %>
+</p>
+
+<p>
+  <b>Business:</b>
+  <%=h @real_estate.business %>
+</p>
+
+<p>
+  <b>Background:</b>
+  <%=h @real_estate.background %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%=h @real_estate.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_real_estate_path(@real_estate) %> |
+<%= link_to 'Back', real_estates_path %>

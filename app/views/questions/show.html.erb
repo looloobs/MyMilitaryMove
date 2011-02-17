@@ -1,0 +1,33 @@
+<p>
+  <b>To:</b>
+  <%=h @question.to %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @question.name %>
+</p>
+
+<p>
+  <b>Interview:</b>
+  <%=h @question.interview_id %>
+</p>
+
+<p>
+  <b>Question:</b>
+  <%=h @question.question %>
+</p>
+
+<p>
+  <b>From:</b>
+  <%=h @question.from %>
+</p>
+
+<p>
+  <b>Sender:</b>
+  <%=h @question.sender %>
+</p>
+
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>

@@ -1,0 +1,246 @@
+body {
+	margin:0;
+	padding:0;
+	border:0;			/* This removes the border around the viewport in old versions of IE */
+	width:100%;
+	background:#666;
+	min-width:600px;    	/* Minimum width of layout - remove line if not required */
+					/* The min-width property does not work in old versions of Internet Explorer */
+	font-size:90%;
+}
+
+h1, h2, h3 {
+	margin:.8em 0 .2em 0;
+	padding:0;
+}
+h1 {
+	margin:0px;
+	margin-left:15px;
+	margin-top:15px;
+	font-family: 'Droid Sans', arial, serif;
+	font-size:55px;
+	color:#041128;
+}
+h2 {
+	margin:0px;
+	font-family: 'Droid Sans', arial, serif;
+	font-size:25px;
+	color:#041128;
+}
+p {
+	margin:.4em 0 .8em 0;
+	padding:0;
+}
+img {
+	margin:10px 0 5px;
+}
+.error {
+	margin-left:10px;
+	font-family:"Arial";
+	font-size: 15px;
+	font-weight: normal;
+	color: #AC0000;
+}
+.highlight {
+	background-color:#FFEF92;
+}
+.left {
+
+}
+.right {
+	
+}
+#header {
+	background-color: #C3CFDD;
+	clear:both;
+	width:100%;
+	height: 95px;
+}
+#header p,
+#header h1,
+#header h2 {
+
+}
+#logo {
+	float:left;
+	margin-left:30px;
+}
+#pcs_logo {
+	margin-left:725px;
+}
+#nav {
+
+}
+#nav ul {
+    float:left;
+	margin-left:405px;
+	margin-top:-20px;
+	margin-bottom:0px;
+}
+#nav ul li {
+	display:inline;
+	list-style:none;
+	margin:0;
+	padding:0;
+	font-family:"Arial";
+	font-size: 14px;
+}
+#nav ul li a {
+	display:block;
+	float:right;
+	padding: 5px;
+	color: white;
+	text-decoration: none;
+}
+#nav ul li a:hover {
+    color:#C3CFDD;
+}
+#nav ul li a.active,
+#nav ul li a.active:hover {
+	color:#fff;
+	background:#000;
+	font-weight:bold;
+}
+#nav ul li a span {
+	display:block;
+}
+#login ul{
+	margin-top:20px;
+	margin-right:5px;
+}
+#login ul li {
+	display:inline;
+	list-style:none;
+	margin:0;
+	padding:0;
+	font-family:"Arial";
+	font-size: 14px;
+}
+#login ul li a {
+	display:block;
+	float:right;
+	padding: 5px;
+	color: white;
+	text-decoration: none;
+}
+#login ul li a:hover {
+	color:#C3CFDD;
+}
+#login ul li a.active,
+#login ul li a.active:hover {
+	color:#fff;
+	background:#000;
+	font-weight:bold;
+}
+#login ul li a span {
+	display:block;
+}
+.colmask {
+	position:relative;	/* This fixes the IE7 overflow hidden bug */
+	clear:both;
+	float:left;
+	width:100%;			/* width of whole page */
+	overflow:hidden;		/* This chops off any overhanging divs */
+}
+/* common column settings */
+.colright,
+.colmid,
+.colleft {
+	float:left;
+	width:100%;
+	position:relative;
+}
+.col1,
+.col2,
+.col3 {
+	
+	float:left;
+	position:relative;
+	padding:0 0 1em 0;
+	overflow:hidden;
+}
+.wrap {
+		width:960px;
+		margin: 0 auto;
+	}
+#main {
+  width: 100%;
+  background:#fff;
+  float:left;
+  min-height:575px;
+}
+#top {
+  margin-left:22px;
+}
+#sidebar {
+  float:left;
+  margin-left:20px;
+  width:700px;
+  position:relative;
+}
+#sidebar_two {
+	float:left;
+   width:200px;
+   margin-top:137px;
+   padding:8px;
+   background:#C3CFDD;
+   height:585px;
+   font-family:"Arial";
+	font-size: 16px;
+}
+#map {
+	margin-top:25px;
+}
+#comments {
+	clear:both;
+	float:left;
+	margin-top:10px;
+	margin-left:25px;
+	margin-bottom:50px;
+}
+#form {
+	font-family: Arial, "MS Verdana", sans-serif;
+	font-size: 16px;
+	color: black;
+
+}
+#form input {
+	background:#fff;
+	border: 1px solid #999;
+	font-family: Arial, "MS Verdana", sans-serif;
+	font-size: 16px;
+	color: #666;
+	margin: 3px;	
+}
+#form select {
+	background:#fff;
+	border: 1px solid #999;
+	font-family: Arial, "MS Verdana", sans-serif;
+	font-size: 16px;
+	color: #666;
+	margin-top:3px;
+	margin-bottom:3px;	
+}
+#form h1 {
+	color: black;
+	font-family: Arial, "MS Verdana", sans-serif;
+	font-size: 25px;	
+}
+#form h2 {
+	color: black;	
+}
+#form p {
+	margin:10px;
+}
+#indent {
+	float:left;
+	margin-left:30px;
+	position:relative;	
+}
+#submit {
+	float:right;
+	margin-right:25px;
+	color: black;
+	font-family: Arial, "MS Verdana", sans-serif;
+	font-size: 16px;	
+}

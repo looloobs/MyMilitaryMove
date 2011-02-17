@@ -1,0 +1,18 @@
+<p>
+  <b>Interview:</b>
+  <%=h @interview_comment.interview_id %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%=h @interview_comment.comment %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @interview_comment.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_interview_comment_path(@interview_comment) %> |
+<%= link_to 'Back', interview_comments_path %>

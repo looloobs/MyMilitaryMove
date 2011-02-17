@@ -1,0 +1,24 @@
+<h1>Editing interview_comment</h1>
+
+<% form_for(@interview_comment) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :interview_id %><br />
+    <%= f.text_field :interview_id %>
+  </p>
+  <p>
+    <%= f.label :comment %><br />
+    <%= f.text_field :comment %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @interview_comment %> |
+<%= link_to 'Back', interview_comments_path %>

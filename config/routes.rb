@@ -1,4 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :questions
+
+  map.resources :real_estates
+
+  map.resources :interview_comments
+
+  map.resources :interviews
+
    map.resources :installations do |installation|
       installation.neighborhood '/neighborhood', :controller => 'installations', :action => 'neighborhood'
    end

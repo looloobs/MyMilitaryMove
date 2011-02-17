@@ -1,0 +1,24 @@
+<h1>Listing interview_comments</h1>
+
+<table>
+  <tr>
+    <th>Interview</th>
+    <th>Comment</th>
+    <th>Name</th>
+  </tr>
+
+<% @interview_comments.each do |interview_comment| %>
+  <tr>
+    <td><%=h interview_comment.interview_id %></td>
+    <td><%=h interview_comment.comment %></td>
+    <td><%=h interview_comment.name %></td>
+    <td><%= link_to 'Show', interview_comment %></td>
+    <td><%= link_to 'Edit', edit_interview_comment_path(interview_comment) %></td>
+    <td><%= link_to 'Destroy', interview_comment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New interview_comment', new_interview_comment_path %>

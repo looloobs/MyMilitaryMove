@@ -1,0 +1,30 @@
+<h1>Listing real_estates</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Business</th>
+    <th>Background</th>
+    <th>Notes</th>
+  </tr>
+
+<% @real_estates.each do |real_estate| %>
+  <tr>
+    <td><%=h real_estate.name %></td>
+    <td><%=h real_estate.email %></td>
+    <td><%=h real_estate.phone %></td>
+    <td><%=h real_estate.business %></td>
+    <td><%=h real_estate.background %></td>
+    <td><%=h real_estate.notes %></td>
+    <td><%= link_to 'Show', real_estate %></td>
+    <td><%= link_to 'Edit', edit_real_estate_path(real_estate) %></td>
+    <td><%= link_to 'Destroy', real_estate, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New real_estate', new_real_estate_path %>
