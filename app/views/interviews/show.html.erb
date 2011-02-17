@@ -62,17 +62,22 @@
 		<div id="form">
 		<% form_for(@interview_comment) do |f| %>
 		    <%= f.hidden_field :interview_id, :value => @interview.id %><br />
-			<%= f.label :comment %><br />
-			<%= f.text_field :comment, :size =>'30' %><br />
-		    <%= f.label :name %><br />
-			<%= f.text_field :name, :size =>'30' %><br />
+			<%= f.label :comment, "Do you have any comments or tips about moving to this area? Please share." %><br />
+			<%= f.text_area :comment, :size =>"83x5" %><br />
+		    <%= f.label :name, "Your Name" %><br />
+			<%= f.text_field :name, :size =>'35' %><br />
 
 			<%= f.submit 'Create' %>
 		<% end %>
 		</div>
+		
 		<% @interview.interview_comments.each do |i| %>
-		  <%= i.comment %> <br />
-		  <%= i.name %>
+		<div class="comments_made">
+		  <p>
+		    <%= i.comment %> <br />
+		    <%= i.name %>
+		  </p>
+		</div>
 		<% end %>
 		
 	</div>

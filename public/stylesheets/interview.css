@@ -202,6 +202,11 @@ img {
 	margin-left:25px;
 	margin-bottom:50px;
 }
+.comments_made {
+  margin-top:10px;
+  padding:5px;
+  background:#C3CFDD;
+}
 #form {
 	font-family: Arial, "MS Verdana", sans-serif;
 	font-size: 16px;
