@@ -31,7 +31,7 @@
 				    <%= s.hidden_field :move_id, :value => @move.id %>
 				    
 					<%= s.label :installation_id, "Moving To" %><br />
-					<%= s.collection_select :installation_id, Installation.find(:all), :id, :name, :prompt => "Select a Location" %>     
+					<%= s.collection_select :installation_id, Installation.find(:all, :order => "name"), :id, :name, :prompt => "Select a Location" %>     
 					or create one:
 					 <%= s.text_field :new_installation_name %>
 					
@@ -41,7 +41,7 @@
 				<% f.fields_for :end do |e| %>
 				    <%= e.hidden_field :move_id, :value => @move.id %>
 					<%= e.label :installation_id, "Moving From" %><br />
-					<%= e.collection_select :installation_id, Installation.find(:all), :id, :name, :prompt => "Select a Location" %>
+					<%= e.collection_select :installation_id, Installation.find(:all, :order => "name"), :id, :name, :prompt => "Select a Location" %>
 					or create one:
 					<%= e.text_field :new_installation_name  %>
 				<% end %>

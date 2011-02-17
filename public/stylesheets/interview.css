@@ -191,6 +191,10 @@ img {
 #map {
 	margin-top:25px;
 }
+#video {
+	font-family:"Arial";
+	font-size: 13px;
+}
 #comments {
 	clear:both;
 	float:left;
