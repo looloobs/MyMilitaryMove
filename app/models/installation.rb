@@ -6,6 +6,7 @@ class Installation < ActiveRecord::Base
    has_one :move, :through => :end
    
    has_many :neighborhoods
+   has_many :installations
    
      def to_param
        "#{id}-#{name.parameterize}"

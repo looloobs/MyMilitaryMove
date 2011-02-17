@@ -18,6 +18,7 @@ class InterviewsController < ApplicationController
     @question = Question.new
     @real_estate = @interview.real_estate
     @real_estate_ques = RealEstate.last(:conditions => ['id = ?', @interview.real_estate_ques_id])
+    @installation = @interview.installation
     
     respond_to do |format|
       format.html # show.html.erb

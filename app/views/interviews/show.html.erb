@@ -23,9 +23,10 @@
 	  <div id="sidebar">
 
 		<div id="map">
-		  <h2>Listen to this interview.</h2><br />
+		  <h2>Learn more about <%= @interview.installation.name %>.</h2><br />
+		   Listen to an interview about the areas surrounding <%= @interview.installation.name %>. Press play button below.<br />
 		  <%= mp3_player("/mp3/dixie_rapuano.mp3") %> 
-		  <h2>Pentagon/ Fort Belvoir/ D.C. Area</h2>
+		  <h2>Map of <%= @interview.installation.name %></h2>
 		<%= image_tag("maps/washingtondc.jpg", :border=>0) %>
        </div>
 	  </div>
@@ -55,6 +56,7 @@
 					<%= f.submit 'Create' %>
 				<% end %>
 				
+				<%= link_to image_tag("company_logos/mbo-normal-YELLOW.jpg", :border=>0), 'http://www.militarybyowner.com' %>
 			</div>
 		</div>
 	  </div>
