@@ -7,5 +7,14 @@ class QuestionMailer < ActionMailer::Base
      cc "militarymoveit@gmail.com"
      body :question => question 
   end 
+  
+   def asker(question)  
+     recipients question.from
+     from "militarymoveit@gmail.com" 
+     reply_to "militarymoveit@gmail.com"
+     subject "You have a question from MilitaryMoveIt" 
+     cc "militarymoveit@gmail.com"
+     body :question => question 
+  end
 end
 

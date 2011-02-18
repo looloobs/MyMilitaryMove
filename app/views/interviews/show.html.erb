@@ -43,7 +43,7 @@
 			<div id="form">
 				
 				<% form_for(@question) do |f| %>
-				    Ask a question about moving here:
+				    Ask a question about moving to <%= @interview.installation.name %>:
 				    <%= f.hidden_field :interview_id, :value => @interview.id %><br />
 				    <%= f.hidden_field :to, :value => @real_estate_ques.email %><br />
 					<%= f.label :question %><br />
