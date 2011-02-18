@@ -43,7 +43,7 @@
 			<div id="form">
 				
 				<% form_for(@question) do |f| %>
-				    Ask a question about moving to this area:
+				    Ask a question about moving here:
 				    <%= f.hidden_field :interview_id, :value => @interview.id %><br />
 				    <%= f.hidden_field :to, :value => @real_estate_ques.email %><br />
 					<%= f.label :question %><br />
@@ -55,8 +55,11 @@
 
 					<%= f.submit 'Create' %>
 				<% end %>
-				
-				<%= link_to image_tag("company_logos/mbo-normal-YELLOW.jpg", :border=>0), 'http://www.militarybyowner.com' %>
+				<div class="ad_image">
+				<br />
+				  Look for a home:<br />
+				  <%= link_to image_tag("company_logos/mbo-normal-YELLOW.jpg", :border=>0), 'http://www.militarybyowner.com' %>
+				</div>
 			</div>
 		</div>
 	  </div>

@@ -201,17 +201,20 @@ img {
 	margin-top:10px;
 	margin-left:25px;
 	margin-bottom:50px;
+	font-family:"Arial";
+	font-size: 16px;
 }
 .comments_made {
   margin-top:10px;
   padding:5px;
+  font-family:"Arial";
+  font-size: 16px;
   background:#C3CFDD;
 }
 #form {
 	font-family: Arial, "MS Verdana", sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	color: black;
-
 }
 #form input {
 	background:#fff;
@@ -240,6 +243,10 @@ img {
 }
 #form p {
 	margin:10px;
+}
+.ad_image img{
+	margin:0px;
+	padding:0px;
 }
 #indent {
 	float:left;
