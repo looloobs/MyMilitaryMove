@@ -12,7 +12,7 @@ class QuestionMailer < ActionMailer::Base
      recipients question.from
      from "militarymoveit@gmail.com" 
      reply_to "militarymoveit@gmail.com"
-     subject "You have a question from MilitaryMoveIt" 
+     subject "Your question was sent to MilitaryMoveIt" 
      cc "militarymoveit@gmail.com"
      body :question => question 
   end

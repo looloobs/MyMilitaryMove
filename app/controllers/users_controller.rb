@@ -17,7 +17,7 @@ class UsersController < ApplicationController
             redirect_to new_order_path
          else 
             @user.deliver_welcome!
-            redirect_to account_url
+            redirect_to new_move_path
          end
       else
         render :layout => 'user_sessions_new', :template => 'user_sessions/new'

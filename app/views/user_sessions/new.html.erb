@@ -11,6 +11,9 @@
 	<div id="header">
 		<div id="logo">
 		<%= link_to image_tag("icons/logo_small.png", :border=>0), root_url %>
+		  <div id= "facebook">
+		    <%= link_to image_tag("icons/facebook.png", :border=>0), "http://www.facebook.com/militarymoveit" %>
+		  </div>
 		</div>	
 		<div id="header_form">
 		<% form_for @user_session, :url => user_session_path do |f| %>

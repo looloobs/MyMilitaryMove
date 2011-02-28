@@ -21,6 +21,16 @@
 		</div>
 		
 <div class="col1">
+	<p>
+	  <h1>These are YOUR CUSTOMIZABLE moving lists. We just gave you a starting point. Add more lists or edit the current ones. Every list and task can be changed or delete using the buttons below.<br />
+		Tip: click the <%= image_tag("icons/pro.png", :border =>'none') %> to mark a task as complete!</h2>
+	</p>
+	<% if @move.created_at < Time.parse('2011-02-25 19:44:46')%>
+	<p>	
+	  <span class="edit"><%= link_to "Add MilitaryMoveIt's Customizable Lists to Yours.", :controller => "moves", :action => "list", :id => @move.id %></span>
+	</p>
+	<% else %>
+	<% end %>
 	<div id="list_header">
 		<div id="list_form">
 				<% form_for(@list) do |f| %>
@@ -40,7 +50,9 @@
 	    </div>
 
 			<!-- Column 1 start -->
+
 <div id ="list">
+
   <% @lists.each do |list| %>
     <p>
     <h1><%= list.name %> <span class="edit"><%= link_to 'edit | ', edit_move_list_path(@move, list) %></span><span class="delete"><%= link_to 'delete', list, :confirm => 'Delete this ENTIRE list?', :method => :delete %></span></h1>
@@ -49,11 +61,12 @@
     <% list.tasks.each do |t| %>
     
 	<% if t.finished %>
-	  <span class="finished"><%=h t.task %></span><%= link_to image_tag("icons/pro_gray.png", :border =>'none'), :controller => "tasks", :action => "unfinish", :id => t.id %><br />
+	  <%= link_to image_tag("icons/pro_gray.png", :border =>'none'), :controller => "tasks", :action => "unfinish", :id => t.id %><span class="finished"><%=h t.task %></span><br />
 	
 	<% else %>
+	    <%= link_to image_tag("icons/pro.png", :border =>'none'), :controller => "tasks", :action => "finish", :id => t.id %>
 		<%=h t.task %>
-		<%= link_to image_tag("icons/pro.png", :border =>'none'), :controller => "tasks", :action => "finish", :id => t.id %>
+		<br />
 		<span class="edit"><%= link_to 'edit | ', edit_move_list_path(@move, list) %></span><span class="delete"><%= link_to 'delete', t, :confirm => 'Are you sure?', :method => :delete %></span><br />
 	<% end %>
 

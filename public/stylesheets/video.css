@@ -160,6 +160,10 @@ img {
 		width:960px;
 		margin: 0 auto;
 	}
+#facebook {
+	float:right;
+	margin-top:20px;
+	}	
 #main {
   width: 100%;
   background:#fff;

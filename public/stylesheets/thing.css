@@ -91,6 +91,10 @@
 		font-size: 12px;
 		color: #AC0000;
 	}
+	#facebook {
+		float:right;
+		margin-top:20px;
+	}
 	#move {
 		background-color:#C8D3E6;
 		

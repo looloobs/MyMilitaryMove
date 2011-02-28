@@ -28,6 +28,10 @@
 		font-weight: normal;
 		color: #AC0000;
 	}
+	#facebook {
+		float:right;
+		margin-top:20px;
+	}
 	/* FORMS FORMS FORMS */
 	
 	#form {

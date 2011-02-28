@@ -50,6 +50,10 @@ img {
 .right {
 	
 }
+#facebook {
+	float:right;
+	margin-top:20px;
+}
 #header {
 	background-color: #041128;
 	clear:both;

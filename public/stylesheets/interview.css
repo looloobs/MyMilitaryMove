@@ -34,6 +34,10 @@ p {
 img {
 	margin:10px 0 5px;
 }
+#facebook {
+	float:right;
+	margin-top:20px;
+}
 .error {
 	margin-left:10px;
 	font-family:"Arial";

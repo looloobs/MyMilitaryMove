@@ -33,68 +33,106 @@
 			</p> 
 		  </div>
 		  
-		   <div id="day_border_one">
-		    <div id="day">
-			  
-		      <h1>Today</h1>
-		        <% if @today.blank? %>
-					Nothing on the agenda.
-				<% else %>
-				  <% @today.each do |t| %>
-					<ul>
-		    			<li><%= t.name %></li>
-		    		</ul>	
-				  <% end %>
-				<%end %>
+		<div id="dashboard">
+		  <div id="row1">	
+		    <div id= "dash_left">
+			  <div id="dash_title">My Things <span class="dash_add"><%= link_to 'Add more now.', user_things_path(current_user) %></span></div>
+			  <% if @user.things.blank? %>
+			    <%= link_to image_tag("dashboard/my_things.png", :border=>0),user_things_path(current_user) %>
+			  <% else %>
+			    <h1>You have <%= pluralize(@user.things.size, "thing") %> saved.</h1>
+			    
+			  <% end %>
 		    </div>
-		    <div id="day">
-		      <h1>Tomorrow</h1>
-				<% if @tomorrow.blank? %>
-					Kick your feet up and relax, nothing on schedule today!
-				<% else %>
-				  <% @tomorrow.each do |t| %>
-					<ul>
-		    			<li><%= t.name %></li>
-		    		</ul>
-				  <% end %>
-				<%end %>
+		    <div id= "dash_center">
+			  <div id="dash_title">Lists<span class="dash_add"> <%= link_to "Go to lists.", move_lists_path(@move) %></span></div>
+			  <% if @lists.blank? %>
+			    <%= link_to image_tag("dashboard/my_lists.png", :border=>0), move_lists_path(@move) %>
+			  <% else %>
+			    <% @lists.each do |l| %>
+			         <p>
+                        <h1><%= l.name %> </h1>
+		                <% if l.tasks.blank? %>
+		                  Yikes! Get started making this list.
+		                <% else %>
+		                  You have finished <%= pluralize((l.tasks.all(:conditions => ['finished = ?', true])).size, 'task') %>.<br />
+		                <% end %>
+		             </p>
+				<% end %>
+			  <% end %>
 		    </div>
+		    <div id= "dash_right">
+			  <div id="dash_title">Notes<span class="dash_add"> <%= link_to "Go to notes.", move_notes_path(@move) %></span></div>
+			  <% if @notes.blank? %>
+			    <%= link_to image_tag("dashboard/my_notes.png", :border=>0), move_notes_path(@move) %>
+			  <% else %>
+			    <% @notes.each do |n| %>
+		    	  <p>
+		    		<h1><%= n.name %></h1>
+			        <%= truncate(n.note, 60, "...") %>
+			        <div class="dash_add"><%= link_to "Add Another", move_notes_path(@move)%></div>
+		          </p>
+				<% end %>
 
-		    <div id="day">
-		      	<h1><%=(Date.today + 2.days).strftime('%B %d') %></h1>
-					<% if @nextday.blank? %>
-						In two days you will have nothing to do!
-					<% else %>
-					<ul>
-						<li>
-					  		<% @nextday.each do |t| %>
-						</li>
-					</ul>
-						<%= t.name %>
-					  <% end %>
-					<%end %>
+			  <% end %>
 		    </div>
 		  </div>
-		  <div id="border">
-		    <div id="lists">
-		    <h1>Your Current Lists</h1>
-				<% if @lists.blank? %>
-					You have no lists written yet. Time to <span class='highlight'><%= link_to 'get started!', move_lists_path(@move) %></span>
-				<% else %>
-				<% @lists.each do |l| %>
+		  <div id="row2">	
+		    <div id= "dash_left">
+			  <div id="dash_title">Itineraries <span class="dash_add"> <%= link_to "Go to itineraries.", move_itineraries_path(@move) %></span></div>
+			  <% if @itineraries.blank? %>
+			    <%= link_to image_tag("dashboard/my_itinerary.png", :border=>0), move_itineraries_path(@move) %>
+			  <% else %>
+			    <% @itineraries.each do |i| %>
 		    	  <ul>
-		    		<li><%= l.name %></li>
+		    		<li><%= i.name %></li>
 		    	  </ul>
 				<% end %>
 			  <% end %>
 		    </div>
+		    <div id= "dash_center">
+			 <div id="dash_title">Calendar<span class="dash_add"> <%= link_to "Go to calendar.", calendar_path(@move, Date.today.year, Date.today.month) %></span></div>
+			  <% if @events.blank? %>
+			    <%= link_to image_tag("dashboard/my_calendar.png", :border=>0), calendar_path(@move, Date.today.year, Date.today.month) %>
+			  <% else %>
+			    <% @today.each do |t| %>
+					<p>
+						<%= Date.today.strftime("%b %d,%y") %><br />
+		    			<%= t.name %>
+		    		</p>	
+				  <% end %>
+				  <% @tomorrow.each do |t| %>
+				      <p>
+						<%= Date.tomorrow.strftime("%b %d,%y") %><br />
+		    			<%= t.name %>
+		              </p>
+				  <% end %>
+				  <% @nextday.each do |t| %>
+				     <p>
+				       <%= (Time.now+2.days).strftime("%b %d,%y") %><br />
+				       <%= t.name %>
+				     </p>
+			      <% end %>
+			  <% end %>
+		    </div>
+		    <div id= "dash_right">
+			<div id="dash_title">Neighborhoods </span></div>
+			
+			  <% if @neighborhoods.blank? %>
+			    <%= link_to image_tag("dashboard/my_neighborhood.png", :border=>0), move_neighborhoods_path(@move) %>
+			  <% else %>
+			    <span class="dash_add"><%= link_to "Add another neighborhood.", move_neighborhoods_path(@move) %><br />
+					You have <%= @neighborhoods.size %> Neighborhoods saved.<br />
+					 Work on my <span class='highlight'><%= link_to 'neighborhoods', move_neighborhoods_path(@move) %>.</span><br />
+				    You have <%= @homes.size %> Homes saved.<br />
+				 Work on my <span class='highlight'><%= link_to 'homes', move_homes_path(@move) %>.</span><br />
+				    You have <%= @schools.size %> Schools saved. <br />
+				Work on my <span class='highlight'><%= link_to 'schools', move_schools_path(@move) %>.</span><br />
+			  <% end %>
+		    </div>
 		  </div>
-		  <div id="border">
-		  <h1>Research</h1>
-			You have <%= @neighborhoods.size %> Neighborhoods saved. Work on my <span class='highlight'><%= link_to 'neighborhoods', move_neighborhoods_path(@move) %>.</span><br />
-		    You have <%= @homes.size %> Homes saved. Work on my <span class='highlight'><%= link_to 'homes', move_homes_path(@move) %>.</span><br />
-		    You have <%= @schools.size %> Schools saved. Work on my <span class='highlight'><%= link_to 'schools', move_schools_path(@move) %>.</span><br />
-		  </div>
+		</div>	
+	
 			<!-- Column 1 end -->
 		</div>
 		<div class="col2">

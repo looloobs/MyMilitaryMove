@@ -24,5 +24,6 @@ class Move < ActiveRecord::Base
   has_one :installation, :through => :end 
   
   accepts_nested_attributes_for :end
-  
+  accepts_nested_attributes_for :lists
+   
 end

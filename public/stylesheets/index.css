@@ -134,6 +134,11 @@ p {
 #logo {
 	float:left;
 	margin-left:20px;
+	position:relative;
+}
+#facebook {
+	float:right;
+	margin-top:10px;
 }
 /* INDEX */
 #blue_square {

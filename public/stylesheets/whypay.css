@@ -180,6 +180,10 @@ img {
 .highlight{
 		background-color: #FCF8C3;
 }
+#facebook {
+	float:right;
+	margin-top:20px;
+}
 #main {
   width: 100%;
   background:#fff;

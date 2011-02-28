@@ -216,6 +216,10 @@
 		float:left;
 		margin-left:30px;
 	}
+	#facebook {
+		float:right;
+		margin-top:20px;
+	}
 	#nav {
 
 	}
@@ -947,6 +951,84 @@
 		font-weight: bolder;
 		font-size: 12px;
 		color: #AC0000;
+	}
+	#dashboard {
+		width:680px;
+		float:left;
+		position:relative;
+		font-family:"Arial";
+		font-size: 14px;
+	}
+	#dash_title{
+	 font-family:"Arial";
+	 font-size: 18px;
+	 font-weight:bolder;
+	 color: #fff;
+	}
+   #dashboard h1{
+	   font-family:"Arial";
+		font-size: 14px;
+		font-weight:bolder;
+   }
+   .dash_add a {
+		text-decoration: none;
+		font-family:"Arial";
+		font-size: 12px;
+		font-weight: normal;
+		color: #AC0000;
+	}
+	#row1 {
+		width:680px;
+		margin-left:10px;
+		float:left;
+		position:relative;
+	}
+	#row1 img {
+		margin:-10px;
+		margin-top:-30px;
+	}
+	#row2 {
+		width:680px;
+		margin-left:10px;
+		margin-top:20px;
+		float:left;
+		position:relative;
+	}
+	#row2 img {
+		margin:-10px;
+		margin-top:-30px;
+	}
+	#dash_left {
+		width:180px;
+		height:180px;
+		margin:5px;
+		margin-right:10px;
+		padding:10px;
+		float:left;
+		position:relative;
+		background-color:#C8D3E6;
+		border: 4px solid #657FAD;
+	}
+	#dash_center {
+		width:180px;
+		height:180px;
+		margin:5px;
+		margin-right:10px;
+		padding:10px;
+		float:left;
+		position:relative;
+		background-color:#C8D3E6;
+		border: 4px solid #657FAD;
+	}
+	#dash_right {
+		width:180px;
+		height:180px;
+		margin:5px;
+		margin-right:10px;
+		padding:10px;
+		float:left;
+		background-color:#C8D3E6;
+		border: 4px solid #657FAD;
 	}
 	#day_border_one {
 		width:650px;
