@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       @user_session = UserSession.new
       @user.level = "Basic"
       if @user.save
-         /@user.deliver_welcome!/
+         @user.deliver_welcome!
          redirect_to new_move_path
          /if @user.level == "Premium"
             flash[:notice] = "Account registered!"
