@@ -191,8 +191,14 @@ img {
 	margin-left:20px;
     font-family: 'Droid Sans', arial, serif;
 	font-size:17px;
-	color:#041128;
-		
+	color:#041128;		
+}
+#subtitle a {
+	font-family: 'Droid Sans', arial, serif;
+	font-size:18px;
+	color:#AC0000;
+	text-decoration:none;
+	background:white;
 }
 #video {
 	float:left;

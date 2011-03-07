@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :contact_categories
+
+  map.resources :contacts
+
   map.resources :questions
 
   map.resources :real_estates
@@ -9,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
 
    map.resources :installations do |installation|
       installation.neighborhood '/neighborhood', :controller => 'installations', :action => 'neighborhood'
+      installation.resources :contacts
    end
   
    map.places '/installation', :controller => 'installations', :action => 'show'
@@ -82,6 +87,7 @@ ActionController::Routing::Routes.draw do |map|
     move.resources :researches
     move.resources :lists
     move.resources :schools
+    move.resources :contacts
     move.resources :neighborhoods do |neighborhood|
        neighborhood.resources :communities
        neighborhood.resources :neighborhood_notes

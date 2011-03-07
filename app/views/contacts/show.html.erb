@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+
+</head>
+<body>
+<div class="wrap">
+	  <div id="header">
+		<div id="logo">
+		  <%= link_to image_tag("icons/logo.png", :border=>0), account_path %>
+		</div>
+	    <div id ="login">
+		    <ul>
+			  <li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
+			  <li><%= link_to "Account", user_path(current_user) %></li>
+			  <li><%= link_to "My Things", user_things_path(current_user) %></li>
+			</ul>
+		</div>
+	</div>
+<div class="colmask rightmenu">
+
+	<div class="colleft">
+
+		
+<div class="col1">
+		<!-- Column 1 end -->
+    <div id="border">
+		<p>
+          <b>Business</b><br />
+		  <%=h @contact.name %><br />
+		  <i><%=h @contact.business %></i>
+		</p>
+
+		<p>
+          <b>Phone Number</b><br />
+		  <%=h @contact.phone %>
+		</p>
+
+		<p>
+           <b>Address</b><br />
+		  <%=h @contact.address %> <br />
+
+		  <%=h @contact.city %>
+		  <%=h @contact.state %>
+		  <%=h @contact.zip %>
+		</p>
+
+		<p>
+		  <b>Additional Information</b><br />
+		  <%=h @contact.info %>
+		</p>
+   </div>
+   <div id="review">
+	 
+   </div>
+</div>
+
+<div class="col2">
+	<!-- Column 2 start -->
+  <div id="advertising_box">
+     
+  </div>
+</div>
+<div id="footer">
+	<p>Contact Us: <%= mail_to 'militarymove@gmail.com' , "militarymoveit@gmail.com"%></p>
+
+</div>
+</div>
+</body>
+</html>
+

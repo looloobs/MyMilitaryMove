@@ -8,6 +8,8 @@ class Installation < ActiveRecord::Base
    has_many :neighborhoods
    has_many :installations
    
+   has_many :contacts
+   
      def to_param
        "#{id}-#{name.parameterize}"
      end 

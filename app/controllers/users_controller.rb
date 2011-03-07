@@ -8,9 +8,12 @@ class UsersController < ApplicationController
 
     def create
       @user = User.new(params[:user])
-      #@user_session = UserSession.new
+      @user_session = UserSession.new
+      @user.level = "Basic"
       if @user.save
-         if @user.level == "Premium"
+         /@user.deliver_welcome!/
+         redirect_to new_move_path
+         /if @user.level == "Premium"
             flash[:notice] = "Account registered!"
             #UserSession.create(@user, false)
             @user.deliver_welcome!
@@ -18,7 +21,7 @@ class UsersController < ApplicationController
          else 
             @user.deliver_welcome!
             redirect_to new_move_path
-         end
+         end/
       else
         render :layout => 'user_sessions_new', :template => 'user_sessions/new'
       end

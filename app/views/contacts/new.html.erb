@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+  <% if current_user.nil? %>
+   	<div id="logo">
+      <%= link_to image_tag("icons/logo.png", :border=>0), account_path %>
+    </div>
+  <% else %>
+    <div id="logo">
+	  <%= link_to image_tag("icons/logo.png", :border=>0), account_path %>
+	</div>
+    <div id ="login">
+	    <ul>
+		  <li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
+		  <li><%= link_to "Account", user_path(current_user) %></li>
+		  <li><%= link_to "My Things", user_things_path(current_user) %></li>
+		</ul>
+	</div>
+  <% end %>
+</div>
+<div class="colmask rightmenu">
+
+	<div class="colleft">
+
+		
+<div class="col1">
+		<!-- Column 1 end -->
+  <div id="form">
+        <p>
+	     Add a contact! <br />
+	     <span class="highlight">*Sorry we do not support restaurants, real estate agents or schools.</span>
+	    </p>
+		<% form_for(@contact) do |f| %>
+		  <%= f.error_messages %>
+        
+		  <p>
+		    <%= f.label :installation_id, "Military Installation" %><br />
+		    <%= f.collection_select(:installation_id, @installations, :id, :name, {:prompt => true}) %>
+		  </p>
+		  <p>
+		    <%= f.label :contact_category_id %><br />
+		    <%= f.collection_select(:contact_category_id, @contact_categories, :id, :name, {:prompt => true}) %>
+		  </p>
+		  <p>
+		    <%= f.label :business, "Specific Business " %><span class="highlight">Eg. Dentist, Mechanic, Massage Therapist...</span><br />
+		    <%= f.text_field :business %>
+		  </p>
+		  <p>
+		    <%= f.label :name %><br />
+		    <%= f.text_field :name %>
+		  </p>
+		  <p>
+		    <%= f.label :phone %><br />
+		    <%= f.text_field :phone %>
+		  </p>
+		  <p>
+		    <%= f.label :address %><br />
+		    <%= f.text_field :address %>
+		  </p>
+		  <p>
+		    <%= f.label :city %><br />
+		    <%= f.text_field :city %>
+		  </p>
+		  <p>
+		    <%= f.label :state %><br />
+		    <%= f.text_field :state %>
+		  </p>
+		  <p>
+		    <%= f.label :zip %><br />
+		    <%= f.text_field :zip %>
+		  </p>
+		  <p>
+		    <%= f.label :info %><br />
+		    <%= f.text_area :info %>
+		  </p>
+		  <p>
+		    <%= f.submit 'Create' %>
+		  </p>
+		<% end %>
+	</div>
+</div>
+
+<div class="col2">
+	<!-- Column 2 start -->
+
+</div>
+<div id="footer">
+	<p>Contact Us: <%= mail_to 'militarymove@gmail.com' , "militarymoveit@gmail.com"%></p>
+
+</div>
+</div>
+</body>
+</html>
