@@ -1,8 +1,11 @@
 class User < ActiveRecord::Base
+   require 'createsend'
+  
   acts_as_authentic do |c|
     c.validate_login_field = false
     #c.logged_in_timeout = 10.minutes
   end
+
   
   has_many :families
   has_many :homes
@@ -29,6 +32,20 @@ class User < ActiveRecord::Base
     reset_perishable_token!
     UserMailer.deliver_welcome(self)  
   end
-  
-
+  def after_save
+     CreateSend.api_key '2f3a2d2d12d547b432ad43dc67c8348d'
+     cs = CreateSend::CreateSend.new
+     CreateSend::Subscriber.add('24affe79e79fa744191dc57a4f4c0627', 
+       self.email, 
+       self.name, 
+       [:Key => 'Member Created On', :Value => self.created_at] , 
+       true
+       )
+     #cs.add('24affe79e79fa744191dc57a4f4c0627','foo2@bar.com','John Doe')
+     
+     #cm.list['24affe79e79fa744191dc57a4f4c0627']
+     #list = List.new(:list_id => '24affe79e79fa744191dc57a4f4c0627') # or find it via client.lists
+    
+    
+  end 
 end

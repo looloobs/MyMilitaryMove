@@ -55,7 +55,7 @@ class MovesController < ApplicationController
   # POST /moves.xml
   def create
     @move = Move.new(params[:move])
-
+    @user = current_user
 
     respond_to do |format|
       if @move.save

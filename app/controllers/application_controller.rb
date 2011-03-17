@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :card_number, :card_verification
   helper_method :current_user_session, :current_user
   filter_parameter_logging :password, :password_confirmation
+  before_filter :set_timezone
+
+
   
   private
     def current_user_session
@@ -44,5 +47,9 @@ class ApplicationController < ActionController::Base
     def redirect_back_or_default(default)
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
+    end
+    def set_timezone
+      # current_user.time_zone #=> 'London'
+      Time.zone = "Central Time (US & Canada)"
     end
 end

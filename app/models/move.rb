@@ -25,5 +25,24 @@ class Move < ActiveRecord::Base
   
   accepts_nested_attributes_for :end
   accepts_nested_attributes_for :lists
-   
+
+  def after_save
+
+     CreateSend.api_key '2f3a2d2d12d547b432ad43dc67c8348d'
+     cs = CreateSend::CreateSend.new
+     user = User.find_by_id(user_id)
+     email = user.email
+     CreateSend::Subscriber.add('24affe79e79fa744191dc57a4f4c0627', 
+       email, 
+       user.name, 
+       [{:Key => 'Move Created On', :Value => DateTime.now},
+        {:Key => 'Moving From', :Value => self.end.installation.name},
+        {:Key => 'Moving To', :Value => self.start.installation.name},
+        {:Key => 'Move Date', :Value => self.date}
+       ] , 
+       true
+       )
+    
+  end
+
 end

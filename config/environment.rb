@@ -7,11 +7,20 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 require 'exifr'
 require 'pdfkit'
+#require 'campaign_monitor_subscriber'
+require 'rubygems'
+#require 'campaign_monitor_party'
+#require 'campaign_monitor'
+require 'createsend'
+#CAMPAIGN_MONITOR_API_KEY= '2f3a2d2d12d547b432ad43dc67c8348d'
+
 
 
 Rails::Initializer.run do |config|
   
   config.active_record.observers = :user_observer, :spouse_observer, :question_observer, :move_observer
+  #config.gem 'patientslikeme-campaign_monitor', :lib => 'campaign_monitor', :source => 'http://gems.github.com'
+  
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
