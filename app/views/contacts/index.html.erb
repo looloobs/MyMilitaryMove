@@ -32,7 +32,7 @@
 	<% @contact_categories.each do |c| %>
 	  <h1><%= c.name %></h1>
 	  <% @contacts.find(:all, :conditions => ['contact_category_id = ?', c.id]).each do |t| %>
-	     <%= link_to t.name, installation_contact_path(@installation, c) %><br />
+	     <%= link_to t.name, installation_contact_path(@installation, t) %><br />
 	  <% end %>
 	<% end %>
   </div>		
