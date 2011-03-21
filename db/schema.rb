@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110307144758) do
+ActiveRecord::Schema.define(:version => 20110320185203) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20110307144758) do
     t.datetime "updated_at"
     t.string   "like"
     t.string   "email"
+    t.string   "website"
   end
 
   create_table "ends", :force => true do |t|

@@ -44,6 +44,10 @@
 		  <%=h @contact.email %>
 		</p>
 		<p>
+          <b>Website</b><br />
+		  <%= link_to @contact.website, "http://"+@contact.website %>
+		</p>
+		<p>
            <b>Address</b><br />
 		  <%=h @contact.address %> <br />
 
