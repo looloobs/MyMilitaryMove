@@ -28,10 +28,7 @@
 		font-weight: normal;
 		color: #AC0000;
 	}
-	#facebook {
-		float:right;
-		margin-top:20px;
-	}
+
 	/* FORMS FORMS FORMS */
 	
 	#form {
@@ -197,17 +194,24 @@
 	#header h2 {
 
 	}
-	#logo {
+
+	#logo {		
+		position:relative;
 		float:left;
 		margin-left:30px;
+				
+	}
+	#facebook {
+		float:left;
+		margin-top:20px;
 	}
 	#nav {
-
+    position:relative;
 	}
 	#nav ul {
-	    float:left;
-		margin-left:405px;
-		margin-top:-20px;
+	   float:right;
+		margin-right:5px;
+		margin-top:40px;
 		margin-bottom:0px;
 	}
 	#nav ul li {

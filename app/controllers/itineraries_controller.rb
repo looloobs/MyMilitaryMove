@@ -3,6 +3,7 @@ class ItinerariesController < ApplicationController
   # GET /itineraries.xml
   def index
     @move = Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     @start = @move.start.installation
     @end = @move.end.installation
     @itineraries = @move.itineraries
@@ -20,6 +21,7 @@ class ItinerariesController < ApplicationController
     @user = current_user
     @itinerary = Itinerary.find(params[:id])
     @move = Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     @trips = @itinerary.trips.find(:all, :order => 'date')
 
     respond_to do |format|
@@ -32,6 +34,7 @@ class ItinerariesController < ApplicationController
   # GET /itineraries/new.xml
   def new
     @move = Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     @itinerary = Itinerary.new
     trip = @itinerary.trips.build
     
@@ -42,6 +45,7 @@ class ItinerariesController < ApplicationController
   # GET /itineraries/1/edit
   def edit
     @move = Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     @itinerary = Itinerary.find(params[:id])
     @trip = @itinerary.trips
       if @trip.blank?

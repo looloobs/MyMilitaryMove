@@ -2,6 +2,7 @@ class CalendarController < ApplicationController
   
   def index
     @move= Move.find(params[:move])
+    @installation = @move.end.installation_id
     @month = params[:month].to_i
     @year = params[:year].to_i
 

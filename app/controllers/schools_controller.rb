@@ -3,6 +3,7 @@ class SchoolsController < ApplicationController
   # GET /schools.xml
   def index
     @move= Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     @start = @move.start.installation
     @end = @move.end.installation
     @schools = School.find(:all, :conditions => ['move_id = ?', @move.id])
@@ -20,6 +21,7 @@ class SchoolsController < ApplicationController
   def show
     @school = School.find(params[:id])
     @move= Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     @itinerary = @move.itinerary
     
     respond_to do |format|
@@ -33,6 +35,7 @@ class SchoolsController < ApplicationController
   def new
     @school = School.new
     @move= Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     @neighborhoods = @move.neighborhoods
     @family = current_user.families
     
@@ -43,6 +46,7 @@ class SchoolsController < ApplicationController
   def edit
     @school = School.find(params[:id])
     @move= Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     @neighborhoods = @move.neighborhoods
     @family = current_user.families
     render :layout => "form"

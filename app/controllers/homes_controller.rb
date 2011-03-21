@@ -3,6 +3,7 @@ class HomesController < ApplicationController
   # GET /homes.xml
   def index
     @move= Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     @start = @move.start.installation
     @end = @move.end.installation
     @homes = Home.find(:all, :conditions => ['move_id = ?', @move.id])
@@ -30,6 +31,7 @@ class HomesController < ApplicationController
   def new
     @home = Home.new
     @move= Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     @neighborhoods = @move.neighborhoods
     render :layout => "form"
   end
@@ -38,6 +40,7 @@ class HomesController < ApplicationController
   def edit
     @home = Home.find(params[:id])
     @move= Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     @neighborhoods = @move.neighborhoods
     render :layout => "form"
   end

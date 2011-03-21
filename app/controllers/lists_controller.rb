@@ -3,6 +3,7 @@ class ListsController < ApplicationController
   # GET /lists.xml
   def index
     @move= Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     @start = @move.start.installation
     @end = @move.end.installation
     @lists = @move.lists
@@ -30,6 +31,7 @@ class ListsController < ApplicationController
   def new
     @list = List.new
     @move= Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     @itinerary = @move.itinerary
     render :layout => "form"
   end
@@ -38,6 +40,7 @@ class ListsController < ApplicationController
   def edit
     @list = List.find(params[:id])
     @move= Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     render :layout => "form"
   end
 

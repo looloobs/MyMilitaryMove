@@ -14,6 +14,7 @@ class MovesController < ApplicationController
   # GET /moves/1.xml
   def show
     @move = Move.find(params[:id])
+    @installation = @move.end.installation_id
     @user = current_user
     @start = @move.start.installation
     @end = @move.end.installation

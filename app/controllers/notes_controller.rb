@@ -3,6 +3,7 @@ class NotesController < ApplicationController
   # GET /notes.xml
   def index
     @move= Move.find(params[:move_id]) 
+    @installation = @move.end.installation_id
     @start = @move.start.installation
     @end = @move.end.installation
     @notes = @move.notes
@@ -31,6 +32,7 @@ class NotesController < ApplicationController
   def new
     @note = Note.new
     @move= Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     @itinerary = @move.itinerary
     
     render :layout => "form"
@@ -40,6 +42,7 @@ class NotesController < ApplicationController
   def edit
     @note = Note.find(params[:id])
     @move= Move.find(params[:move_id])
+    @installation = @move.end.installation_id
     render :layout => "form"
   end
 
