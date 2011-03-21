@@ -45,7 +45,11 @@
 		</p>
 		<p>
           <b>Website</b><br />
-		  <%= link_to @contact.website, "http://"+@contact.website %>
+          <% if @contact.website.nil? %>
+
+          <% else %>
+		    <%= link_to @contact.website, "http://"+@contact.website %>
+		  <% end %>
 		</p>
 		<p>
            <b>Address</b><br />
