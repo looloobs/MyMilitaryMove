@@ -128,17 +128,20 @@ p {
 	background: #041128;
 	padding: 5px 0 0 0;
 	color: #ccc;
-
+}
+#left_header{
+	position:relative;
+	float:left;
 }
 #logo {		
 	position:relative;
 	float:left;
-	margin-left:30px;
-	margin-top:10px;		
+	margin-left:30px;	
 }
 #facebook {
+	position:relative;
 	float:left;
-	margin-top:20px;
+	margin-top:10px;
 }
 
 /* INDEX */
@@ -188,7 +191,8 @@ p {
 }
 #new_user_form input {
 	float:right;
-	margin-left:10px;
+	margin-right:25px;
+	margin-top:5px;
 	background:#fff;
 	border: 1px solid #999;
 	font-family: 'Droid Sans', arial, serif;
