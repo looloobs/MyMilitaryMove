@@ -1,7 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :contact_categories
 
-  map.resources :contacts
+  map.resources :contacts do |contact|
+    contact.resources :business_sessions
+    contact.resources :businesses
+  end
+  map.resources :businesses
+  map.resources :business_sessions
 
   map.resources :questions
 
@@ -14,9 +19,12 @@ ActionController::Routing::Routes.draw do |map|
    map.resources :installations do |installation|
       installation.neighborhood '/neighborhood', :controller => 'installations', :action => 'neighborhood'
       installation.resources :contacts
+      installation.resources :neighborhoods
+      #installation.contact '/contact', :controller => 'contacts', :action => 'index'
    end
   
    map.places '/installation', :controller => 'installations', :action => 'show'
+   map.pages '/pages', :controller => 'installations', :action => 'pages'
 
   map.resources :things do |thing|
      thing.add_photos '/add_photos', :controller => 'things', :action => 'add_photos'
@@ -36,7 +44,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.off_post_housing '/off_post_housing', :controller => 'posts', :action => 'off_post_housing'
   map.add_photos '/add_photos', :controller => 'things', :action => 'add_photos'
-  map.new_neighborhood '/new_neighborhood', :controller => 'neighborhoods', :action => 'new_neighborhood' 
+  #map.new_neighborhood '/new_neighborhood', :controller => 'neighborhoods', :action => 'new_neighborhood' 
   map.resources :posts, :member => { :off_post_housing => :any }
   map.connect "logged_exceptions/:action/:id", :controller => "logged_exceptions"
   map.resources :orders
@@ -74,6 +82,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :user_session
   map.root :controller => "user_sessions", :action => "new" # optional, this just sets the root route
+  map.resource :business_session
+  map.root :controller => "business_sessions", :action => "new" # optional, this just sets the root route
+  
 
   
   map.resources :users do |user|
@@ -107,7 +118,10 @@ ActionController::Routing::Routes.draw do |map|
     research.resources :schools
   end
   
+  
   map.connect '/add_new_neighborhood', :controller => "installations", :action => "index"
+  map.connect '/patriot_pages', :controller => "installations", :action => "contact", :as => "patriot_pages"
+  map.patriot_pages '/patriot_pages', :controller => "installations", :action => "contact"
   #map.goto_installations '/installations', :controller => 'installations', :action => 'show', :id => 'page_id_or_permalink'
   
   

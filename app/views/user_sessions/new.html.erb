@@ -9,12 +9,14 @@
 
 <body>
 	<div id="header">
+		<div id="left_header">
 		<div id="logo">
 		<%= link_to image_tag("icons/logo_small.png", :border=>0), root_url %>
+        </div>	
 		  <div id= "facebook">
 		    <%= link_to image_tag("icons/facebook.png", :border=>0), "http://www.facebook.com/militarymoveit" %>
 		  </div>
-		</div>	
+		</div>
 		<div id="header_form">
 		<% form_for @user_session, :url => user_session_path do |f| %>
 		  <%= error_messages_for "user_session", :header_message => nil, :message => nil, :id => 'LoginErrorExplanation' %>
@@ -35,15 +37,18 @@
 	<h2>itinerary, calendar, lists & notes, research on neighborhoods, homes & schools</h2>
 
 	<div id="blue_square">
-		
-		<!--div id="price_tag">
+	  <!--div id="beta">	
+	    <p><h2><%= link_to "Take a tour.", {:controller => "/tour", :action => "index"} %> Get started for free today.</h2></p>
+	  </div-->		
+		<div id="price_tag">
 			<%= image_tag("index/price_tag.png", :border=>0) %>
-		</div-->
+		</div>
 		<%= error_messages_for "user", :header_message => nil, :message => nil %>
 		<div id="new_user_form">
 		<% form_for @user do |f| %>
 			
 			<br />
+
 			<div id= 'new_user_form_row'>
 			<%= f.label :name %>
 			<%= f.text_field :name, :size =>'30' %><br /></div>
@@ -54,6 +59,12 @@
 			<div id= 'new_user_form_row'>
 			<%= f.label :password, f.object.new_record? ? nil : "Change password" %>
 			<%= f.password_field :password, :size =>'30' %><br />
+			</div>
+			<div id= 'new_user_form_row'>
+			<%= f.label "Where do you live?" %>
+			<%= f.collection_select :installation_id, Installation.find(:all, :order => "name"), :id, :name, :prompt => "Select a Location" %><br />
+			<p style =color:#fff> or create one:
+			<%= f.text_field :new_installation_name, :size =>'25'  %></p>
 			</div>
 
 			

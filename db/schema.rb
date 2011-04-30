@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110320185203) do
+ActiveRecord::Schema.define(:version => 20110419154137) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -63,6 +63,26 @@ ActiveRecord::Schema.define(:version => 20110320185203) do
   add_index "attachings", ["asset_id"], :name => "index_attachings_on_asset_id"
   add_index "attachings", ["attachable_id"], :name => "index_attachings_on_attachable_id"
 
+  create_table "businesses", :force => true do |t|
+    t.string   "login",                              :null => false
+    t.string   "email",                              :null => false
+    t.string   "crypted_password",                   :null => false
+    t.string   "password_salt",                      :null => false
+    t.string   "persistence_token",                  :null => false
+    t.string   "single_access_token",                :null => false
+    t.string   "perishable_token",                   :null => false
+    t.integer  "login_count",         :default => 0, :null => false
+    t.integer  "failed_login_count",  :default => 0, :null => false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
+    t.integer  "contact_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "comments", :force => true do |t|
     t.string   "name"
     t.text     "body"
@@ -110,6 +130,12 @@ ActiveRecord::Schema.define(:version => 20110320185203) do
     t.string   "like"
     t.string   "email"
     t.string   "website"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.text     "coupon"
+    t.text     "note"
   end
 
   create_table "ends", :force => true do |t|
@@ -176,6 +202,13 @@ ActiveRecord::Schema.define(:version => 20110320185203) do
     t.string   "branch"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "inprocess"
+    t.string   "templodge"
+    t.string   "familyservice"
+    t.string   "school"
+    t.string   "housing"
+    t.string   "hospital"
+    t.string   "commissary"
   end
 
   create_table "interview_comments", :force => true do |t|
@@ -487,6 +520,7 @@ ActiveRecord::Schema.define(:version => 20110320185203) do
     t.string   "name"
     t.string   "level"
     t.datetime "membership"
+    t.integer  "installation_id"
   end
 
 end

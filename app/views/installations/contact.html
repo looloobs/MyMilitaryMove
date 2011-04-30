@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+<div id="header">
+  	<div id="logo">
+	<%= link_to image_tag("icons/logo_small.png", :border=>0), root_url %>
+	</div>
+</div>
+<div id="main">
+	<div id="border">
+<div class = "notice"></div>
+	  
+Find contacts at....
+	  <p>
+	
+          <p>
+	        <% form_tag pages_path, :method => :get do %>
+	        <div id="form">
+		<h1>Choose Your Installation</h1>
+			<%= select_tag :installation_id, options_from_collection_for_select(Installation.find(:all, :order => "name"), :id, :name) %>
+              </div>
+             	<div id="submit">
+			  <%= image_submit_tag ("buttons/go.png", :border=>0) %>
+				</div>
+			<% end %>
+	      </p>
+
+	  </p>
+
+
+
+    </div>
+	OR <br />
+
+	Add A Contact
+      </div>
+	<div id="footer">
+		<p>Contact Us: <%= mail_to 'militarymove@gmail.com' , "militarymoveit@gmail.com"%></p>
+
+	</div>
+
+</body>
+</html>

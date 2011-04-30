@@ -36,8 +36,8 @@ class Move < ActiveRecord::Base
        email, 
        user.name, 
        [{:Key => 'Move Created On', :Value => DateTime.now},
-        {:Key => 'Moving From', :Value => self.end.installation.name},
-        {:Key => 'Moving To', :Value => self.start.installation.name},
+        {:Key => 'Moving From', :Value => self.start.installation.name},
+        {:Key => 'Moving To', :Value => self.end.installation.name},
         {:Key => 'Move Date', :Value => self.date}
        ] , 
        true

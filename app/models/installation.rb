@@ -9,10 +9,11 @@ class Installation < ActiveRecord::Base
    has_many :installations
    
    has_many :contacts
+   has_many :users
    
-     def to_param
+     /def to_param
        "#{id}-#{name.parameterize}"
-     end 
+     end/ 
      
      def self.search(search)
         if search

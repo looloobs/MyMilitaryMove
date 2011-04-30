@@ -11,4 +11,7 @@
 <br />
 <!--%= form.label :password_confirmation %><br /-->
 <!--%= form.password_field :password_confirmation %-->
+<%= form.collection_select :installation_id, Installation.find(:all, :order => "name"), :id, :name, :prompt => "Select a Location" %><br />
+<p style =color:#fff> or create one:
+<%= form.text_field :new_installation_name, :size =>'25'  %>
 </div>

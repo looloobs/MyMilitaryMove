@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+
+</head>
+<body>
+<div class="wrap">
+	  <div id="header">
+		<div id="logo">
+		  <%= link_to image_tag("icons/logo.png", :border=>0), account_path %>
+		</div>
+		<% if current_user.nil? %>
+		
+		<% else %>
+	    <div id ="login">
+		    <ul>
+			  <li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
+			  <li><%= link_to "Account", user_path(current_user) %></li>
+			  <li><%= link_to "My Things", user_things_path(current_user) %></li>
+			</ul>
+		</div>
+		<% end %>
+	</div>
+<div class="colmask rightmenu">
+
+	<div class="colleft">
+
+		
+<div class="col1">
+	<!-- Column 1 end -->
+  <div id="contacts">
+	<% @contact_categories.each do |c| %>
+	  <h1><%= c.name %></h1>
+	  <% @contacts.find(:all, :conditions => ['contact_category_id = ?', c.id]).each do |t| %>
+	     <%= link_to t.name, contact_path(t) %><br />
+	  <% end %>
+	<% end %>
+  </div>		
+
+</div>
+
+<div class="col2">
+	<!-- Column 2 start -->
+	<div id="form">
+		<div id= "col2_form">
+
+	</div>
+  </div>
+</div>
+<div id="footer">
+	<p>Contact Us: <%= mail_to 'militarymove@gmail.com' , "militarymoveit@gmail.com"%></p>
+
+</div>
+</div>
+</body>
+</html>

@@ -12,9 +12,8 @@ class InstallationsController < ApplicationController
   # GET /installations/1
   # GET /installations/1.xml
   def show
-    
-    @installation = Installation.find(params[:id])
-    @neighborhood = @installation.neighborhoods
+     @installation = Installation.find(params[:id])
+     @neighborhood = @installation.neighborhoods
 
   end
 
@@ -32,6 +31,7 @@ class InstallationsController < ApplicationController
   # GET /installations/1/edit
   def edit
     @installation = Installation.find(params[:id])
+    render :layout => "form"
   end
 
   # POST /installations
@@ -59,7 +59,7 @@ class InstallationsController < ApplicationController
     respond_to do |format|
       if @installation.update_attributes(params[:installation])
         flash[:notice] = 'Installation was successfully updated.'
-        format.html { redirect_to(@installation) }
+        format.html { redirect_to account_url }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -87,5 +87,14 @@ class InstallationsController < ApplicationController
   def goto_installation
     @installations = Installation.all
     render :layout => "installation"
+  end
+  def contact
+    @installations = Installation.all(:order => "name")
+    render :layout => "installation"
+  end
+  def pages
+    @installation = Installation.find(params[:installation_id])
+    @contacts = @installation.contacts
+    @contact_categories = ContactCategory.all(:order => "name")
   end
 end

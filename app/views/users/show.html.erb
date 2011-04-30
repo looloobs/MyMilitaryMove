@@ -24,10 +24,17 @@
     <div id= "main">		
 	  <div class="col1">
 			<!-- Column 1 start -->
-	  <div id="welcome_message">
-		<%= image_tag ("icons/welcome_text.png")%>
-	  </div>
-	    
+
+	  <div id="account_move">
+			<p>
+				You are currently living at:<br />
+				<% if @user.installation_id.nil? %>
+				  <%= @last_move.start.installation.name %> <span class="edit"><%= link_to "Change this!", edit_user_path(@user) %> </span>
+				<% else %>
+				  <%= @user.installation.name %> <span class="edit"><%= link_to "Change this!", edit_user_path(@user) %> </span>
+				<% end %>
+			</p>
+	  </div>  
 	  <div id="add_move">
 	    <%= link_to image_tag("icons/add_a_move.png", :border=>0), new_move_path %>
 	  </div>
@@ -45,157 +52,106 @@
 		<% end %>
 		</p>
 	</div>
-	  <div id="account_move">
-		<p>
-		<% if @user.created_at < @user.created_at+5.days %>
-		
-		<% else %>
-	    Your membership was last renewed: <%= @user.order.created_at.strftime("%B %d, %Y") %> <br />
 	
-	    <% end %>
-		</p>
-	  </div>	
 
 	  <div id= "sidebar">
-		<div id="account_user">
-	      <h1>Profile
-			<div id="edit_profile">
-		      <span class="edit"><%= link_to 'Edit Your Profile', edit_user_path(@user)%></span>
-		    </div>
-			</h1>
-		  		<p>
-		  		<%= @user.name %><br />
-		  		<%= @user.email %><br />
-		  		</p>
-			  <% if @have_spouse.nil? %>
-			  <h1> Spouse </h1>
-				<div id ="form">
-			  	<% form_for(@spouse) do |f| %>
-				  <%= render :partial => "spouse", :object => f %>
-				  <p>
-				    <%= f.submit 'Create' %>
-				  </p>
-				<% end %>
-				</div>
-			  <% else %>
-			  <h1> Spouse </h1>
-				  <p>
-			    	<%= @have_spouse.name %><br />
-			    	<%= @have_spouse.email %><br />
-				  </p>
-			  <% end %>
-	<!-- Address Info -->
-	           
-	             <% if @add.nil? %>
-				<h1> Address </h1>
-				  <div id="form">
-				  <% form_for(@address) do |address| %>
-				    <%= address.hidden_field :user_id, :value => @user.id %>
-				  <p>
-				    <%= address.label :address %><br />
-				    <%= address.text_field :address %>
-				  </p>
-				  <p>
-					<div class="city">
-					<%= address.label :city %><br />
-				    <%= address.text_field :city, :size=> "25" %>
-					</div>
-				   <div class="state">
-				    <%= address.label :state %><br />
-				    <%= address.text_field :state, :size=> "2" %>
-				   </div>
-				   <div class="zip">
-				    <%= address.label :zip %><br />
-				    <%= address.text_field :zip, :size=> "5" %>
-				   </div>
-				   </p>
-				  <p>
-				    <%= address.submit 'Create' %>
-				  </p>
-				 <% end %>
-				</div>	
-	             <% else %>
-	          	<h1> Address </h1>
-	             <p>
-	               <%= @add.address %><br />
-		           <%= @add.city %>, <%= @add.state %> <%= @add.zip %>
-	             </p>
-	             <% end %>
+		<div id="dark_blue">
+          
+          	<% if @user.installation_id.nil? %>
+			 <%= link_to 'Contacts', installation_contacts_path(@last_move.start.installation) %>
+			<% else %>
+			  <%= link_to 'Contacts', installation_contacts_path(@user.installation) %>
+			<% end %><br />
+		    Find information about recommended local services in the area.
 		</div>
-	
+	    <div id="account_user">
+           	<% if @user.installation_id.nil? %>
+			 <%= link_to 'Neighborhoods', installation_path(@last_move.start.installation) %>
+			<% else %>
+			  <%= link_to 'Neighborhoods', installation_path(@user.installation) %>
+			<% end %><br />
+			Find out more information about neighborhoods in the area.
+		</div>
+
       </div>
     </div>
 		  
       <div id="sidebar_two">
-	    <div id="account_user">
-		    <h1>Kids</h1>
-			  <% if @children.empty? %>
-				  <% form_for(@family) do |f| %>
-					<div id = "form">
-				    <%= render :partial => "family", :object => f %>
-					  <p>
-				      <%= f.submit 'Create' %>
-				      </p>
-				    </div>
-				  <% end %>
-			  <% else %>
-				 
-				  <% @children.each do |child| %>
-					<p>
-			    	<%= child.name %><br />
-					<%= child.birthday.strftime('%b %d, %Y')  %><br />
-			        <%= child.school_level %><br />
-					<% if child.email.blank? %>
-					<% else %>
-			    	<%= child.email %><br />
-					<% end %>
-			      </p>
-			      <% end %>
-			      <h2> Add Another Kid </h2>
-			      <% form_for(@family) do |f| %>
-					<div id = "form">
-				    <%= render :partial => "family", :object => f %>
-					<p>
-				    <%= f.submit 'Save' %>
-				    </p>
-					</div>
-				  <% end %>
+	    <div id="info_box">
+		 
+	
+		   	<% if @user.installation_id.nil? %>
+			 <h1><%= @last_move.start.installation.name %> Information<br /> 
+			<span class="edit"><%= link_to 'See something wrong? Fix it!', edit_installation_path(@last_move.start.installation) %></span></h1>
+			<% else %>
+			 <h1><%= @user.installation.name %> Information<br />
+			<span class="edit"><%= link_to 'See something wrong? Fix it!', edit_installation_path(@user.installation) %></span></h1>
+			<% end %>
+			We are working hard to fill in all the information below. If you see blank spots and would like to help us <%= link_to 'fill in the numbers.', edit_installation_path(@user.installation) %>
 			
-			  <% end %>
+			<div id="installation_information">
+			 <div id="installation_information_image"><%= image_tag ("buttons/inprocessing.png") %></div>
+			<div id="installation_information_title">In-Processing:</div>
+			<% if @user.installation_id.nil? %>
+			 <%= @last_move.start.installation.inprocess %>
+			<% else %>
+			  <%= @user.installation.inprocess %>
+			<% end %><br />
+			</div>
+			<div id="installation_information">
+			<div id="installation_information_image"><%= image_tag ("buttons/lodging.png") %></div>
+			<div id="installation_information_title">Temporary Lodging:
+			<span class="installation_highlight"><% if @user.installation_id.nil? %>
+			 <%= @last_move.start.installation.templodge %>
+			<% else %>
+			  <%= @user.installation.templodge %>
+			<% end %></span></div><br />
+			</div>
+			<div id="installation_information">
+			<div id="installation_information_image"><%= image_tag ("buttons/inprocessing.png") %></div>
+			<div id="installation_information_title">Family Services:</div>
+			<% if @user.installation_id.nil? %>
+			 <%= @last_move.start.installation.familyservice %>
+			<% else %>
+			  <%= @user.installation.familyservice %>
+			<% end %></div><br />
 			
+			<div id="installation_information">
+			<div id="installation_information_image"><%= image_tag ("buttons/school.png") %></div>
+			<div id="installation_information_title">School Liaison:</div>
+			<% if @user.installation_id.nil? %>
+			 <%= @last_move.start.installation.school %>
+			<% else %>
+			  <%= @user.installation.school %>
+			<% end %></div><br />
 			
-			<h1>Pets</h1>
-			  <% if @pets.empty? %>
-				  <% form_for(@pet) do |f| %>
-					<div id = "form">
-				    <%= render :partial => "pet", :object => f %>
-					<p>
-				    <%= f.submit 'Create' %>
-				  </p>
-				  </div>
-				  <% end %>
-			  <% else %>
-			   <p>
-			      <% @pets.each do |pet| %>
-			    	<%= pet.name %><br />
-			    	<%= pet.pet_type %><br />
-			   		<%= pet.breed %><br />
-			    	<%= pet.microchip %><br />
-				  <% end %>
-			    </p>
-				 
-				
-				  <% form_for(@pet) do |f| %>
-				    <div id = "form">
-				    <%= render :partial => "pet", :object => f %>
-					<p>
-				    <%= f.submit 'Create' %>
-				  </p>
-				  </div>
-				  <% end %>
-				<% end %>
-        
-	  </div>
+			<div id="installation_information">
+			<div id="installation_information_image"><%= image_tag ("buttons/housing.png") %></div>
+			<div id="installation_information_title">Housing:</div>
+			<% if @user.installation_id.nil? %>
+			 <%= @last_move.start.installation.housing %>
+			<% else %>
+			  <%= @user.installation.housing %>
+			<% end %></div><br />
+			
+			<div id="installation_information">
+			<div id="installation_information_image"><%= image_tag ("buttons/hospital.png") %></div>
+			<div id="installation_information_title">Hospital:</div>
+			<span class="highlight"><% if @user.installation_id.nil? %>
+			 <%= @last_move.start.installation.housing %>
+			<% else %>
+			  <%= @user.installation.housing %>
+			<% end %></span></div><br />
+			
+			<div id="installation_information">
+			<div id="installation_information_image"><%= image_tag ("buttons/housing.png") %></div>
+			<div id="installation_information_title">Commissary:</div>
+			<% if @user.installation_id.nil? %>
+			 <%= @last_move.start.installation.housing %>
+			<% else %>
+			  <%= @user.installation.housing %>
+			<% end %></div><br />
+	 </div> 		
     </div>  
   </div>
 <div id="footer">

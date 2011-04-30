@@ -15,10 +15,12 @@
 
 	<div class="colleft">
 		<div id="move">
+
 				<p>
 				<%= @start.name.upcase %> to <%= @end.name.upcase %>  on <%= @move.date.strftime("%B %d, %Y") %> 
 				</p> 
 				<span class="edit"><%= link_to 'edit your move', edit_move_path(@move)%></span>
+
 		</div>
 		
 <div class="col1">
@@ -145,7 +147,10 @@
 	   Drive time: <%= a.drive_distance %> minutes<br />
 	   <br />
 	<% end %>
-	</p>
+</p>
+ <div id="advertising">
+	<%= render :partial => "shared/advertising" %>
+ </div>
 </div>
 
 </div>

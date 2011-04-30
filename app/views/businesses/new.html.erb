@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link href=' http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="wrap">
+	<div id="header">
+	  	<div id="logo">
+		<%= link_to image_tag("icons/logo_small.png", :border=>0), root_url %>
+		</div>
+	</div>
+    <div id="main">
+	  
+	    <div id="top">
+	    </div>
+	  <div id="sidebar">
+		<h1>Take A Tour</h1>
+		<div id="subtitle">
+		  <p>Organize your military move.</p>
+		<p>
+		  <ul>
+			<li>itinerary</li>
+			<li>calendar</li>
+			<li>lists & notes</li>
+			<li>neighborhood research</li>
+			<li>home research</li>
+			<li>school research</li>
+		  </ul>
+		</p>
+		<%= link_to "Get started", root_url %> today with our 7 day free trial. Only $20 for a year membership.
+		</div>
+		  <div id="security">
+			<%= image_tag("icons/security.png", :border=>0) %>
+		  </div>
+	  </div>
+	  <div id="sidebar_two">
+
+		<div id="video">
+			<% form_for @business do |f| %>
+			<!--%= f.hidden_field :contact_id, :value => @contact.id %-->
+			<div id= 'new_user_form_row'>
+			<%= f.hidden_field :contact_id, :value => @contact.id %>
+			<%= f.label :login, "Login " %>
+			<%= f.text_field :login, :size =>'30' %><br /></div>
+			
+			<%= f.label :email, "Email " %>
+			<%= f.text_field :email, :size =>'30' %><br /></div>
+			
+			<div id= 'new_user_form_row'>
+			<%= f.label :password, f.object.new_record? ? nil : "Change password" %>
+			<%= f.password_field :password, :size =>'30' %><br />
+			</div>	
+		</div>
+		<div id="submit">
+	    <%= image_submit_tag ("buttons/get_started.png", :border=>0) %>
+		</div>
+		<% end %>
+	  </div>
+
+	<div id="screenshots">
+		<div id="screenshot_left">
+			<%= image_tag("screenshots/things.png", :border=>0) %>
+		  </div>
+		  <div id="screenshot_left_text">
+			<h2>My Things</h2>
+			<div class='left'>
+
+			</div>
+			<b>1. What to inventory.</b> <br /><div id="highlight_blue">Furniture, electronics, sporting or outdoor equipment; anything you consider to be a high dollar item.</div>
+			<b>2. Take pictures.<br /><span class="required">**Ensure your camera date is correct.** </span></b><br /><div id="highlight_blue">Every "thing" can have a gallery of photos. It is always a good idea to include a picture of the receipt from the original purchase.</div>
+			<b>3. Start Adding Your "Things."</b> <div id="highlight_blue">Use the button in the upper-right hand corner to get started.</div>
+			<b>4. KEEP A RUNNING LIST! </b> <div id="highlight_blue">If you buy something of value document it!</div><br />
+
+			<p><span class="highlight">Tip: If you ever need this information about one of your “things” you simply export it to PDF.</span></p>
+		  </div>
+		</div>
+		</div>
+	  <div id="screenshots">
+	  <div id="screenshot_left">
+		<%= image_tag("screenshots/move_dash.png", :border=>0) %>
+	  </div>
+	  <div id="screenshot_left_text">
+		<h2>Move Dashboard</h2>
+		<div class='left'>
+			<p>Snapshot of your upcoming move. This overview shows you <span class="highlight">how many days until your move</span>, a <span class="highlight">preview of your calendar </span> and a count of your <span class="highlight">current lists, notes, neighborhoods, homes and schools</span>.</p>
+			<p>Note: If you do not know your move date today go ahead and get started, you can always enter a placeholder.</p>
+		</div>
+	  </div>
+	</div>
+	<div id="screenshots">
+	  <div id="screenshot_right">
+		<%= image_tag("screenshots/calendar.png", :border=>0) %>
+	  </div>
+	  <div id="screenshot_right_text">
+		<h2>Calendar</h2>
+			<div class="right">
+				You may keep a calendar. Your spouse may keep one too! <span class="highlight">Here you can put all your move/travel dates in one place</span>. 
+			</div>
+	  </div>
+	</div>
+	<div id="screenshots">
+	  <div id="screenshot_left">
+		<%= image_tag("screenshots/itinerary.png", :border=>0) %>
+	  </div>
+	  <div id="screenshot_left_text">
+		<h2>Itinerary</h2>
+		<div class='left'>
+			<p>Ah, the move itinerary. Where are you going to stay and how are you going to get there? <span class="highlight">Develop a plan</span>, <span class="highlight">pinpoint the legs of the trip</span> and <span class="highlight">track the money you'll spend.</span> </p>
+		</div>
+	  </div>
+	</div>
+	<div id="screenshots">
+	  <div id="screenshot_right">
+		<%= image_tag("screenshots/lists.png", :border=>0) %>
+	  </div>
+	  <div id="screenshot_right_text">
+		<h2>Lists</h2>
+		<div class='right'><p>Chuck that steno pad. <span class="highlight">Get started with our pre-loaded lists. Add, edit and delete as you need.</span>  Keep your lists in one location, online. <br />Check off your items as you go. </p>
+			<p>Bonus: That "honey do" list for your active duty member; now they can access their "to do" list from anywhere,  including work.</p></div>
+	  </div>
+	</div>
+	<div id="screenshots">
+	  <div id="screenshot_left">
+		<%= image_tag("screenshots/notes.png", :border=>0) %>
+	  </div>
+	  <div id="screenshot_left_text">
+		<h2>Notes</h2>
+		  <p>
+			It's pretty simple. <span class="highlight">Sometimes you just need to take a note</span>. Take it here, that way you can't lose it.
+		  </p>
+	  </div>
+	</div>
+	<div id="screenshots">
+	  <div id="screenshot_right">
+		<%= image_tag("screenshots/neighborhoods.png", :border=>0) %>
+	  </div>
+	  <div id="screenshot_right_text">
+		<h2>Neighborhoods</h2>
+		  <p>
+			First and foremost, where are you going to live? Start by researching neighborhoods in the area. <span class="highlight">You can track location, distance, travel time, the pro and cons and take notes</span>.
+		  </p>
+	  </div>
+	</div>
+	<div id="screenshots">
+	  <div id="screenshot_left">
+		<%= image_tag("screenshots/homes.png", :border=>0) %>
+	  </div>
+	  <div id="screenshot_left_text">
+		<h2>Homes</h2>
+		  <p>
+			Once you narrow down a few neighborhoods it's time to start looking at homes. Track them too! <span class="highlight">Keep information about all houses you are considering in one location</span>. 
+		  </p>
+		  <p>
+			Bonus: Is your spouse deployed or overseas? By using Militarymoveit.com to manage all your research they can log on and take a look from anywhere!
+		  </p>	
+	  </div>
+	</div>
+	<div id="screenshots">
+	  <div id="screenshot_right">
+		<%= image_tag("screenshots/schools.png", :border=>0) %>
+	  </div>
+	  <div id="screenshot_right_text">
+		<h2>Schools</h2>
+		  Moving with children is tough, but one thing that can improve the transition is choosing a good school. Organize school research from daycare to high school. 
+	  </div>
+	</div>
+	<div id="screenshot_footer">
+		<%= link_to image_tag("icons/get_started_large.png", :border=>0), new_user_session_path %>
+	</div>
+
+    </div>
+  
+  </div>
+</body>

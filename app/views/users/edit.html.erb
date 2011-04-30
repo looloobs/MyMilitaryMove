@@ -29,11 +29,13 @@
         <h2>Edit your profile </h2>
         	<div id="account_family">
 	     	<%= render :partial => "form", :object => f %>
+	        <%= f.submit 'Save' %>
         	</div>
        <h2>Edit your address</h2>
 			<div id="account_family">
 		  	  <% f.fields_for :address do |address| %>
 	          <%= render "add", :address => address %>
+	          <%= f.submit 'Save' %>
 		  	  <% end %>
 			</div>
 	  </div>

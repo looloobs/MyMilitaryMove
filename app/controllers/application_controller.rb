@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   filter_parameter_logging :card_number, :card_verification
   helper_method :current_user_session, :current_user
+  helper_method :current_business_session, :current_business
   filter_parameter_logging :password, :password_confirmation
   before_filter :set_timezone
 
@@ -52,4 +53,32 @@ class ApplicationController < ActionController::Base
       # current_user.time_zone #=> 'London'
       Time.zone = "Central Time (US & Canada)"
     end
+
+          def current_business_session
+            return @current_business_session if defined?(@current_business_session)
+            @current_business_session = BusinessSession.find
+          end
+
+          def current_business
+            return @current_business if defined?(@current_business)
+            @current_business = current_business_session && current_business_session.business
+          end
+          def require_business
+            unless current_business
+              store_location
+              flash[:notice] = "You must be logged in to access this page"
+              redirect_to new_business_session_url
+              return false
+            end
+          end
+
+          def require_no_business
+            if current_business
+              store_location
+              flash[:notice] = "You must be logged out to access this page"
+              redirect_to account_url
+              return false
+            end
+          end
+    
 end

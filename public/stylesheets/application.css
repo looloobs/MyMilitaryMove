@@ -69,7 +69,14 @@
 	  list-style: square;
 	}
 
-
+   #advertising {
+	margin-left:50px;
+	margin-top:25px;
+	color: gray;
+	font-family: Arial, "MS Verdana", sans-serif;
+	font-size: 11px;
+	
+}
 	
 	/* FORMS FORMS FORMS */
 	

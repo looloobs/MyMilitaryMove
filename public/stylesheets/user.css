@@ -25,10 +25,19 @@
 		font-weight: normal;
 		color: #AC0000;
 	}
+	h1 {
+		font-family: 'Droid Sans', arial, serif;
+		font-size:55px;
+		color:#041128;
+	}
 	.wrap {
 		width:960px;
 		margin: 0 auto;
 		background:#fff;
+	}
+	.left img {
+		clear:left;
+		float:left;
 	}
 
 	.highlight {
@@ -109,7 +118,6 @@
 	}
 	#move_info {
 		width:450px;
-		clear:both;
 		float:left;
 		color:#000;
 		position:relative;
@@ -363,20 +371,14 @@
 	}
 #account_move p {
 		font-family:"Arial";
-		font-size: 22px;
+		font-size: 28px;
 	}
-#account_move a {
-		margin:0px;
-		font-family:"Arial";
-		font-size: 22px;
-		color:#041128;
-		text-decoration:none;
-	}
+
 #account_move img {
 		float:right;
 		margin:0px;
 	}
-#account_user {
+#info_box {
 		float:left;
 		width:450px;
 		background-color:#E6EBF4;
@@ -385,14 +387,14 @@
 		position:relative;
 		font-family:"Arial";		
 	}
-#account_user p {
+#info_box p {
 		margin-left:10px;
 		margin-bottom:10px;
 		font-family:"Arial";
 		font-size: 22px;
 		padding:0px;
 	}
-#account_user h1 {
+#info_box h1 {
 		font-family:"Arial";
 		font-size: 22px;
 		font-weight: normal;
@@ -401,6 +403,108 @@
 		margin-top:0px;
 
 	}
+	#account_user {
+			float:left;
+			width:450px;
+			height:100px;
+			background-color:#E6EBF4;
+			margin-bottom:10px;
+			padding:5px;
+			position:relative;
+			font-family:"Arial";		
+		}
+	#account_user p {
+			margin-left:10px;
+			margin-bottom:10px;
+			font-family:"Arial";
+			font-size: 22px;
+			padding:0px;
+		}
+	#account_user h1 {
+			font-family:"Arial";
+			font-size: 22px;
+			font-weight: normal;
+			background-color: #a7b5cf;
+			color:#333333;
+			margin-top:0px;
+
+		}
+	#account_user a {
+		  font-family:"Arial";
+		  font-size: 54px;
+		  color:#333;
+		  text-decoration:none;
+	}
+	#account_user a:hover {
+		  font-family:"Arial";
+		  font-size: 54px;
+		  color:#333;
+		  text-decoration:none;
+		  background-color:#fff;
+	}
+		
+		#dark_blue {
+				float:left;
+				width:450px;
+				height:100px;
+				background-color:#8C9EB5;
+				margin-bottom:10px;
+				padding:5px;
+				position:relative;
+				font-family:"Arial";		
+			}
+		#dark_blue p {
+				margin-left:10px;
+				margin-bottom:10px;
+				font-family:"Arial";
+				font-size: 22px;
+				padding:0px;
+			}
+		#dark_blue h1 {
+				font-family:"Arial";
+				font-size: 22px;
+				font-weight: normal;
+				background-color: #a7b5cf;
+				color:#333333;
+				margin-top:0px;
+			}
+		#dark_blue a {
+				  font-family:"Arial";
+				  font-size: 54px;
+				  color:#333;
+				  text-decoration:none;
+			}
+		#dark_blue a:hover {
+				font-family:"Arial";
+				font-size: 54px;
+				color:#333;
+				text-decoration:none;
+				background-color:white;
+				}
+#installation_information {
+  position:relative;
+  float:left;
+  width:450px;
+}
+#installation_information_image {
+   position:relative;
+	float:left;
+}
+#installation_information_title {
+   position:relative;
+	float:left;
+	margin-top:30px;
+   font-family:"Arial";
+	font-size: 18px;
+	color: #041128;
+}
+.installation_highlight {
+	font-family: Arial, "MS Verdana", sans-serif;
+	font-size: 16px;
+	background-color: #FCF8C3;
+	margin-top:3px;
+	margin-bottom:3px;
+}
 .edit_user {
 		font-family:"Arial";
 		font-size: 12px;

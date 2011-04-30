@@ -39,6 +39,7 @@ class ContactsController < ApplicationController
   # GET /contacts/1/edit
   def edit
     @contact = Contact.find(params[:id])
+    render :layout => "form"
   end
 
   # POST /contacts

@@ -12,10 +12,11 @@ class UserSessionsController < ApplicationController
     def create
       @user_session = UserSession.new(params[:user_session])
       @user = User.new
-      @user = @user_session.user
+      #@user = @user_session.user
       if @user_session.save
          @user = @user_session.user
-        if @user.level == "Basic" and @user.created_at > 7.days.ago
+         redirect_to account_url
+        /if @user.level == "Basic" and @user.created_at > 7.days.ago
             flash[:notice] = "Login successful!"
             redirect_to account_url
         elsif @user.level == "Basic" and @user.created_at < 7.days.ago and @user.order.nil?
@@ -28,7 +29,7 @@ class UserSessionsController < ApplicationController
            flash[:notice] = "Looks like your account is past the trial date or yearly membership has ended." 
         else 
            redirect_to new_order_path
-        end
+        end/
       else
        render :layout => 'user_sessions_new', :action => "new"
       end

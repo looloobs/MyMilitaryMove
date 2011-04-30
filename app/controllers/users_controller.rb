@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       @user.level = "Basic"
       if @user.save
          /@user.deliver_welcome!/
-         redirect_to new_move_path
+         redirect_to account_url
          /if @user.level == "Premium"
             flash[:notice] = "Account registered!"
             #UserSession.create(@user, false)
@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     def show
       @user = @current_user
       @moves = @user.moves
+      @last_move = @moves.last
       @address = Address.new
       @add = @user.address
       @family = Family.new

@@ -27,15 +27,17 @@
 
 		
 <div class="col1">
+
 	<!-- Column 1 end -->
-  <div id="contacts">
+	<div id="contacts">
+		<!--See all contacts for all locations. <%= link_to 'Patriot Pages', patriot_pages_path %> -->
 	<% @contact_categories.each do |c| %>
-	  <h1><%= c.name %></h1>
-	  <% @contacts.find(:all, :conditions => ['contact_category_id = ?', c.id]).each do |t| %>
-	     <%= link_to t.name, installation_contact_path(@installation, t) %><br />
-	  <% end %>
+	<h1><%= c.name %></h1>
+	<% @contacts.find(:all, :conditions => ['contact_category_id = ?', c.id]).each do |t| %>
+	<%= link_to t.name, installation_contact_path(@installation, t) %><br />
 	<% end %>
-  </div>		
+	<% end %>
+	  </div>		
 
 </div>
 
@@ -43,66 +45,7 @@
 	<!-- Column 2 start -->
 	<div id="form">
 		<div id= "col2_form">
-	<p>
-     Have something to add? <br />
-     <span class="highlight">*Sorry we do not support restaurants, real estate agents or schools.</span>
-    </p>
 
-		<% form_for(@contact) do |f| %>
-		  <%= f.error_messages %>
-
-		  <p>
-		    <%= f.label :installation_id, "Military Installation" %><br />
-		    <%= f.collection_select(:installation_id, @installations, :id, :name, {:prompt => true}) %>
-		  </p>
-		
-		    <%= f.label :contact_category_id %><br />
-		    <%= f.collection_select(:contact_category_id, @contact_categories, :id, :name, {:prompt => true}) %>
-		  </p>
-		  <p>
-		    <%= f.label :business, "Specific Business " %><span class="highlight">Eg. Dentist, Mechanic...</span><br />
-		    <%= f.text_field :business %>
-		  </p>
-		  <p>
-		    <%= f.label :name %><br />
-		    <%= f.text_field :name %>
-		  </p>
-		  <p>
-		    <%= f.label :phone %><br />
-		    <%= f.text_field :phone %>
-		  </p>
-		  <p>
-		    <%= f.label :email %><br />
-		    <%= f.text_field :email %>
-		  </p>
-		  <p>
-		    <%= f.label :website %><br />
-		    <%= f.text_field :website %>
-		  </p>
-		  <p>
-		    <%= f.label :address %><br />
-		    <%= f.text_field :address %>
-		  </p>
-		  <p>
-		    <%= f.label :city %><br />
-		    <%= f.text_field :city %>
-		  </p>
-		  <p>
-		    <%= f.label :state %><br />
-		    <%= f.text_field :state %>
-		  </p>
-		  <p>
-		    <%= f.label :zip %><br />
-		    <%= f.text_field :zip %>
-		  </p>
-		  <p>
-		    <%= f.label :info %><br />
-		    <%= f.text_area :info %>
-		  </p>
-		  <p>
-		    <%= f.submit 'Create' %>
-		  </p>
-		<% end %>
 	</div>
   </div>
 </div>
