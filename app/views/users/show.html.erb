@@ -91,12 +91,12 @@
 			
 			<div id="installation_information">
 			 <div id="installation_information_image"><%= image_tag ("buttons/inprocessing.png") %></div>
-			<div id="installation_information_title">In-Processing:</div>
-			<% if @user.installation_id.nil? %>
+			<div id="installation_information_title">In-Processing:
+			<span class="installation_highlight"><% if @user.installation_id.nil? %>
 			 <%= @last_move.start.installation.inprocess %>
 			<% else %>
 			  <%= @user.installation.inprocess %>
-			<% end %><br />
+			<% end %></span></div><br />
 			</div>
 			<div id="installation_information">
 			<div id="installation_information_image"><%= image_tag ("buttons/lodging.png") %></div>
@@ -105,52 +105,57 @@
 			 <%= @last_move.start.installation.templodge %>
 			<% else %>
 			  <%= @user.installation.templodge %>
-			<% end %></span></div><br />
+			<% end %></span></div>
 			</div>
 			<div id="installation_information">
 			<div id="installation_information_image"><%= image_tag ("buttons/inprocessing.png") %></div>
-			<div id="installation_information_title">Family Services:</div>
-			<% if @user.installation_id.nil? %>
+			<div id="installation_information_title">Family Services:
+			<span class="installation_highlight"><% if @user.installation_id.nil? %>
 			 <%= @last_move.start.installation.familyservice %>
 			<% else %>
 			  <%= @user.installation.familyservice %>
-			<% end %></div><br />
+			<% end %></span></div>
+			</div><br />
 			
 			<div id="installation_information">
 			<div id="installation_information_image"><%= image_tag ("buttons/school.png") %></div>
-			<div id="installation_information_title">School Liaison:</div>
-			<% if @user.installation_id.nil? %>
+			<div id="installation_information_title">School Liaison:
+			<span class="installation_highlight"><% if @user.installation_id.nil? %>
 			 <%= @last_move.start.installation.school %>
 			<% else %>
 			  <%= @user.installation.school %>
-			<% end %></div><br />
+			<% end %></span></div>
+			</div><br />
 			
 			<div id="installation_information">
 			<div id="installation_information_image"><%= image_tag ("buttons/housing.png") %></div>
-			<div id="installation_information_title">Housing:</div>
-			<% if @user.installation_id.nil? %>
+			<div id="installation_information_title">Housing:
+			<span class="installation_highlight"><% if @user.installation_id.nil? %>
 			 <%= @last_move.start.installation.housing %>
 			<% else %>
 			  <%= @user.installation.housing %>
-			<% end %></div><br />
+			<% end %></span></div>
+			</div><br />
 			
 			<div id="installation_information">
 			<div id="installation_information_image"><%= image_tag ("buttons/hospital.png") %></div>
-			<div id="installation_information_title">Hospital:</div>
+			<div id="installation_information_title">Hospital:
 			<span class="highlight"><% if @user.installation_id.nil? %>
 			 <%= @last_move.start.installation.housing %>
 			<% else %>
 			  <%= @user.installation.housing %>
-			<% end %></span></div><br />
+			<% end %></span></div>
+			</div><br />
 			
 			<div id="installation_information">
 			<div id="installation_information_image"><%= image_tag ("buttons/housing.png") %></div>
-			<div id="installation_information_title">Commissary:</div>
-			<% if @user.installation_id.nil? %>
+			<div id="installation_information_title">Commissary:
+			<span class="installation_highlight"><% if @user.installation_id.nil? %>
 			 <%= @last_move.start.installation.housing %>
 			<% else %>
 			  <%= @user.installation.housing %>
-			<% end %></div><br />
+			<% end %></span></div>
+			</div><br />
 	 </div> 		
     </div>  
   </div>
