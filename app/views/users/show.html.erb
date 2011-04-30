@@ -87,7 +87,14 @@
 			 <h1><%= @user.installation.name %> Information<br />
 			<span class="edit"><%= link_to 'See something wrong? Fix it!', edit_installation_path(@user.installation) %></span></h1>
 			<% end %>
-			We are working hard to fill in all the information below. If you see blank spots and would like to help us <%= link_to 'fill in the numbers.', edit_installation_path(@user.installation) %>
+			We are working hard to fill in all the information below. If you see blank spots and would like to help us
+			<% if @user.installation_id.nil? %>
+			<%= link_to 'fill in the numbers.', edit_installation_path(@last_move.start.installation) %>
+			<% else %>
+			<%= link_to 'fill in the numbers.', edit_installation_path(@user.installation) %>
+			<% end %>
+			
+
 			
 			<div id="installation_information">
 			 <div id="installation_information_image"><%= image_tag ("buttons/inprocessing.png") %></div>

@@ -36,7 +36,14 @@
 	  background:#930A0A;
 	  color:white;
 	}
-	
+	   #advertising {
+		margin-left:50px;
+		margin-top:25px;
+		color: gray;
+		font-family: Arial, "MS Verdana", sans-serif;
+		font-size: 11px;
+
+	}
 	#errorExplanation {
 	  width: 640px;
 	  color:white;
