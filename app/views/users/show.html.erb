@@ -148,19 +148,19 @@
 			<div id="installation_information_image"><%= image_tag ("buttons/hospital.png") %></div>
 			<div id="installation_information_title">Hospital:
 			<span class="highlight"><% if @user.installation_id.nil? %>
-			 <%= @last_move.start.installation.housing %>
+			 <%= @last_move.start.installation.hospital %>
 			<% else %>
-			  <%= @user.installation.housing %>
+			  <%= @user.installation.hospital %>
 			<% end %></span></div>
 			</div><br />
 			
 			<div id="installation_information">
-			<div id="installation_information_image"><%= image_tag ("buttons/housing.png") %></div>
+			<div id="installation_information_image"><%= image_tag ("buttons/commissary.png") %></div>
 			<div id="installation_information_title">Commissary:
 			<span class="installation_highlight"><% if @user.installation_id.nil? %>
-			 <%= @last_move.start.installation.housing %>
+			 <%= @last_move.start.installation.commissary %>
 			<% else %>
-			  <%= @user.installation.housing %>
+			  <%= @user.installation.commissary %>
 			<% end %></span></div>
 			</div><br />
 	 </div> 		

@@ -143,6 +143,9 @@ p {
 	float:left;
 	margin-top:10px;
 }
+#contest {
+	float:left;
+}
 
 /* INDEX */
 #blue_square {

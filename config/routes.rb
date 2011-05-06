@@ -119,7 +119,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   
-  map.connect '/add_new_neighborhood', :controller => "installations", :action => "index"
+  map.connect '/add_new_neighborhood', :controller => "installations", :action => "index", :as => "add_new_neighborhoods"
   map.connect '/patriot_pages', :controller => "installations", :action => "contact", :as => "patriot_pages"
   map.patriot_pages '/patriot_pages', :controller => "installations", :action => "contact"
   #map.goto_installations '/installations', :controller => 'installations', :action => 'show', :id => 'page_id_or_permalink'

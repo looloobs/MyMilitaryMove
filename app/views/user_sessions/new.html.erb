@@ -37,9 +37,9 @@
 	<h2>itinerary, calendar, lists & notes, research on neighborhoods, homes & schools</h2>
 
 	<div id="blue_square">
-	  <!--div id="beta">	
-	    <p><h2><%= link_to "Take a tour.", {:controller => "/tour", :action => "index"} %> Get started for free today.</h2></p>
-	  </div-->		
+	  <div id="beta">	
+	    <p><h2><%= link_to "What is this all about? Take a tour.", {:controller => "/tour", :action => "index"} %> </h2></p>
+	  </div>		
 		<div id="price_tag">
 			<%= image_tag("index/price_tag.png", :border=>0) %>
 		</div>
@@ -78,6 +78,9 @@
 		<% end %>
 		</div>	
 	</div>
+	<!-- div id="contest">
+		<%= link_to image_tag("index/contest_annoucement_index.png", :border=>0), installations_path %>
+	</div-->
 </div>
 <div id="footer">
 	<div id="index_image">
