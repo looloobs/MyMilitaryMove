@@ -70,8 +70,8 @@ class NeighborhoodsController < ApplicationController
         flash[:notice] = 'Thanks! Neighborhood was successfully added. Add another if you like, if not please pass this link long to your friends.'
         format.html { redirect_to :back }
         else
-        @move= Move.find(params[:move_id])
-        format.html { redirect_to move_neighborhoods_path(@move)}
+        #@move= Move.find(params[:move_id])
+        format.html { redirect_to account_url }
         end   
         format.xml  { render :xml => @neighborhood, :status => :created, :location => @neighborhood }
       else

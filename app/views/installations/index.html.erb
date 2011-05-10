@@ -16,13 +16,13 @@
 	<div id="border">
 <div class = "notice"></div>
 	  
-
+<%= image_tag("icons/contest_banner.png") %>
 	  <p>
 	
           <p>
 	        <% form_tag places_path, :method => :get do %>
 	        <div id="form">
-		<h1>Choose Your Installation</h1>
+		<h1>Start by choosing your current or past installation:</h1>
 			<%= select_tag :id, options_from_collection_for_select(Installation.find(:all, :order => "name"), :id, :name) %>
               </div>
              	<div id="submit">

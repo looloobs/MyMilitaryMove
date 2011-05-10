@@ -63,6 +63,24 @@ Please add a review if your neighborhood already exists. <br />
     <%= f.label :info, "Give us the facts. Where do you shop, eat, play? What is this close to? (Save the opinions for the review area.)" %><br />
     <%= f.text_area :info, :size => '75x10' %>
   </p>
+  
+	<% if current_user.nil? %>
+	<p>
+	   <%= f.label :submitted_by, "Your Name" %><br />
+    <span class="highlight">Choosing a school district may help you narrow down your neighborhoods or homes of interest.</span><br />
+    <%= f.text_field :submitted_by %>
+     </p>
+    <p>
+      <%= f.label :submitted_email, "Your Email" %><br />
+	    <span class="highlight">Choosing a school district may help you narrow down your neighborhoods or homes of interest.</span><br />
+	    <%= f.text_field :submitted_email %>
+	</p>
+	<% else %>
+	   <%= f.hidden_field :submitted_by, :value => current_user.name %>
+	   <%= f.hidden_field :submitted_email, :value => current_user.email %>
+	
+	<% end %>
+ 
 	<div id="button">
 	  <p>
 	    <%= f.submit 'Create' %>
