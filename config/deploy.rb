@@ -54,7 +54,7 @@ namespace :deploy do
       ln -s #{shared_path}/log #{latest_release}/log &&
       ln -s #{shared_path}/system #{latest_release}/public/system &&
       ln -s #{shared_path}/pids #{latest_release}/tmp/pids
-      ln -s #{shared_path}/public/blog #{latest_release}/public/blog
+      ln -s #{shared_path}/blog #{latest_release}/public/blog
     CMD
   end
 
