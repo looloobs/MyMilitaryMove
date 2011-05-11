@@ -67,12 +67,12 @@ Please add a review if your neighborhood already exists. <br />
 	<% if current_user.nil? %>
 	<p>
 	   <%= f.label :submitted_by, "Your Name" %><br />
-    <span class="highlight">Choosing a school district may help you narrow down your neighborhoods or homes of interest.</span><br />
+    <span class="highlight">Only your first name is needed!</span><br />
     <%= f.text_field :submitted_by %>
      </p>
     <p>
-      <%= f.label :submitted_email, "Your Email" %><br />
-	    <span class="highlight">Choosing a school district may help you narrow down your neighborhoods or homes of interest.</span><br />
+      <%= f.label :submitted_email, "Please Include Your Email" %><br />
+	    <span class="highlight">As always your email will be respected.</span><br />
 	    <%= f.text_field :submitted_email %>
 	</p>
 	<% else %>

@@ -11,7 +11,8 @@ class Neighborhood < ActiveRecord::Base
   accepts_nested_attributes_for :communities
   accepts_nested_attributes_for :neighborhood_notes
   
-  validates_presence_of :name
+  validates_presence_of :name 
+
   
   def to_param
     "#{id}-#{name.parameterize}"

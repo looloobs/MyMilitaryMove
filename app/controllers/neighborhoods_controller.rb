@@ -68,11 +68,12 @@ class NeighborhoodsController < ApplicationController
       if @neighborhood.save
         
         if current_user.blank?
-        flash[:notice] = 'Thanks! Neighborhood was successfully added. Add another if you like, if not please pass this link long to your friends.'
+        flash[:notice] = 'Thanks! Your neighborhood was successfully added. Add another if you like, if not please pass this link long to your friends.'
         format.html { redirect_to installations_path }
         else
         #@move= Move.find(params[:move_id])
-        format.html { redirect_to account_url }
+        flash[:notice] = 'Thanks! Neighborhood was successfully added. Add another if you like, if not please pass this link long to your friends.'
+        format.html { redirect_to installations_path }
         end   
         format.xml  { render :xml => @neighborhood, :status => :created, :location => @neighborhood }
       else

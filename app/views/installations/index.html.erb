@@ -18,7 +18,7 @@
 	  
 <%= image_tag("icons/contest_banner.png") %>
 	  <p>
-	
+<div class="notice"><%= flash[:notice] %> </div>
           <p>
 	        <% form_tag places_path, :method => :get do %>
 	        <div id="form">
