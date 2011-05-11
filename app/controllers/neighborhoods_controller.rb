@@ -63,12 +63,13 @@ class NeighborhoodsController < ApplicationController
     @neighborhood = Neighborhood.new(params[:neighborhood])
     #@move= Move.find(params[:move_id])
     
+    
     respond_to do |format|
       if @neighborhood.save
         
         if current_user.blank?
         flash[:notice] = 'Thanks! Neighborhood was successfully added. Add another if you like, if not please pass this link long to your friends.'
-        format.html { redirect_to :back }
+        format.html { redirect_to installations_path }
         else
         #@move= Move.find(params[:move_id])
         format.html { redirect_to account_url }
@@ -123,6 +124,7 @@ class NeighborhoodsController < ApplicationController
   def new_neighborhood 
      @neighborhood = Neighborhood.new
      @installations = Installation.all(:order => 'name')
+     @installation = Installation.find(params[:installation_id])
      render :layout => "form"
   end
 
