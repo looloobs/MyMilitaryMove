@@ -53,8 +53,8 @@ namespace :deploy do
       rm -rf #{latest_release}/log #{latest_release}/public/system #{latest_release}/tmp/pids &&
       ln -s #{shared_path}/log #{latest_release}/log &&
       ln -s #{shared_path}/system #{latest_release}/public/system &&
-      ln -s #{shared_path}/pids #{latest_release}/tmp/pids
-      ln -s #{shared_path}/blog #{latest_release}/public/blog 
+      ln -s #{shared_path}/pids #{latest_release}/tmp/pids &&
+      ln -s /home/deploy/militarymoveit.com/shared/blog /home/deploy/militarymoveit.com/current/public/blog 
     CMD
   end
 
