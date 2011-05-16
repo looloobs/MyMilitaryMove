@@ -27,7 +27,7 @@
 
 	  <div id="account_move">
 			<p>
-				You are currently living at:<br />
+				You are currently living at or moving to:<br />
 				<% if @user.installation_id.nil? %>
 				  <%= @last_move.start.installation.name %> <span class="edit"><%= link_to "Change this!", edit_user_path(@user) %> </span>
 				<% else %>
@@ -47,7 +47,7 @@
 		<span class="highlight">It looks like you don't have any moves started yet. To start a move click the "Add A Move" button above.</span>
 		<% else %>
 	    	<% @moves.each do |move| %>
-	    	Work on my move to: <%= link_to move.end.installation.name, user_move_path(@user, move) %><br />
+	    	Work on my move to: <%= link_to move.start.installation.name, user_move_path(@user, move) %><br />
 			<% end %>
 		<% end %>
 		</p>

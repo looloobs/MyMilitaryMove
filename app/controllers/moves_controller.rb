@@ -16,8 +16,8 @@ class MovesController < ApplicationController
     @move = Move.find(params[:id])
     @installation = @move.end.installation_id
     @user = current_user
-    @start = @move.start.installation
-    @end = @move.end.installation
+    @start = @move.end.installation
+    @end = @move.start.installation
     
     @family = @user.families
     @spouse = @user.spouse
