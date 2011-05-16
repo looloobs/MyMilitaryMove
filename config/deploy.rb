@@ -81,3 +81,5 @@ task :after_setup do
   run "mkdir #{deploy_to}static_site"
   run "cd #{deploy_to} && ln -s static_site public_html"
 end
+
+after "deploy:update", "deploy:cleanup"
