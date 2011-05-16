@@ -22,7 +22,7 @@
           <p>
 	        <% form_tag places_path, :method => :get do %>
 	        <div id="form">
-		<h1>Start by choosing your current or past installation:</h1>
+		<h1>Start by choosing your current or past installation. Even if you did not live on-post/base just pick what this neighborhood is close to.</h1>
 			<%= select_tag :id, options_from_collection_for_select(Installation.find(:all, :order => "name"), :id, :name) %>
               </div>
              	<div id="submit">
