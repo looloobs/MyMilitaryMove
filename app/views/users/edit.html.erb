@@ -26,58 +26,156 @@
     <% form_for @user, :url => account_path do |f| %>
     <%= f.error_messages %>
       <div id="sidebar">
-        <h2>Edit your profile </h2>
+        
         	<div id="account_family">
-	     	<%= render :partial => "form", :object => f %>
-	        <%= f.submit 'Save' %>
-        	</div>
+	          <h2>Edit your profile </h2>
+	     		<%= f.label :name %><br />
+				<%= f.text_field :name %><br />
+				<br />
+				<%= f.label :email %><br />
+				<%= f.text_field :email %><br />
+				<br />
+				<%= f.label :password, f.object.new_record? ? nil : "Change password" %><br />
+				<%= f.password_field :password %><br />
+				<br />
+				<!--%= form.label :password_confirmation %><br /-->
+				<!--%= form.password_field :password_confirmation %-->
+				<%= f.label :installation_id, "Change your location." %><br />
+				<%= f.collection_select :installation_id, Installation.find(:all, :order => "name"), :id, :name, :prompt => "Select a Location" %><br />
+				<p style =color:#fff> or create one:
+				<%= f.text_field :new_installation_name, :size =>'25'  %>
+	
        <h2>Edit your address</h2>
-			<div id="account_family">
+			<% if @address.blank? %>
+				<%= link_to "Add An Address", new_user_address_path(@user) %>
+			<% else %>
 		  	  <% f.fields_for :address do |address| %>
-	          <%= render "add", :address => address %>
-	          <%= f.submit 'Save' %>
+	            <%= address.hidden_field :user_id, :value => @user.id %>
+			  <p>
+			    <%= address.label :address %><br />
+			    <%= address.text_field :address %>
+			  </p>
+			  <p>
+				
+				<%= address.label :city %><br />
+			    <%= address.text_field :city, :size=> "25" %>
+			</p>	
+			   <p>
+			    <%= address.label :state %><br />
+			    <%= address.text_field :state, :size=> "2" %>
+			  </p>
+			  <p>
+			    <%= address.label :zip %><br />
+			    <%= address.text_field :zip, :size=> "5" %>
+			</p>
+			   
+			
 		  	  <% end %>
-			</div>
-	  </div>
+		     <% end %>
+
 		<h2>Edit your spouse </h2>
-			<div id="account_family">
+	
+			  <% if @spouse.blank? %>
+			    <%= link_to "Add A Spouse", new_user_spouse_path(@user) %>
+			  <% else %>
+				
 			  <% f.fields_for :spouse do |spouse| %>
-              <%= render "spouse", :spouse => spouse %>
+			  <p>
+			    <%= spouse.hidden_field :user_id, :value => current_user.id %>
+			  </p>
+			  <p>
+			    <%= spouse.label :name %><br />
+			    <%= spouse.text_field :name %>
+			  </p>
+			  <p>
+			    <%= spouse.label :email %><br />
+			    <%= spouse.text_field :email %>
+			  </p>
 	  	      <p>
-	          <%= f.submit 'Save' %>
 	          </p>
 	          <% end %>
-		    </div>
-      </div>
-    
-  	<div id ="form">
-	<div id="sidebar_two">
-	  <h2>Edit your children </h2>
-	  <div id="account_family">	  
+		    <% end %>
+ 
+	  <h2>Edit your children </h2>  
+		  <% if @family.blank? %>
+             <%= link_to "Add A Child", new_user_family_path(@user) %>
+          <% else %>
+          <%= link_to "Add Another Child", new_user_family_path(@user) %>
   	    <% f.fields_for :families do |family| %>
-		  <%= render "family", :family => family %>
 		  <p>
-	      <%= f.submit 'Save' %>
+		    <%= family.hidden_field :user_id, :value => current_user.id %>
+		  </p>
+		  <p>
+		    <%= family.label :name %><br />
+		    <%= family.text_field :name %>
+		  </p>
+		  <p>
+		    <%= family.hidden_field :family_type, :value => 'Child' %>
+		  </p>
+		  <p>
+		    <%= family.label :email %><br />
+		    <%= family.text_field :email %>
+		  </p>
+		  <p>
+		    <%= family.label :school_level %><br />
+		    <%= family.select(:school_level, [["Please Select", ""], ["N/A", "N/A"], ["Daycare", "Daycare"], ["Preschool", "Preschool"],["Elementary School", "Elementary School"],["Middle School", "Middle School"],["High School", "High School"],["College", "College"]]) %>
+		  </p>
+		  <p>
+		    <%= family.label :birthday %><span class="highlight"><br />
+			Information about your child's birthday will help with future budgeting tools. Dependents travel pay is different depending on their age. </span><br />
+		    <%= family.date_select(:birthday, :order => [:month, :day, :year], :start_year => 1960) %>
+		  </p>
+		  <p>
 	      </p>
+	       <% end %>
 	      <% end %>
-	  </div>
+
 	<h2>Edit your pets </h2>
-	  <div id="account_family">
+
+		  <% if @pet.blank? %>
+             <%= link_to "Add A Pet", new_user_pet_path(@user) %>
+          <% else %>
   	    <% f.fields_for :pets do |pet| %>	
-          <%= render "pet", :pet => pet %>
+             <%= link_to "Add Another Pet", new_user_pet_path(@user) %>
+          <p>
+		    <%= pet.hidden_field :user_id, :value => current_user.id %>
+		  </p>
+
 		  <p>
-	      <%= f.submit 'Save' %>
+		    <%= pet.label :name %><br />
+		    <%= pet.text_field :name %>
+		  </p>
+		  <p>
+		    <%= pet.label :pet_type %><br />
+		    <%= pet.select(:pet_type, [["Please Select", ""], ["Dog", "Dog"], ["Cat", "Cat"], ["Other", "Other"]]) %>
+		  </p>
+		  <p>
+		    <%= pet.label :microchip, "Microchip Number" %><br />
+		<span class="highlight">Traveling during a move always raises the risk of a lost pet. Keeping their microchip number in an easily accessible place is always a good idea.</span><br />
+		    <%= pet.text_field :microchip %>
+		  </p>
+		  <p>
+		    <%= pet.label :breed %><br />
+		    <%= pet.text_field :breed %>
+		  </p>
+		  <p>
 	      </p>
 	    <% end %>
-	  </div>
+	   <% end %>
+	<p>
+	<%= f.submit 'Save' %>
+	</p>
+
     <% end %>
+
+   </div>
     </div>
   </div>
-  </div>
+  
 </div>
 
 <div id="footer">
-	<p> Copyright Lauren Rothlisberger</p>
+	<p> Contact: militarymoveit@gmail.com</p>
 </div>
 </div>
 

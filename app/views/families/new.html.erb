@@ -1,42 +1,63 @@
-<h1>New family</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+	  <div id="header">
+		<div id="logo">
+		  <%= link_to image_tag("icons/logo.png", :border=>0), users_path %>
+		</div>
+	    <div id ="login">
+		    <ul>
+			  <li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
+			  <li><%= link_to "Account", user_path(current_user) %></li>
+			</ul>
+		</div>
+	  </div>
+<div id="main">
+	
+  <div id="border">
+		
+  	<div id ="form">
+		<h1>New family</h1>
 
-<% form_for(@family) do |f| %>
-  <%= f.error_messages %>
+		<% form_for(@family) do |f| %>
+		  <%= f.error_messages %>
 
-  <p>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :family_type %><br />
-    <%= f.text_field :family_type %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :birthday %><br />
-    <%= f.text_field :birthday %>
-  </p>
-  <p>
-    <%= f.label :service_member %><br />
-    <%= f.text_field :service_member %>
-  </p>
-  <p>
-    <%= f.label :school_level %><br />
-    <%= f.text_field :school_level %>
-  </p>
-  <p>
-    <%= f.label :branch %><br />
-    <%= f.text_field :branch %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
+		  <p>
+		    <%= f.hidden_field :user_id, :value => current_user.id %>
+		  </p>
+		  <p>
+		    <%= f.label :name %><br />
+		    <%= f.text_field :name %>
+		  </p>
 
-<%= link_to 'Back', families_path %>
+		  <p>
+		    <%= f.label :email %><br />
+		    <%= f.text_field :email %>
+		  </p>
+		  <p>
+			
+		    <%= f.label :birthday %><br />
+		    <%= f.date_select(:birthday, :order => [:month, :day, :year]) %>
+		  </p>
+		  <p>
+		    <%= family.label :school_level %><br />
+		    <%= family.select(:school_level, [["Please Select", ""], ["N/A", "N/A"], ["Daycare", "Daycare"], ["Preschool", "Preschool"],["Elementary School", "Elementary School"],["Middle School", "Middle School"],["High School", "High School"],["College", "College"]]) %>
+		  </p>
+
+		  <p>
+		    <%= f.submit 'Create' %>
+		  </p>
+		<% end %>
+</div>
+
+
+</div>
+
+</body>
+</html>

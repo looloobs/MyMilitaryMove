@@ -25,11 +25,7 @@ class PetsController < ApplicationController
   # GET /pets/new.xml
   def new
     @pet = Pet.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @pet }
-    end
+    render :layout => "form"
   end
 
   # GET /pets/1/edit
@@ -41,11 +37,12 @@ class PetsController < ApplicationController
   # POST /pets.xml
   def create
     @pet = Pet.new(params[:pet])
+    @user = current_user
 
     respond_to do |format|
       if @pet.save
         flash[:notice] = 'Pet was successfully created.'
-        format.html { redirect_to :back }
+        format.html { redirect_to edit_user_path(@user) }
         format.xml  { render :xml => @pet, :status => :created, :location => @pet }
       else
         format.html { render :action => "new" }

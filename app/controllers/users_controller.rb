@@ -45,9 +45,12 @@ class UsersController < ApplicationController
 
     def edit
       @user = @current_user
+      @spouse = @user.spouse
       @family = @user.families
-      @pets = @user.pets
+      @pet = @user.pets
       @address = @user.address
+      @new_spouse = Spouse.new
+      #@new_family = @user.families.build
       render :layout => "form"
     end
 
@@ -56,7 +59,7 @@ class UsersController < ApplicationController
       @family = @user.families
       if @user.update_attributes(params[:user])
         flash[:notice] = "Account updated!"
-        redirect_to account_url
+        redirect_to :back
       else
         render :action => :edit
       end

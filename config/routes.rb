@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
     contact.resources :business_sessions
     contact.resources :businesses
   end
+  map.resources :networks
   map.resources :businesses
   map.resources :business_sessions
 
@@ -89,6 +90,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :users do |user|
     user.resources :moves
+    user.resources :spouses
+    user.resources :addresses
     user.resources :families
     user.resources :pets
     user.resources :things

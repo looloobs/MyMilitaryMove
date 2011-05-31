@@ -1,35 +1,59 @@
-<h1>New spouse</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>My Military Move</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="wrap">
+	  <div id="header">
+		<div id="logo">
+		  <%= link_to image_tag("icons/logo.png", :border=>0), users_path %>
+		</div>
+	    <div id ="login">
+		    <ul>
+			  <li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
+			  <li><%= link_to "Account", user_path(current_user) %></li>
+			</ul>
+		</div>
+	  </div>
+<div id="main">
+	
+  <div id="border">
+		
+  	<div id ="form">
+		<h1>New spouse</h1>
 
-<% form_for(@spouse) do |f| %>
-  <%= f.error_messages %>
+		<% form_for(@spouse) do |f| %>
+		  <%= f.error_messages %>
+ <%= f.hidden_field :user_id, :value => current_user.id %>
+		  <p>
+		    <%= f.label :name %><br />
+		    <%= f.text_field :name %>
+		  </p>
+		  <p>
+		    <%= f.label :email %><br />
+		    <%= f.text_field :email %>
+		  </p>
+		  <p>
+		    <%= f.label :phone %><br />
+		    <%= f.text_field :phone %>
+		  </p>
+		  <p>
+		    <%= f.label :branch %><br />
+		    <%= f.text_field :branch %>
+		  </p>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </p>
-  <p>
-    <%= f.label :branch %><br />
-    <%= f.text_field :branch %>
-  </p>
-  <p>
-    <%= f.label :rank %><br />
-    <%= f.text_field :rank %>
-  </p>
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
+		  <p>
+		    <%= f.submit 'Create' %>
+		  </p>
+		<% end %>
+		
+</div>
 
-<%= link_to 'Back', spouses_path %>
+
+</div>
+
+</body>
+</html>

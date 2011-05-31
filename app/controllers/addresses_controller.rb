@@ -25,11 +25,7 @@ class AddressesController < ApplicationController
   # GET /addresses/new.xml
   def new
     @address = Address.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @address }
-    end
+    render :layout => "form"
   end
 
   # GET /addresses/1/edit
@@ -45,7 +41,7 @@ class AddressesController < ApplicationController
     respond_to do |format|
       if @address.save
         flash[:notice] = 'Address was successfully created.'
-        format.html { redirect_to :back }
+        format.html { redirect_to edit_users_path(@user) }
         format.xml  { render :xml => @address, :status => :created, :location => @address }
       else
         format.html { render :action => "new" }
@@ -62,7 +58,7 @@ class AddressesController < ApplicationController
     respond_to do |format|
       if @address.update_attributes(params[:address])
         flash[:notice] = 'Address was successfully updated.'
-        format.html { redirect_to(@address) }
+        format.html { edit_users_path(@user) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -25,11 +25,7 @@ class SpousesController < ApplicationController
   # GET /spouses/new.xml
   def new
     @spouse = Spouse.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @spouse }
-    end
+    render :layout => "form"
   end
 
   # GET /spouses/1/edit
@@ -41,11 +37,12 @@ class SpousesController < ApplicationController
   # POST /spouses.xml
   def create
     @spouse = Spouse.new(params[:spouse])
+    @user = current_user
 
    respond_to do |format|
       if @spouse.save
         flash[:notice] = 'Spouse was successfully created.'
-        format.html { redirect_to :back }
+        format.html { redirect_to edit_user_path(@user) }
         format.xml  { render :xml => @spouse, :status => :created, :location => @spouse }
       else
         format.html { render :action => "new" }

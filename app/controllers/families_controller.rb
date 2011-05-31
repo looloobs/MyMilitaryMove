@@ -25,11 +25,7 @@ class FamiliesController < ApplicationController
   # GET /families/new.xml
   def new
     @family = Family.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @family }
-    end
+    render :layout => "form"
   end
 
   # GET /families/1/edit
@@ -41,11 +37,11 @@ class FamiliesController < ApplicationController
   # POST /families.xml
   def create
     @family = Family.new(params[:family])
-
+    @user = current_user
     respond_to do |format|
       if @family.save
         flash[:notice] = 'Family was successfully created.'
-        format.html { redirect_to :back }
+        format.html { redirect_to edit_user_path(@user) }
         format.xml  { render :xml => @family, :status => :created, :location => @family }
       else
         format.html { render :action => "new" }
