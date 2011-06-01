@@ -61,7 +61,7 @@ class NeighborhoodsController < ApplicationController
   # POST /neighborhoods.xml
   def create
     @neighborhood = Neighborhood.new(params[:neighborhood])
-    #@move= Move.find(params[:move_id])
+    @move= Move.find(params[:move_id])
     
     
     respond_to do |format|
